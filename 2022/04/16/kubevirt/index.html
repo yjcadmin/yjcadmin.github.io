@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    
+    <title>kubevirt - 小叶的技术Logs</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="kubevirt官网地址：https:&#x2F;&#x2F;kubevirt.io&#x2F; 启动和停止¶spec.running  字段如果设置为true为启动、false为停止 创建 VirtualMachine 后，可以像这样打开或关闭它： 12345# Start the virtual machine:  启动虚拟机virtctl start vm   # Stop the virtual machine:vir">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kubevirt">
+<meta property="og:url" content="http://example.com/2022/04/16/kubevirt/index.html">
+<meta property="og:site_name" content="小叶的技术Logs">
+<meta property="og:description" content="kubevirt官网地址：https:&#x2F;&#x2F;kubevirt.io&#x2F; 启动和停止¶spec.running  字段如果设置为true为启动、false为停止 创建 VirtualMachine 后，可以像这样打开或关闭它： 12345# Start the virtual machine:  启动虚拟机virtctl start vm   # Stop the virtual machine:vir">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/Admin/AppData/Roaming/Typora/typora-user-images/image-20220416174600397.png">
+<meta property="og:image" content="c:/Users/Admin/AppData/Roaming/Typora/typora-user-images/image-20220416174653382.png">
+<meta property="og:image" content="c:/Users/Admin/AppData/Roaming/Typora/typora-user-images/image-20220416174712836.png">
+<meta property="article:published_time" content="2022-04-16T13:45:59.000Z">
+<meta property="article:modified_time" content="2022-04-16T13:46:29.771Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/Admin/AppData/Roaming/Typora/typora-user-images/image-20220416174600397.png">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
+    />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"
+    />
+    
+    <link rel="stylesheet" href="/lib/mdui_043tiny/css/mdui.css?v=1650117612160">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1650117612160">
+    <link rel="stylesheet" href="/css/style.css?v=1650117612160">
+     
+    
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="John Doe" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="John Doe"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="John Doe">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="John Doe" alt="John Doe">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>2</div>
+        <div><span>Tags</span>0</div>
+        <div><span>Categories</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=5CfKHun" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+
+    
+    
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 John Doe
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+              <img data-fancybox="gallery" src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" alt="kubevirt" loading="lazy">
+              <h1>kubevirt</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2022年04月16日</a>
+</div>
+
+      <h1 id="kubevirt"><a href="#kubevirt" class="headerlink" title="kubevirt"></a>kubevirt</h1><p>官网地址：<a target="_blank" rel="noopener" href="https://kubevirt.io/">https://kubevirt.io/</a></p>
+<h3 id="启动和停止¶"><a href="#启动和停止¶" class="headerlink" title="启动和停止¶"></a>启动和停止<a target="_blank" rel="noopener" href="https://kubevirt.io/user-guide/architecture/#starting-and-stopping">¶</a></h3><p><code>spec.running</code>  字段如果设置为<strong>true为启动、false为停止</strong></p>
+<p>创建 VirtualMachine 后，可以像这样打开或关闭它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Start the virtual machine:  启动虚拟机</span></span><br><span class="line">virtctl start vm   </span><br><span class="line"></span><br><span class="line"><span class="comment"># Stop the virtual machine:</span></span><br><span class="line">virtctl stop vm</span><br></pre></td></tr></table></figure>
+
+<p><code>kubectl</code>也可以使用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Start the virtual machine:  启动虚拟机</span></span><br><span class="line">kubectl patch virtualmachine vm --type merge -p \</span><br><span class="line">    &#x27;&#123;&quot;spec&quot;:&#123;&quot;running&quot;:true&#125;&#125;&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Stop the virtual machine:</span></span><br><span class="line">kubectl patch virtualmachine vm --type merge -p \</span><br><span class="line">    &#x27;&#123;&quot;spec&quot;:&#123;&quot;running&quot;:false&#125;&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="作为服务公开¶"><a href="#作为服务公开¶" class="headerlink" title="作为服务公开¶"></a>作为服务公开<a target="_blank" rel="noopener" href="https://kubevirt.io/user-guide/architecture/#exposing-as-a-service">¶</a></h3><p>VirtualMachine 可以作为服务公开。实际服务将在 VirtualMachineInstance 启动后可用，无需额外交互。</p>
+<p>例如， 在创建 VirtualMachine 之后但在它启动之前将 SSH 端口 (22) 公开为<code>ClusterIP</code>服务：<code>virtctl</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ virtctl expose virtualmachine vmi-ephemeral --name vmiservice --port 27017 --target-port 22</span><br></pre></td></tr></table></figure>
+
+<p>适用于 VirtualMachineInstance 的所有服务公开选项都适用于 VirtualMachine。</p>
+<h2 id="在Kubernetes上安装KubeVirt"><a href="#在Kubernetes上安装KubeVirt" class="headerlink" title="在Kubernetes上安装KubeVirt"></a>在Kubernetes上安装KubeVirt</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]<span class="comment"># export RELEASE=v0.35.0</span></span><br><span class="line">[root@master ~]<span class="comment"># kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/$&#123;RELEASE&#125;/kubevirt-operator.yaml</span></span><br><span class="line">[root@master ~]<span class="comment"># kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/$&#123;RELEASE&#125;/kubevirt-cr.yaml</span></span><br><span class="line">[root@master ~]<span class="comment"># kubectl get pods -n kubevirt</span></span><br><span class="line">NAME                               READY   STATUS    RESTARTS   AGE</span><br><span class="line">virt-api-64999f7bf5-fblkh          1/1     Running   0          5m24s</span><br><span class="line">virt-api-64999f7bf5-l8wzr          1/1     Running   0          5m24s</span><br><span class="line">virt-controller-8696ccdf44-k9qpv   1/1     Running   0          4m52s</span><br><span class="line">virt-controller-8696ccdf44-tpxwp   1/1     Running   0          4m52s</span><br><span class="line">virt-handler-kl8tl                 1/1     Running   0          4m52s</span><br><span class="line">virt-operator-78fbcdfdf4-468h4     1/1     Running   0          8m4s</span><br><span class="line">virt-operator-78fbcdfdf4-nvvxx     1/1     Running   0          8m4s</span><br></pre></td></tr></table></figure>
+
+<p><strong>所以服务启动后，执行下面这条命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]<span class="comment"># kubectl -n kubevirt wait kv kubevirt --for condition=Available</span></span><br><span class="line">kubevirt.kubevirt.io/kubevirt condition met</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装virtctl客户端工具"><a href="#安装virtctl客户端工具" class="headerlink" title="安装virtctl客户端工具"></a>安装virtctl客户端工具</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]<span class="comment"># export VERSION=v0.41.0</span></span><br><span class="line">[root@master ~]<span class="comment"># wget https://github.com/kubevirt/kubevirt/releases/download/$&#123;VERSION&#125;/virtctl-$&#123;VERSION&#125;-linux-amd64</span></span><br><span class="line">[root@master kubevirt]<span class="comment"># cp virtctl-v0.41.0-linux-amd64 /usr/local/bin/virtctl</span></span><br><span class="line">[root@master kubevirt]<span class="comment"># chmod +x /usr/local/bin/virtctl ; ll /usr/local/bin/</span></span><br><span class="line">total 64000</span><br><span class="line">-r-xr-xr-x. 1 root root 17586312 Jan 11 10:52 docker-compose</span><br><span class="line">-rwxr-xr-x. 1 root root 47944250 Apr 16 16:58 virtctl</span><br><span class="line">[root@master kubevirt]<span class="comment"># virtctl version</span></span><br><span class="line">Client Version: version.Info&#123;GitVersion:<span class="string">&quot;v0.41.0&quot;</span>, GitCommit:<span class="string">&quot;b77b858ac9345ae6858cf409e1833f4548ec2809&quot;</span>, GitTreeState:<span class="string">&quot;clean&quot;</span>, BuildDate:<span class="string">&quot;2020-11-09T13:38:36Z&quot;</span>, GoVersion:<span class="string">&quot;go1.13.14&quot;</span>, Compiler:<span class="string">&quot;gc&quot;</span>, Platform:<span class="string">&quot;linux/amd64&quot;</span>&#125;</span><br><span class="line">Server Version: version.Info&#123;GitVersion:<span class="string">&quot;&#123;gitVersion&#125;&quot;</span>, GitCommit:<span class="string">&quot;&#123;gitCommit&#125;&quot;</span>, GitTreeState:<span class="string">&quot;&#123;gitTreeState&#125;&quot;</span>, BuildDate:<span class="string">&quot;&#123;buildDate&#125;&quot;</span>, GoVersion:<span class="string">&quot;go1.13.14&quot;</span>, Compiler:<span class="string">&quot;gc&quot;</span>, Platform:<span class="string">&quot;linux/amd64&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">[root@master kubevirt]<span class="comment"># cat test.yaml</span></span><br><span class="line">apiVersion: kubevirt.io/v1alpha3</span><br><span class="line">kind: VirtualMachine</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">    kubevirt.io/vm: vm-cirros</span><br><span class="line">  name: vm-cirros</span><br><span class="line">spec:</span><br><span class="line">  running: <span class="literal">false</span></span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        kubevirt.io/vm: vm-cirros</span><br><span class="line">    spec:</span><br><span class="line">      domain:</span><br><span class="line">        devices:</span><br><span class="line">          disks:</span><br><span class="line">          - disk:</span><br><span class="line">              bus: virtio</span><br><span class="line">            name: containerdisk</span><br><span class="line">          - disk:</span><br><span class="line">              bus: virtio</span><br><span class="line">            name: cloudinitdisk</span><br><span class="line">        machine:</span><br><span class="line">          <span class="built_in">type</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">        resources:</span><br><span class="line">          requests:</span><br><span class="line">            memory: 64M</span><br><span class="line">      terminationGracePeriodSeconds: 0</span><br><span class="line">      volumes:</span><br><span class="line">      - name: containerdisk</span><br><span class="line">        containerDisk:</span><br><span class="line">          image: kubevirt/cirros-container-disk-demo:latest</span><br><span class="line">      - cloudInitNoCloud:</span><br><span class="line">          userDataBase64: IyEvYmluL3NoCgplY2hvICdwcmludGVkIGZyb20gY2xvdWQtaW5pdCB1c2VyZGF0YScK</span><br><span class="line">        name: cloudinitdisk</span><br><span class="line">[root@master kubevirt]<span class="comment"># kubectl apply -f test.yaml</span></span><br><span class="line">virtualmachine.kubevirt.io/vm-cirros created</span><br><span class="line"></span><br><span class="line">[root@master kubevirt]<span class="comment"># kubectl get vm</span></span><br><span class="line">NAME        AGE   VOLUME</span><br><span class="line">vm-cirros   21m</span><br><span class="line">[root@master kubevirt]<span class="comment"># kubectl get vmi</span></span><br><span class="line">No resources found <span class="keyword">in</span> default namespace.</span><br><span class="line">[root@master kubevirt]<span class="comment"># virtctl start vm-cirros</span></span><br><span class="line">VM vm-cirros was scheduled to start</span><br><span class="line">[root@master kubevirt]<span class="comment"># kubectl get vmi</span></span><br><span class="line">NAME        AGE   PHASE     IP            NODENAME</span><br><span class="line">vm-cirros   62s   Running   10.244.0.15   master</span><br><span class="line"></span><br><span class="line">[root@master kubevirt]<span class="comment"># virtctl console vm-cirros  # 进入虚拟机</span></span><br><span class="line">Successfully connected to vm-cirros console. The escape sequence is ^]</span><br><span class="line"></span><br><span class="line">login as <span class="string">&#x27;cirros&#x27;</span> user. default password: <span class="string">&#x27;gocubsgo&#x27;</span>. use <span class="string">&#x27;sudo&#x27;</span> <span class="keyword">for</span> root.</span><br><span class="line">vm-cirros login: cirros</span><br><span class="line">Password:</span><br><span class="line">$ ip a</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue qlen 1</span><br><span class="line">    <span class="built_in">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 qdisc pfifo_fast qlen 1000</span><br><span class="line">    <span class="built_in">link</span>/ether 2e:3e:2a:46:29:94 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 10.244.0.16/24 brd 10.244.0.255 scope global eth0</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::2c3e:2aff:fe46:2994/64 scope <span class="built_in">link</span> tentative flags 08</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">$    <span class="comment">#  ctrl+]  退出虚拟机</span></span><br><span class="line">$ [root@master kubevirt]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<p>作为服务公开</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@master kubevirt]<span class="comment"># virtctl expose virtualmachine  vm-cirros --name vmiservice-node  --target-port 22  --port 24 --type NodePort</span></span><br><span class="line">Service vmiservice-node successfully exposed <span class="keyword">for</span> virtualmachine vm-cirros</span><br><span class="line">[root@master kubevirt]<span class="comment"># kubectl get svc</span></span><br><span class="line">NAME              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE</span><br><span class="line">kubernetes        ClusterIP   10.96.0.1       &lt;none&gt;        443/TCP        95d</span><br><span class="line">vmiservice-node   NodePort    10.106.62.191   &lt;none&gt;        24:31912/TCP   3s</span><br></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" src="C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20220416174600397.png" alt="image-20220416174600397" data-caption="image-20220416174600397" loading="lazy"></p>
+<p><img data-fancybox="gallery" src="C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20220416174653382.png" alt="image-20220416174653382" data-caption="image-20220416174653382" loading="lazy"></p>
+<p><img data-fancybox="gallery" src="C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20220416174712836.png" alt="image-20220416174712836" data-caption="image-20220416174712836" loading="lazy"></p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>John Doe<br>
+        <strong>Link：</strong><a href="http://example.com/2022/04/16/kubevirt/" title="http:&#x2F;&#x2F;example.com&#x2F;2022&#x2F;04&#x2F;16&#x2F;kubevirt&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;example.com&#x2F;2022&#x2F;04&#x2F;16&#x2F;kubevirt&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#kubevirt"><span class="toc-number">1.</span> <span class="toc-text">kubevirt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%92%8C%E5%81%9C%E6%AD%A2%C2%B6"><span class="toc-number">1.0.1.</span> <span class="toc-text">启动和停止</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E4%B8%BA%E6%9C%8D%E5%8A%A1%E5%85%AC%E5%BC%80%C2%B6"><span class="toc-number">1.0.2.</span> <span class="toc-text">作为服务公开</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8Kubernetes%E4%B8%8A%E5%AE%89%E8%A3%85KubeVirt"><span class="toc-number">1.1.</span> <span class="toc-text">在Kubernetes上安装KubeVirt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85virtctl%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%B7%A5%E5%85%B7"><span class="toc-number">1.2.</span> <span class="toc-text">安装virtctl客户端工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">基本操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text"></span></a></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="Search" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1650117612180"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>
