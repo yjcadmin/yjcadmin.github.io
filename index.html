@@ -262,79 +262,9 @@
 <p>kubevirt是一个容器方式运行虚拟机的项目。<code>kubevirt</code>是附加<code>kubernetes</code>集群上的，它是通过 <code>CustomResourceDefinition（CRD）</code>部署到<code>Kubernetes API</code>变成资源对象。使用方式类似创建<code>deploy、pod</code>……这些资源清单。</p>
 </li>
 </ul>
-<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
-<li>环境保证网络出外网</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">系统</th>
-<th align="center">服务</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">centos7</td>
-<td align="center">kubernetes集群</td>
-</tr>
-</tbody></table>
-<p>官网地址：<code>https://kubevirt.io/</code>  <br><br></p>
-<h2 id="详细版"><a href="#详细版" class="headerlink" title="详细版  "></a>详细版  <br><br></h2><h3 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h3><h4 id="安装KubeVirt"><a href="#安装KubeVirt" class="headerlink" title="安装KubeVirt"></a>安装KubeVirt</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master ~]<span class="hljs-comment"># export RELEASE=v0.35.0</span><br>[root@master ~]<span class="hljs-comment"># kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/$&#123;RELEASE&#125;/kubevirt-operator.yaml</span><br>[root@master ~]<span class="hljs-comment"># kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/$&#123;RELEASE&#125;/kubevirt-cr.yaml</span><br>[root@master ~]<span class="hljs-comment"># kubectl get pods -n kubevirt</span><br>NAME                               READY   STATUS    RESTARTS   AGE<br>virt-api-64999f7bf5-fblkh          1/1     Running   0          5m24s<br>virt-api-64999f7bf5-l8wzr          1/1     Running   0          5m24s<br>virt-controller-8696ccdf44-k9qpv   1/1     Running   0          4m52s<br>virt-controller-8696ccdf44-tpxwp   1/1     Running   0          4m52s<br>virt-handler-kl8tl                 1/1     Running   0          4m52s<br>virt-operator-78fbcdfdf4-468h4     1/1     Running   0          8m4s<br>virt-operator-78fbcdfdf4-nvvxx     1/1     Running   0          8m4s<br></code></pre></td></tr></table></figure>
-
-<p><strong>所以服务启动后，<code>执行下面这条命令</code></strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master ~]<span class="hljs-comment"># kubectl -n kubevirt wait kv kubevirt --for condition=Available</span><br>kubevirt.kubevirt.io/kubevirt condition met<br></code></pre></td></tr></table></figure>
-
-<h4 id="安装virtctl客户端工具"><a href="#安装virtctl客户端工具" class="headerlink" title="安装virtctl客户端工具"></a>安装virtctl客户端工具</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master ~]<span class="hljs-comment"># export VERSION=v0.41.0</span><br>[root@master ~]<span class="hljs-comment"># wget https://github.com/kubevirt/kubevirt/releases/download/$&#123;VERSION&#125;/virtctl-$&#123;VERSION&#125;-linux-amd64</span><br>[root@master kubevirt]<span class="hljs-comment"># cp virtctl-v0.41.0-linux-amd64 /usr/local/bin/virtctl</span><br>[root@master kubevirt]<span class="hljs-comment"># chmod +x /usr/local/bin/virtctl ; ll /usr/local/bin/</span><br>total 64000<br>-r-xr-xr-x. 1 root root 17586312 Jan 11 10:52 docker-compose<br>-rwxr-xr-x. 1 root root 47944250 Apr 16 16:58 virtctl<br>[root@master kubevirt]<span class="hljs-comment"># virtctl version</span><br>Client Version: version.Info&#123;GitVersion:<span class="hljs-string">&quot;v0.41.0&quot;</span>, GitCommit:<span class="hljs-string">&quot;b77b858ac9345ae6858cf409e1833f4548ec2809&quot;</span>, GitTreeState:<span class="hljs-string">&quot;clean&quot;</span>, BuildDate:<span class="hljs-string">&quot;2020-11-09T13:38:36Z&quot;</span>, GoVersion:<span class="hljs-string">&quot;go1.13.14&quot;</span>, Compiler:<span class="hljs-string">&quot;gc&quot;</span>, Platform:<span class="hljs-string">&quot;linux/amd64&quot;</span>&#125;<br>Server Version: version.Info&#123;GitVersion:<span class="hljs-string">&quot;&#123;gitVersion&#125;&quot;</span>, GitCommit:<span class="hljs-string">&quot;&#123;gitCommit&#125;&quot;</span>, GitTreeState:<span class="hljs-string">&quot;&#123;gitTreeState&#125;&quot;</span>, BuildDate:<span class="hljs-string">&quot;&#123;buildDate&#125;&quot;</span>, GoVersion:<span class="hljs-string">&quot;go1.13.14&quot;</span>, Compiler:<span class="hljs-string">&quot;gc&quot;</span>, Platform:<span class="hljs-string">&quot;linux/amd64&quot;</span>&#125;<br></code></pre></td></tr></table></figure>
-
-<h4 id="创建VirtualMachine"><a href="#创建VirtualMachine" class="headerlink" title="创建VirtualMachine"></a>创建VirtualMachine</h4><ul>
-<li><code>VirtualMachine</code>(vm)类似于docker镜像一个模板可以启动很多运行实例vmi：</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@master kubevirt]# cat test.yaml<br>apiVersion: kubevirt.io/v1alpha3<br>kind: VirtualMachine<br>metadata:<br>  labels:<br>    kubevirt.io/vm: vm-cirros<br>  name: vm-cirros<br>spec:<br>  running: false<br>  template:<br>    metadata:<br>      labels:<br>        kubevirt.io/vm: vm-cirros<br>    spec:<br>      domain:<br>        devices:<br>          disks:<br>          - disk:<br>              bus: virtio<br>            name: containerdisk<br>          - disk:<br>              bus: virtio<br>            name: cloudinitdisk<br>        machine:<br>          type: &quot;&quot;<br>        resources:<br>          requests:<br>            memory: 64M<br>      terminationGracePeriodSeconds: 0<br>      volumes:<br>      - name: containerdisk<br>        containerDisk:<br>          image: kubevirt/cirros-container-disk-demo:latest<br>      - cloudInitNoCloud:<br>          userDataBase64: IyEvYmluL3NoCgplY2hvICdwcmludGVkIGZyb20gY2xvdWQtaW5pdCB1c2VyZGF0YScK<br>        name: cloudinitdisk<br>[root@master kubevirt]# kubectl apply -f test.yaml<br>virtualmachine.kubevirt.io/vm-cirros created<br><br>[root@master kubevirt]# kubectl get vm<br>NAME        AGE   VOLUME<br>vm-cirros   21m<br></code></pre></td></tr></table></figure>
-
-<h4 id="启动VirtualMachineInstance"><a href="#启动VirtualMachineInstance" class="headerlink" title="启动VirtualMachineInstance"></a>启动VirtualMachineInstance</h4><ul>
-<li><code>VirtualMachineInstance</code>（vmi）类似于docker镜像的运行实例容器：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master kubevirt]<span class="hljs-comment"># virtctl start vm-cirros</span><br>VM vm-cirros was scheduled to start<br>[root@master kubevirt]<span class="hljs-comment"># kubectl get vmi</span><br>NAME        AGE   PHASE     IP            NODENAME<br>vm-cirros   62s   Running   10.244.0.15   master<br><br>[root@master kubevirt]<span class="hljs-comment"># virtctl console vm-cirros  # 进入虚拟机</span><br>Successfully connected to vm-cirros console. The escape sequence is ^]<br><br>login as <span class="hljs-string">&#x27;cirros&#x27;</span> user. default password: <span class="hljs-string">&#x27;gocubsgo&#x27;</span>. use <span class="hljs-string">&#x27;sudo&#x27;</span> <span class="hljs-keyword">for</span> root.<br>vm-cirros login: cirros<br>Password:<br>$ ip a<br>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue qlen 1<br>    <span class="hljs-built_in">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00<br>    inet 127.0.0.1/8 scope host lo<br>       valid_lft forever preferred_lft forever<br>    inet6 ::1/128 scope host<br>       valid_lft forever preferred_lft forever<br>2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 qdisc pfifo_fast qlen 1000<br>    <span class="hljs-built_in">link</span>/ether 2e:3e:2a:46:29:94 brd ff:ff:ff:ff:ff:ff<br>    inet 10.244.0.16/24 brd 10.244.0.255 scope global eth0<br>       valid_lft forever preferred_lft forever<br>    inet6 fe80::2c3e:2aff:fe46:2994/64 scope <span class="hljs-built_in">link</span> tentative flags 08<br>       valid_lft forever preferred_lft forever<br>       <br>$    <span class="hljs-comment">#  按 ctrl+]  退出虚拟机</span><br>$ [root@master kubevirt]<span class="hljs-comment">#</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="启动和停止命令"><a href="#启动和停止命令" class="headerlink" title="启动和停止命令"></a>启动和停止命令</h4><p><code>spec.running</code>  字段如果设置为<code>true</code>为启动、<code>false</code>为停止**</p>
-<ul>
-<li>创建 <code>VirtualMachine </code>后，可以像这样打开或关闭它：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Start the virtual machine:  启动虚拟机</span><br>virtctl start vm   <br><br><span class="hljs-comment"># Stop the virtual machine:  停止虚拟机</span><br>virtctl stop vm<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li><code>kubectl</code>也可以使用：</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Start the virtual machine:  启动虚拟机</span><br>kubectl patch virtualmachine vm --type merge -p \<br>    &#x27;&#123;&quot;spec&quot;:&#123;&quot;running&quot;:true&#125;&#125;&#x27;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Stop the virtual machine:  停止虚拟机</span><br>kubectl patch virtualmachine vm --type merge -p \<br>    &#x27;&#123;&quot;spec&quot;:&#123;&quot;running&quot;:false&#125;&#125;&#x27;<br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="vm作为服务公开"><a href="#vm作为服务公开" class="headerlink" title="vm作为服务公开"></a>vm作为服务公开</h4><p><code>VirtualMachine </code>可以作为服务公开。实际服务将在 <code>VirtualMachineInstance</code> 启动后可用。</p>
-<p>例如， 在创建<code> VirtualMachine</code> 后，将 <code>SSH </code>端口 (22) 公开为<code>NodePort</code>服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master kubevirt]<span class="hljs-comment"># virtctl expose virtualmachine  vm-cirros --name vmiservice-node  --target-port 22  --port 24 --type NodePort</span><br>Service vmiservice-node successfully exposed <span class="hljs-keyword">for</span> virtualmachine vm-cirros<br>[root@master kubevirt]<span class="hljs-comment"># kubectl get svc</span><br>NAME              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE<br>kubernetes        ClusterIP   10.96.0.1       &lt;none&gt;        443/TCP        95d<br>vmiservice-node   NodePort    10.106.62.191   &lt;none&gt;        24:31912/TCP   3s<br></code></pre></td></tr></table></figure>
-
-<p>最后使用<strong>远程工具连接</strong>即可：</p>
-<p>** <strong>注意</strong> 端口使用svc **<code>NodePort端口</code>**，如图所示：</p>
-<p><img src="https://img-blog.csdnimg.cn/0cd0551b6f9f46bea54c1a025351faf5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5bCP5Y-255qE5oqA5pyvTG9ncw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="255qE5oqA5pyvTG9ncw==,size_20,color_FFFFFF,t_70,g_se,x_16)"><img src="https://img-blog.csdnimg.cn/9428a3c81e1645d29fdc372b3ec93866.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5bCP5Y-255qE5oqA5pyvTG9ncw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/c962dacd9f794ad9b486efd50cfd1f78.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5bCP5Y-255qE5oqA5pyvTG9ncw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h2 id="简洁版"><a href="#简洁版" class="headerlink" title="简洁版  "></a>简洁版  <br><br></h2><h3 id="安装KubeVirt-1"><a href="#安装KubeVirt-1" class="headerlink" title="安装KubeVirt"></a>安装KubeVirt</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> RELEASE=v0.35.0<br>kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/<span class="hljs-variable">$&#123;RELEASE&#125;</span>/kubevirt-operator.yaml<br>kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/<span class="hljs-variable">$&#123;RELEASE&#125;</span>/kubevirt-cr.yaml<br>kubectl get pods -n kubevirt<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">kubectl -n kubevirt <span class="hljs-built_in">wait</span> kv kubevirt --<span class="hljs-keyword">for</span> condition=Available<br></code></pre></td></tr></table></figure>
-
-<h3 id="安装virtctl客户端工具-1"><a href="#安装virtctl客户端工具-1" class="headerlink" title="安装virtctl客户端工具"></a>安装virtctl客户端工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> VERSION=v0.41.0<br>wget https://github.com/kubevirt/kubevirt/releases/download/<span class="hljs-variable">$&#123;VERSION&#125;</span>/virtctl-<span class="hljs-variable">$&#123;VERSION&#125;</span>-linux-amd64<br><span class="hljs-built_in">cp</span> virtctl-v0.41.0-linux-amd64 /usr/local/bin/virtctl<br><span class="hljs-built_in">chmod</span> +x /usr/local/bin/virtctl ; ll /usr/local/bin/<br>virtctl version<br></code></pre></td></tr></table></figure>
-
-<h3 id="创建VirtualMachine-1"><a href="#创建VirtualMachine-1" class="headerlink" title="创建VirtualMachine"></a>创建VirtualMachine</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master kubevirt]<span class="hljs-comment"># cat test.yaml</span><br>apiVersion: kubevirt.io/v1alpha3<br>kind: VirtualMachine<br>metadata:<br>  labels:<br>    kubevirt.io/vm: vm-cirros<br>  name: vm-cirros<br>spec:<br>  running: <span class="hljs-literal">false</span><br>  template:<br>    metadata:<br>      labels:<br>        kubevirt.io/vm: vm-cirros<br>    spec:<br>      domain:<br>        devices:<br>          disks:<br>          - disk:<br>              bus: virtio<br>            name: containerdisk<br>          - disk:<br>              bus: virtio<br>            name: cloudinitdisk<br>        machine:<br>          <span class="hljs-built_in">type</span>: <span class="hljs-string">&quot;&quot;</span><br>        resources:<br>          requests:<br>            memory: 64M<br>      terminationGracePeriodSeconds: 0<br>      volumes:<br>      - name: containerdisk<br>        containerDisk:<br>          image: kubevirt/cirros-container-disk-demo:latest<br>      - cloudInitNoCloud:<br>          userDataBase64: IyEvYmluL3NoCgplY2hvICdwcmludGVkIGZyb20gY2xvdWQtaW5pdCB1c2VyZGF0YScK<br>        name: cloudinitdisk<br>[root@master kubevirt]<span class="hljs-comment"># kubectl apply -f test.yaml</span><br>virtualmachine.kubevirt.io/vm-cirros created<br><br>[root@master kubevirt]<span class="hljs-comment"># kubectl get vm</span><br>NAME        AGE   VOLUME<br>vm-cirros   21m<br></code></pre></td></tr></table></figure>
-
-<h3 id="启动VirtualMachineInstance-1"><a href="#启动VirtualMachineInstance-1" class="headerlink" title="启动VirtualMachineInstance"></a>启动VirtualMachineInstance</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">virtctl start vm-cirros<br>kubectl get vmi<br>virtctl console vm-cirros  <span class="hljs-comment"># 进入虚拟机</span><br>按 ctrl+]  退出虚拟机<br></code></pre></td></tr></table></figure>
-
-<h3 id="启动和停止命令-1"><a href="#启动和停止命令-1" class="headerlink" title="启动和停止命令"></a>启动和停止命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">virtctl start vm   <br>virtctl stop vm<br><br><span class="hljs-comment"># Start the virtual machine:  启动虚拟机</span><br>kubectl patch virtualmachine vm --<span class="hljs-built_in">type</span> merge -p \<br>    <span class="hljs-string">&#x27;&#123;&quot;spec&quot;:&#123;&quot;running&quot;:true&#125;&#125;&#x27;</span><br><br><span class="hljs-comment"># Stop the virtual machine:  停止虚拟机</span><br>kubectl patch virtualmachine vm --<span class="hljs-built_in">type</span> merge -p \<br>    <span class="hljs-string">&#x27;&#123;&quot;spec&quot;:&#123;&quot;running&quot;:false&#125;&#125;&#x27;</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="vm作为服务公开-1"><a href="#vm作为服务公开-1" class="headerlink" title="vm作为服务公开"></a>vm作为服务公开</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master kubevirt]<span class="hljs-comment"># virtctl expose virtualmachine  vm-cirros --name vmiservice-node  --target-port 22  --port 24 --type NodePort</span><br>[root@master kubevirt]<span class="hljs-comment"># kubectl get svc</span><br></code></pre></td></tr></table></figure>
-
-
-
-
-
+    
+    <a class="article-more-a" href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/#more">more >></a>
+    
     
 
     
@@ -350,86 +280,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-kubevirt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/04/16/kubevirt/" target="_blank">kubevirt</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/04/16/kubevirt/" class="archive-article-date">
-        <time datetime="2022-04-16T13:45:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>官网地址：<a target="_blank" rel="noopener" href="https://kubevirt.io/">https://kubevirt.io/</a></p>
-<h3 id="启动和停止¶"><a href="#启动和停止¶" class="headerlink" title="启动和停止¶"></a>启动和停止<a target="_blank" rel="noopener" href="https://kubevirt.io/user-guide/architecture/#starting-and-stopping">¶</a></h3><p><code>spec.running</code>  字段如果设置为<strong>true为启动、false为停止</strong></p>
-<p>创建 VirtualMachine 后，可以像这样打开或关闭它：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Start the virtual machine:  启动虚拟机</span><br>virtctl start vm   <br><br><span class="hljs-comment"># Stop the virtual machine:</span><br>virtctl stop vm<br></code></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/04/16/kubevirt/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/04/16/kubevirt/">展开全文 >></a>
     </p>
     
 
