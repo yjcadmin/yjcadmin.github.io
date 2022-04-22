@@ -6,23 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>小叶的技术Logs</title>
+  <title>My World</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     
     <!-- <meta name="keywords" content="">
-    <meta name="description" content=""> -->
+    <meta name="description" content="this is a blog."> -->
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="小叶的技术Logs">
+  <meta name="description" content="this is a blog.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="My World">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="小叶的技术Logs">
+<meta property="og:site_name" content="My World">
+<meta property="og:description" content="this is a blog.">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="小叶的技术Logs">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="小叶的技术Logs" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="My World" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -69,13 +71,17 @@
 			<h1 class="header-author"><a href="/">小叶的技术Logs</a></h1>
 		</hgroup>
 		
+		<p class="header-subtitle">this is a blog.</p>
+		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/" target="_blank">主页</a></li>
 			
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/" target="_blank">随笔</a></li>
+				<li><a href="/tags/test.html" target="_blank">随笔</a></li>
+			
+				<li><a href="/img/%E7%AE%80%E5%8E%86.pdf" target="_blank">个人简历</a></li>
 			
 			</ul>
 		</nav>
@@ -149,7 +155,11 @@
 			  <h1 class="header-author js-header-author">小叶的技术Logs</h1>
 			</hgroup>
 			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>this is a blog.<i class="icon icon-quo-right"></i></p>
 			
+			
+			
+				
 			
 				
 			
@@ -184,12 +194,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/test.html">随笔</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/img/%E7%AE%80%E5%8E%86.pdf">个人简历</a></li>
 		        
 				</ul>
 			</nav>
@@ -212,6 +224,267 @@
   <script>
     Oauthcallback();
   </script>
+
+
+  
+    <article id="post-Istio是什么？-还不知道你就out了-一文40分钟快速理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" target="_blank">Istio是什么？ 还不知道你就out了,一文40分钟快速理解</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" class="archive-article-date">
+        <time datetime="2022-04-22T11:27:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>@[toc]</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章属于纯理论，所含内容如下，按需阅读：</p>
+<ul>
+<li><p><code>Istio概念、服务网格、流量管理、istio架构（Envoy、Sidecar 、Istiod）</code></p>
+</li>
+<li><p><code>虚拟服务(VirtualService)、路由规则、目标规则(DestinationRule)</code></p>
+</li>
+<li><p><code>网关(Gateway)、网络弹性和测试（超时、重试、熔断器、故障注入）</code><br><br><br></p>
+<h2 id="Istio是什么？"><a href="#Istio是什么？" class="headerlink" title="Istio是什么？"></a>Istio是什么？</h2></li>
+<li><p>Istio是一个开源的<code>服务网格</code>，透明的接入到<code>分布式服务</code>中。它也是一个平台，集成任何<code>日志、遥测和策略系统</code>的 API 接口。</p>
+</li>
+<li><p>Istio 成功高效地运行<code>分布式微服务架构</code>，并提供<code>保护、连接和监控</code>微服务的统一方法。</p>
+</li>
+<li><p>Istio 有助于降低 <code>DevOps</code> 压力、<code>开发团队</code>的压力。</p>
+</li>
+</ul>
+<h4 id="服务网格是什么？"><a href="#服务网格是什么？" class="headerlink" title="服务网格是什么？"></a>服务网格是什么？</h4><ul>
+<li>组成<code>微服务网络</code></li>
+<li>实现<code>服务之间的交互</code></li>
+</ul>
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><ul>
+<li><code>服务发现、负载均衡、故障恢复、度量和监控</code></li>
+<li><code>A/B 测试、金丝雀发布、速率限制、访问控制和端到端认证</code></li>
+</ul>
+<h4 id="为什么使用Istio？"><a href="#为什么使用Istio？" class="headerlink" title="为什么使用Istio？"></a>为什么使用Istio？</h4><p>服务网格是通过<code>sidecar</code>（边车）代理服务实现，<code>控制平面</code>主要是对<code>sidecar</code>的配置和管理，这包括：</p>
+<ul>
+<li>为<code> HTTP、gRPC、WebSocket</code> 和 <code>TCP 流量</code>自动负载均衡。</li>
+<li>通过丰富的<code>路由规则、重试、故障转移和故障注入</code>对流量行为进行细粒度控制。</li>
+<li>可插拔的策略层和配置 API，支持<code>访问控制、速率限制和配额</code>。</li>
+<li>集群内（包括集群的入口和出口）所有流量的<code>自动化度量、日志记录</code>和<code>追踪</code>。</li>
+<li>在具有强大的基于<code>身份验证和授权</code>的集群中实现安全的服务间通信。</li>
+</ul>
+<p>Istio还<code>支持扩展</code>，满足你部署需求！<br><br><br></p>
+<h2 id="流量管理介绍"><a href="#流量管理介绍" class="headerlink" title="流量管理介绍"></a>流量管理介绍</h2><ul>
+<li><p>Istio流量路由规则可以很容易的<code>控制服务之间的流量</code>和<code>API调用</code>。能实现<code>A/B测试、金丝雀发布、</code>基于<code>流量百分比</code>发布。</p>
+</li>
+<li><p>开箱即用的<code>故障恢复</code>特性，有助于<code>增强应用的健壮性</code>，从而更好地应对被依赖的服务或网络发生故障的情况。</p>
+</li>
+<li><p>Istio 的流量管理由<code>Envoy</code>代理服务提供。网格内服务<code>发送和接收的所有流量</code>都由<code> Envoy 代理</code>处理，让控制网格内的流量变得异常简单，不需要对服务做更改。</p>
+</li>
+</ul>
+<p>为了在网格中导流，Istio 需要知道 <code>endpoint 在哪和属于哪个服务</code>。为了定位到<code>service registry(服务注册中心)</code>，Istio 会连接到一个服务发现系统。例如，如果您在 Kubernetes 集群上安装了 Istio，那么它将自动检测该集群中的服务和 endpoint（端点）。</p>
+<p>使用此服务注册中心，<code>Envoy 代理</code>可以将流量定向到相关服务。大多数基于<code>微服务的应用程序</code>，每个服务的工作负载都有多个实例来处理流量，称为<code>负载均衡池</code>。默认情况下，Envoy 代理基于轮询调度在服务的负载均衡池内分发流量，按顺序请求发送给池中每个成员，一旦所有服务实例均接收过一次请求后，重新回到第一个池成员。</p>
+<p>这些 API 也使用 Kubernetes 的自定义资源定义（CRDs）来声明，可以<code>使用 YAML 进行配置</code>。<br><br><br></p>
+<h2 id="istio架构"><a href="#istio架构" class="headerlink" title="istio架构"></a>istio架构</h2><p>Istio 服务网格 逻辑上分为<code>数据平面</code>和<code>控制平面</code></p>
+<ul>
+<li><p>**<code>数据平面</code>**：Envoy代理被部署为<code>sidecar</code>，负责<code>协调和控制微服务</code>之间的通信，收集和报告所有网格流量的遥测数据。</p>
+</li>
+<li><p>**<code>控制平面</code>**：管理并配置<code>Envoy代理</code><br><img src="https://img-blog.csdnimg.cn/cfd6031a80984cfaad5c2de41c097c9e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5bCP5Y-255qE5oqA5pyvTG9ncw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h4 id="Envoy"><a href="#Envoy" class="headerlink" title="Envoy"></a>Envoy</h4></li>
+<li><p><code>C++ 开发</code>的高性能代理，用于协调服务网格中所有服务的<code>入站和出站流量</code>。Envoy 代理是<code>唯一与数据平面流量交互</code>的 Istio 组件。<br></p>
+</li>
+</ul>
+<p>Envoy 代理被<code>部署为服务的 Sidecar</code>，在逻辑上为服务增加了 Envoy 的许多内置特性，例如：</p>
+<ul>
+<li><code>动态服务发现</code></li>
+<li><code>负载均衡</code></li>
+<li><code>TLS 终端</code></li>
+<li><code>HTTP/2 与 gRPC 代理</code></li>
+<li><code>熔断器</code></li>
+<li><code>健康检查</code></li>
+<li><code>基于百分比流量分割的分阶段发布</code></li>
+<li><code>故障注入</code></li>
+<li><code>丰富的指标</code></li>
+</ul>
+<h4 id="Sidecar"><a href="#Sidecar" class="headerlink" title="Sidecar"></a>Sidecar</h4><ul>
+<li>允许 Istio 可以执行<code>策略决策</code>，提取丰富的<code>遥测数据</code>，接着将这些数据发送到<code>监视系统</code>以提供整个网格行为的信息。</li>
+<li>Sidecar 代理还允许<code>向 Istio 添加功能</code>，不需要重新设计架构或重写代码。</li>
+</ul>
+<h4 id="Istiod"><a href="#Istiod" class="headerlink" title="Istiod"></a>Istiod</h4><ul>
+<li><p>Istiod 提供<code>服务发现、配置和证书</code>管理。</p>
+</li>
+<li><p>Istiod 将<code>控制流量</code>的<code>高级路由规则</code>转换为 Envoy 特定的配置，并在运行时传播给 Sidecar。</p>
+</li>
+<li><p>Istiod 安全通过内置的<code>身份和凭证</code>管理，实现了强大的<code>服务对服务和终端用户</code>认证。</p>
+</li>
+<li><p>Istiod 充当证书<code>授权（CA）</code>，生成证书以允许在数据平面中进行<code> mTLS 通信</code>。<br><br><br></p>
+<h2 id="虚拟服务-VirtualService"><a href="#虚拟服务-VirtualService" class="headerlink" title="虚拟服务(VirtualService)"></a>虚拟服务(VirtualService)</h2></li>
+<li><p>配置<code>请求流量</code>到服务,基于<code>连通性和服务发现</code>能力。</p>
+</li>
+<li><p>每个虚拟服务包含<code>一组路由规则</code>。可以实现<code>负载均衡</code>、基于<code>不同版本流量百分比</code>路由。</p>
+</li>
+</ul>
+<h4 id="为什么使用虚拟服务？"><a href="#为什么使用虚拟服务？" class="headerlink" title="为什么使用虚拟服务？"></a>为什么使用虚拟服务？</h4><p>虚拟服务在增强 Istio 流量管理方面，发挥着至关重要的作用，通过对<code>客户端请求与真实响应请求</code>的<code>目标工作负载</code>进行解耦来实现。<br>基于不同服务版本的<code>流量百分比</code>路由，实现<code>A/B 测试、金丝雀发布</code>。</p>
+<h4 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs bash">apiVersion: networking.istio.io/v1alpha3<br>kind: VirtualService<br>metadata:<br>  name: reviews<br>spec:<br>  hosts:<br>  - reviews<br>  http:<br>  - match:<br>    - headers:<br>        end-user:<br>          exact: jason<br>    route:<br>    - destination:<br>        host: reviews<br>        subset: v2<br>  - route:<br>    - destination:<br>        host: reviews<br>        subset: v3<br></code></pre></td></tr></table></figure>
+<p> <strong><code>hosts</code>字段</strong></p>
+<ul>
+<li><p>虚拟服务的主机，<code>客户端请求</code>或<code>路由规则</code>的目标地址。</p>
+</li>
+<li><p>虚拟服务主机名可以是 <code>IP 地址、DNS 名称</code>，或者依赖于<code>平台的一个简称</code>（Kubernetes 服务的短名称）也可以使用通配符<code>（“*”）</code>前缀</p>
+</li>
+</ul>
+<h4 id="路由规则"><a href="#路由规则" class="headerlink" title="路由规则"></a>路由规则</h4><ul>
+<li><code>http</code> 字段包含虚拟服务的<code>路由规则</code>，用来描述<code>匹配条件和路由行为</code>，它们把 <code>HTTP/1.1、HTTP2 和 gRPC </code>等流量发送到<code>hosts</code>字段指定的目标<br>一个路由规则包含了请求要流向哪个目标地址，具有 0 或多个匹配条件，取决于您的使用场景。</li>
+</ul>
+<h4 id="匹配条件"><a href="#匹配条件" class="headerlink" title="匹配条件"></a>匹配条件</h4><p>示例中的第一个路由规则有一个条件，因此以 <code>match</code> 字段开始。在本例中，您希望此路由应用于来自<code> ”jason“ 用户</code>的所有请求，所以使用 <code>headers</code>、<code>end-user</code> 和 <code>exact</code> 字段选择适当的请求。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">- match:<br>   - headers:<br>       end-user:<br>         exact: jason<br></code></pre></td></tr></table></figure>
+<h4 id="Destination"><a href="#Destination" class="headerlink" title="Destination"></a>Destination</h4><ul>
+<li><p>route 部分的 <code>destination</code> 字段指符合此条件的流量的实际目标地址。</p>
+</li>
+<li><p>与虚拟服务的 <code>hosts</code> 不同，<code>destination </code>的 host 必须是存在于 <code>Istio 服务注册中心</code>的实际目标地址，否则 Envoy 不知道该将请求发送到哪里。</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">route:<br>- destination:<br>    host: reviews<br>    subset: v2<br></code></pre></td></tr></table></figure>
+
+<p>destination 片段还指定了 Kubernetes 服务的子集，将符合此规则条件的请求转入其中，本例中子集名称是 v2。</p>
+<h4 id="路由规则优先级"><a href="#路由规则优先级" class="headerlink" title="路由规则优先级"></a>路由规则优先级</h4><p>路由规则按<code>从上到下</code>的顺序选择，虚拟服务中定义的<code>第一条规则有最高优先级</code>，不满足第一个路由规则的流量<code>均流向一个默认的目标</code>。</p>
+<p>本例中：第二条规则没有 match 条件，直接将流量导向 v3 子集。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">- route:<br>  - destination:<br>      host: reviews<br>      subset: v3<br></code></pre></td></tr></table></figure>
+<h4 id="路由规则的更多内容"><a href="#路由规则的更多内容" class="headerlink" title="路由规则的更多内容"></a>路由规则的更多内容</h4><p>可以在流量端口、header 字段、URI 等内容上设置匹配条件</p>
+<p>匹配条件：</p>
+<p><img src="https://img-blog.csdnimg.cn/01b53446a2d34fdf839682bfdce48a56.png" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传"><br><br><br></p>
+<h2 id="目标规则-DestinationRule"><a href="#目标规则-DestinationRule" class="headerlink" title="目标规则(DestinationRule)"></a>目标规则(DestinationRule)</h2><p>可以将虚拟服务视为将流量如何路由到目标地址，然后目标规则来配置该目标的流量。虚拟服务路由规则之后，目标规则将应用于流量的“真实”目标地址。</p>
+<p>简单来说：虚拟服务通过目标规则后，到达目标地址（服务）</p>
+<p>应用场景：整个目的地服务或特定服务子集时定制 Envoy 的流量策略，负载均衡模型、TLS 安全模式或熔断器设置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs bash">apiVersion: networking.istio.io/v1alpha3<br>kind: DestinationRule<br>metadata:<br>  name: my-destination-rule<br>spec:<br>  host: my-svc<br>  trafficPolicy:<br>    loadBalancer:<br>      simple: RANDOM  <span class="hljs-comment"># 随机负载均衡器</span><br>  subsets:<br>  - name: v1<br>    labels:<br>      version: v1<br>  - name: v2<br>    labels:<br>      version: v2<br>    trafficPolicy:<br>      loadBalancer:<br>        simple: ROUND_ROBIN   <span class="hljs-comment"># 轮询负载均衡器</span><br>  - name: v3<br>    labels:<br>      version: v3<br></code></pre></td></tr></table></figure>
+<p>每个子集都是基于一个或多个 <code>labels</code> 定义的，标签应用于kubernetes集群中deployment控制器metadata字段来识别不同版本。</p>
+<h4 id="负载均衡选项"><a href="#负载均衡选项" class="headerlink" title="负载均衡选项"></a>负载均衡选项</h4><p>Istio 默认使用轮询的负载均衡策略，Istio 同时支持如下的负载均衡模型，可以在 <code>DestinationRule</code> 中为指定：</p>
+<ul>
+<li><p>随机：请求以随机的方式转到池中的实例。</p>
+</li>
+<li><p>权重：请求根据指定的百分比转到实例。</p>
+</li>
+<li><p>最少请求：请求被转到最少被访问的实例。<br><br><br></p>
+<h2 id="网关-Gateway"><a href="#网关-Gateway" class="headerlink" title="网关(Gateway)"></a>网关(Gateway)</h2></li>
+<li><p>管理入站和出站流量，网关配置网格边界的独立 Envoy 代理，而不是服务工作负载的 sidecar 代理。</p>
+</li>
+<li><p>Istio 网关可以配置 4-6 层的负载均衡属性，如对外暴露的端口、TLS 设置等</p>
+</li>
+<li><p>网关主要用于管理进入的流量</p>
+</li>
+<li><p>Istio 提供了预先配置的网关代理（<code>istio-ingressgateway</code> 和 <code>istio-egressgateway</code>）</p>
+</li>
+</ul>
+<h4 id="栗子-1"><a href="#栗子-1" class="headerlink" title="栗子"></a>栗子</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash">apiVersion: networking.istio.io/v1alpha3<br>kind: Gateway<br>metadata:<br>  name: ext-host-gwy<br>spec:<br>  selector:<br>    istio: ingressgateway  <span class="hljs-comment"># use istio default controller</span><br>  servers:<br>  - port:<br>      number: 443<br>      name: https<br>      protocol: HTTPS<br>    hosts:<br>    - ext-host.example.com<br>    tls:<br>      mode: SIMPLE<br>      serverCertificate: /tmp/tls.crt<br>      privateKey: /tmp/tls.key<br></code></pre></td></tr></table></figure>
+<p>这个网关配置让 HTTPS 流量从 <code>ext-host.example.com</code> 通过 443 端口流入网格，但没有为请求指定任何路由规则。为想要工作的网关指定路由，您必须把网关绑定到虚拟服务上。</p>
+<p>如下面的示例所示，使用虚拟服务的 <code>gateways</code> 字段进行设置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">apiVersion: networking.istio.io/v1alpha3<br>kind: VirtualService<br>metadata:<br>  name: virtual-svc<br>spec:<br>  hosts:<br>  - ext-host.example.com<br>  gateways:<br>    - ext-host-gwy<br></code></pre></td></tr></table></figure>
+
+<p>然后就可以为出口流量配置带有路由规则的虚拟服务。<br><br><br></p>
+<h2 id="Sidecar-1"><a href="#Sidecar-1" class="headerlink" title="Sidecar"></a>Sidecar</h2><p>默认情况下，Istio 让每个 Envoy 代理都可以访问和它关联工作负载的所有端口的请求，然后转发到对应的工作负载。</p>
+<p>可以使用 sidecar配置做：</p>
+<ul>
+<li><code>微调 </code>Envoy 代理接受的<code>端口和协议集</code>。</li>
+<li><code>限制 </code>Envoy 代理可以<code>访问的服务集合</code>。</li>
+</ul>
+<p>在较庞大的应用程序中<code>限制 sidecar 可达性</code>，配置每个代理能访问网格中的任意服务，可能会因为<code>高内存使用量</code>而影响网格的性能。</p>
+<p>可以指定将 sidecar 配置应用于特定命名空间中的所有工作负载，或者使用 <code>workloadSelector</code> 选择特定的工作负载</p>
+<p>例如，下面的 sidecar 配置将 <code>bookinfo</code> 命名空间中的所有服务配置为，仅能访问运行在相同命名空间和 Istio 控制平面中的服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">apiVersion: networking.istio.io/v1alpha3<br>kind: Sidecar<br>metadata:<br>  name: default<br>  namespace: bookinfo<br>spec:<br>  egress:<br>  - hosts:<br>    - <span class="hljs-string">&quot;./*&quot;</span><br>    - <span class="hljs-string">&quot;istio-system/*&quot;</span><br></code></pre></td></tr></table></figure>
+<p><br><br></p>
+<h2 id="网络弹性和测试"><a href="#网络弹性和测试" class="headerlink" title="网络弹性和测试"></a>网络弹性和测试</h2><p>除了网格导流外，Istio 还提供了<code>故障恢复和故障注入</code>功能，您可以在运行时动态配置这些功能。使用这些特性可以让您的应用程序<code>运行稳定</code>，确保服务网格能够<code>容忍故障节点</code>，并防止局部故障级联影响到其他节点。</p>
+<h4 id="超时"><a href="#超时" class="headerlink" title="超时"></a>超时</h4><p>超时是 <code>Envoy 代理</code>等待来自<code>给服务答复</code>的时间，确保服务不会因为等待答复而<code>无限期的挂起</code>。HTTP 请求的<code>默认超时时间</code>是<code> 15 秒</code>，这意味着如果服务在 15 秒内没有响应，调用将失败。</p>
+<p>为了找到<code>最佳超时设置</code>，Istio 允许使用虚拟服务，按服务轻松地动态调整超时，而不必修改您的业务代码。</p>
+<p>栗子：</p>
+<p>一个虚拟服务，对 ratings 服务的 v1 子集的调用，指定	<code>10 秒超时</code>时间</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">apiVersion: networking.istio.io/v1alpha3<br>kind: VirtualService<br>metadata:<br>  name: ratings<br>spec:<br>  hosts:<br>  - ratings<br>  http:<br>  - route:<br>    - destination:<br>        host: ratings<br>        subset: v1<br>    <span class="hljs-built_in">timeout</span>: 10s<br></code></pre></td></tr></table></figure>
+
+<h4 id="重试"><a href="#重试" class="headerlink" title="重试"></a>重试</h4><p>服务为初始<code>调用失败</code>，<code>Envoy 代理</code>尝试连接服务的<code>最大次数</code>。确保调用不会因为<code>临时过载</code>的服务或网络等问题而永久失败。</p>
+<p>重试之间的<code>间隔（25ms+）</code>是可变的，HTTP 请求的默认重试行为是在返回错误之前<code>重试两次</code>。</p>
+<p>应用场景：与超时一样，Istio 默认的重试行为在延迟方面可能不适合您的应用程序需求（对失败的服务进行过多的重试会降低速度）或可用性。</p>
+<h4 id="栗子-2"><a href="#栗子-2" class="headerlink" title="栗子"></a>栗子</h4><p>配置了在初始<code>调用失败</code>后,最多<code>重试 3 次</code>来连接到服务子集，每个重试都有 2 秒的超时。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">apiVersion: networking.istio.io/v1alpha3<br>kind: VirtualService<br>metadata:<br>  name: ratings<br>spec:<br>  hosts:<br>  - ratings<br>  http:<br>  - route:<br>    - destination:<br>        host: ratings<br>        subset: v1<br>    retries:<br>      attempts: 3<br>      perTryTimeout: 2s<br></code></pre></td></tr></table></figure>
+
+<h4 id="熔断器"><a href="#熔断器" class="headerlink" title="熔断器"></a>熔断器</h4><p>熔断器中，设置一个对服务中<code>单个主机调用的限制</code>，例如并发连接的数量或对该主机<code>调用失败的次数</code>。一旦限制被触发，熔断器就会<code>“跳闸”</code>并停止连接到该主机。</p>
+<p>作用：使用<code>熔断模式</code>可以快速失败而不必让客户端尝试连接到<code>过载或有故障</code>的主机。</p>
+<p>熔断适用于在<code>负载均衡池</code>中的“真实”网格目标地址，可以在目标规则中配置熔断器阈值，让配置适用于服务中的每个主机。</p>
+<p>栗子：</p>
+<p>将 v1 子集的<code>reviews</code>服务工作负载的并发连接数限制为 100：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">apiVersion: networking.istio.io/v1alpha3<br>kind: DestinationRule<br>metadata:<br>  name: reviews<br>spec:<br>  host: reviews<br>  subsets:<br>  - name: v1<br>    labels:<br>      version: v1<br>    trafficPolicy:<br>      connectionPool:<br>        tcp:<br>          maxConnections: 100<br></code></pre></td></tr></table></figure>
+
+<h4 id="故障注入"><a href="#故障注入" class="headerlink" title="故障注入"></a>故障注入</h4><p>是什么：可以使用 Istio 的<code>故障注入</code>机制来为整个应用程序<code>测试故障恢复能力</code>。</p>
+<p>为什么使用：故障注入是一种将错误引入系统以确保系统能够承受并从<code>错误条件</code>中恢复的测试方法。</p>
+<p>作用：使用故障注入特别有用，能确保<code>故障恢复策略</code>不至于不兼容或者太严格，这会导致关键服务不可用。</p>
+<p>可以注入两种故障，都使用虚拟服务配置：</p>
+<ul>
+<li><code>延迟</code>：延迟是时间故障。它们模拟增加的网络延迟或一个超载的上游服务。</li>
+<li><code>终止</code>：终止是崩溃失败。他们模仿上游服务的失败。终止通常以 HTTP 错误码或 TCP 连接失败的形式出现。</li>
+</ul>
+<p>栗子：</p>
+<p>千分之一访问<code>ratings</code> 服务的请求，配置了一个 5 秒的延迟：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash">apiVersion: networking.istio.io/v1alpha3<br>kind: VirtualService<br>metadata:<br>  name: ratings<br>spec:<br>  hosts:<br>  - ratings<br>  http:<br>  - fault:<br>      delay:<br>        percentage:<br>          value: 0.1<br>        fixedDelay: 5s<br>    route:<br>    - destination:<br>        host: ratings<br>        subset: v1<br></code></pre></td></tr></table></figure>
+<h4 id="和您的应用程序一起运行"><a href="#和您的应用程序一起运行" class="headerlink" title="和您的应用程序一起运行"></a>和您的应用程序一起运行</h4><p><code>Istio 故障恢复</code>功能对应用程序来说是<code>完全透明</code>的。在返回响应之前，应用程序不知道 Envoy sidecar 代理是否正在<code>处理被调用服务的故障</code>。这意味着，如果在应用程序代码中设置了故障恢复策略，那么您需要记住这两个策略都是独立工作的，否则会发生冲突。</p>
+<p>例如，假设您设置了两个超时，一个在虚拟服务中配置，另一个在应用程序中配置。<code>应用程序为服务</code>的 API 调用设置了 2 秒超时。而您在<code>虚拟服务</code>中配置了一个 3 秒超时和重试。在这种情况下，应用程序的超时会先生效，因此 Envoy 的超时和重试尝试会失效。</p>
+<p>虽然 Istio 故障恢复特性提高了网格中服务的<code>可靠性和可用性</code>，但应用程序必须处理故障或错误并采取适当的回退操作。例如，当负载均衡中的所有实例都失败时，Envoy 返回一个<code>HTTP 503</code>代码。应用程序必须实现回退逻辑来处理<code>HTTP 503</code>错误代码。<br><br><br></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇花费了不少精力，还望博友们支持支持新人！！！<br><br>后期会发布一篇实际操作，期待大家持续关注！！！</p>
+<p><strong>公众号</strong><br>学习不走弯路，关注公众号「yeTechLog」<br><img src="https://img-blog.csdnimg.cn/93df2f485c4c40deb220a9dba299b83c.png#pic_center" alt="在这里插入图片描述"></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
 
 
   
