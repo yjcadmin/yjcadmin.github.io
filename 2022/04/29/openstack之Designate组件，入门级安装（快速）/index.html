@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022 | My World</title>
+  <title>openstack之Designate组件，入门级安装（快速） | My World</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="this is a blog.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="My World">
-<meta property="og:url" content="http://example.com/archives/2022/index.html">
+  <meta name="description" content="前言Designate 是一个开源 DNS 即服务实施，是用于运行云的 OpenStack 服务生态系统的一部分。Designate 是 OpenStack 的多租户 DNSaaS 服务。它提供了一个带有集成 Keystone 身份验证的 REST API。它可以配置为根据 Nova 和 Neutron 操作自动生成记录。Designate 支持多种 DNS 服务器，包括 Bind9 和 Powe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openstack之Designate组件，入门级安装（快速）">
+<meta property="og:url" content="http://example.com/2022/04/29/openstack%E4%B9%8BDesignate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/index.html">
 <meta property="og:site_name" content="My World">
-<meta property="og:description" content="this is a blog.">
+<meta property="og:description" content="前言Designate 是一个开源 DNS 即服务实施，是用于运行云的 OpenStack 服务生态系统的一部分。Designate 是 OpenStack 的多租户 DNSaaS 服务。它提供了一个带有集成 Keystone 身份验证的 REST API。它可以配置为根据 Nova 和 Neutron 操作自动生成记录。Designate 支持多种 DNS 服务器，包括 Bind9 和 Powe">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d1841fd411064be58054c3e5e2a83c45.png">
+<meta property="article:published_time" content="2022-04-29T14:10:47.000Z">
+<meta property="article:modified_time" content="2022-04-29T14:12:09.015Z">
 <meta property="article:author" content="小叶的技术Logs">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/d1841fd411064be58054c3e5e2a83c45.png">
   
     <link rel="alternative" href="/atom.xml" title="My World" type="application/atom+xml">
   
@@ -213,214 +217,315 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-openstack之Designate组件，入门级安装（快速）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      openstack之Designate组件，入门级安装（快速）
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2022/04/29/openstack%E4%B9%8BDesignate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
         <time datetime="2022-04-29T14:10:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.1k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">5分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Designate 是一个开源 DNS 即服务实施，是用于运行云的 OpenStack 服务生态系统的一部分。<br>Designate 是 OpenStack 的多租户 DNSaaS 服务。它提供了一个带有集成 Keystone 身份验证的 REST API。它可以配置为根据 Nova 和 Neutron 操作自动生成记录。Designate 支持多种 DNS 服务器，包括 Bind9 和 PowerDNS 4。</p>
+<span id="more"></span>
+<br>
+
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p>Designate 由几个不同的服务组成：API、Producer、Central、Worker 和 Mini DNS。它使用 oslo.db 兼容的数据库来存储状态和数据，并使用 oslo.messaging 兼容的消息队列来促进服务之间的通信。所有指定服务的多个副本可以串联运行以促进高可用性部署，API 进程通常位于负载均衡器之后。<br><img src="https://img-blog.csdnimg.cn/d1841fd411064be58054c3e5e2a83c45.png" alt="在这里插入图片描述"></p>
+<h3 id="前提准备"><a href="#前提准备" class="headerlink" title="前提准备"></a>前提准备</h3><p>获取<code>admin</code>凭据以管理员权限访问</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> admin-openrc<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#创建designate用户</span><br>openstack user create --domain demo  --password 000000 designate <br><span class="hljs-comment">#将admin角色添加到designate用户</span><br>openstack role add --project service --user designate admin <br> <span class="hljs-comment">#创建指定服务实体</span><br>openstack service create --name designate --description <span class="hljs-string">&quot;DNS&quot;</span> dns <br></code></pre></td></tr></table></figure>
+<p> #创建 DNS 服务 API 端点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">openstack endpoint create --region RegionOne dns public http://controller:9001/<br>openstack endpoint create --region RegionOne dns internal http://controller:9001/<br>openstack endpoint create --region RegionOne dns admin http://controller:9001/<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="安装和配置组件"><a href="#安装和配置组件" class="headerlink" title="安装和配置组件"></a>安装和配置组件</h3><p>安装软件包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># yum install openstack-designate\*  </span><br></code></pre></td></tr></table></figure>
+
+<p>创建用户<code>designate</code>可访问<code>designate</code> 的数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">CREATE DATABASE designate CHARACTER SET utf8 COLLATE utf8_general_ci;<br>GRANT ALL PRIVILEGES ON designate.* TO <span class="hljs-string">&#x27;designate&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="hljs-string">&#x27;000000&#x27;</span>;<br>GRANT ALL PRIVILEGES ON designate.* TO <span class="hljs-string">&#x27;designate&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="hljs-string">&#x27;000000&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<p>安装 BIND 包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install <span class="hljs-built_in">bind</span> bind-utils  <br></code></pre></td></tr></table></figure>
+<p>创建一个 RNDC 密钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rndc-confgen -a -k designate -c /etc/designate/rndc.key -r /dev/urandom <br></code></pre></td></tr></table></figure>
+
+<p>在文件<code>/etc/named.conf</code>中添加以下选项</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /etc/named.conf<br>...<br>include <span class="hljs-string">&quot;/etc/designate/rndc.key&quot;</span>;<br><br>options &#123;<br>    ...<br>    allow-new-zones <span class="hljs-built_in">yes</span>;<br>    request-ixfr no;<br>    listen-on port 53 &#123; 127.0.0.1; &#125;;<br>    recursion no;<br>    allow-query &#123; 127.0.0.1; &#125;;<br>&#125;;<br><br>controls &#123;<br>  inet 127.0.0.1 port 953<br>    allow &#123; 127.0.0.1; &#125; keys &#123; <span class="hljs-string">&quot;designate&quot;</span>; &#125;;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>启动 DNS 服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl <span class="hljs-built_in">enable</span> named  <br>systemctl start named<br></code></pre></td></tr></table></figure>
+
+<p>编辑<code>/etc/designate/designate.conf</code>文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs bash">[service:api]<br>listen = 0.0.0.0:9001<br>auth_strategy = keystone<br>enable_api_v2 = True<br>enable_api_admin = True<br>enable_host_header = True<br>enabled_extensions_admin = quotas, reports<br><br>[keystone_authtoken]<br>auth_type = password<br>username = designate<br>password = 000000<br>project_name = service<br>project_domain_name = demo<br>user_domain_name = demo<br>www_authenticate_uri = http://controller:5000/<br>auth_url = http://controller:5000/<br>memcached_servers = controller:11211<br><br>[DEFAULT]<br><span class="hljs-comment"># ...</span><br>transport_url = rabbit://openstack:000000@controller:5672/<br><br>[storage:sqlalchemy]<br>connection = mysql+pymysql://designate:000000@controller/designate<br></code></pre></td></tr></table></figure>
+
+<p>填充指定数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">su -s /bin/sh -c <span class="hljs-string">&quot;designate-manage database sync&quot;</span> designate<br></code></pre></td></tr></table></figure>
+
+<p>启动指定的中心和 API 服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl start designate-central designate-api<br>systemctl <span class="hljs-built_in">enable</span> designate-central designate-api<br></code></pre></td></tr></table></figure>
+
+<p>在其中创建一个 pools.yaml 文件，<code>/etc/designate/pools.yaml</code>其中包含以下内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs bash">- name: default<br>  <span class="hljs-comment"># The name is immutable. There will be no option to change the name after</span><br>  <span class="hljs-comment"># creation and the only way will to change it will be to delete it</span><br>  <span class="hljs-comment"># (and all zones associated with it) and recreate it.</span><br>  description: Default Pool<br><br>  attributes: &#123;&#125;<br><br>  <span class="hljs-comment"># List out the NS records for zones hosted within this pool</span><br>  <span class="hljs-comment"># This should be a record that is created outside of designate, that</span><br>  <span class="hljs-comment"># points to the public IP of the controller node.</span><br>  ns_records:<br>    - hostname: ns1-1.example.org.<br>      priority: 1<br><br>  <span class="hljs-comment"># List out the nameservers for this pool. These are the actual BIND servers.</span><br>  <span class="hljs-comment"># We use these to verify changes have propagated to all nameservers.</span><br>  nameservers:<br>    - host: 127.0.0.1<br>      port: 53<br><br>  <span class="hljs-comment"># List out the targets for this pool. For BIND there will be one</span><br>  <span class="hljs-comment"># entry for each BIND server, as we have to run rndc command on each server</span><br>  targets:<br>    - <span class="hljs-built_in">type</span>: bind9<br>      description: BIND9 Server 1<br><br>      <span class="hljs-comment"># List out the designate-mdns servers from which BIND servers should</span><br>      <span class="hljs-comment"># request zone transfers (AXFRs) from.</span><br>      <span class="hljs-comment"># This should be the IP of the controller node.</span><br>      <span class="hljs-comment"># If you have multiple controllers you can add multiple masters</span><br>      <span class="hljs-comment"># by running designate-mdns on them, and adding them here.</span><br>      masters:<br>        - host: 127.0.0.1<br>          port: 5354<br><br>      <span class="hljs-comment"># BIND Configuration options</span><br>      options:<br>        host: 127.0.0.1<br>        port: 53<br>        rndc_host: 127.0.0.1<br>        rndc_port: 953<br>        rndc_key_file: /etc/designate/rndc.key<br></code></pre></td></tr></table></figure>
+
+<p>更新池：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># su -s /bin/sh -c &quot;designate-manage pool update&quot; designate</span><br></code></pre></td></tr></table></figure>
+
+<p>启动指定和 mDNS 服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl start designate-worker designate-producer designate-mdns<br>systemctl <span class="hljs-built_in">enable</span> designate-worker designate-producer designate-mdns<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="验证操作"><a href="#验证操作" class="headerlink" title="验证操作"></a>验证操作</h3><p>列出服务组件以验证每个进程的成功启动和注册：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ . admin-openrc<br>$ ps -aux | grep designate<br><br>../usr/bin/python /usr/bin/designate-mdns --config-file /etc/designate/designate.conf<br>../usr/bin/python /usr/bin/designate-central --config-file /etc/designate/designate.conf<br>../usr/bin/python /usr/bin/designate-agent --config-file /etc/designate/designate.conf<br>../usr/bin/python /usr/bin/designate-api --config-file /etc/designate/designate.conf<br>../usr/bin/python /usr/bin/designate-worker --config-file /etc/designate/designate.conf<br>../usr/bin/python /usr/bin/designate-producer --config-file /etc/designate/designate.conf<br><br>$ openstack dns service list<br>+--------------------------------------+--------------------------+--------------+--------+-------+--------------+<br>| <span class="hljs-built_in">id</span>                                   | hostname                 | service_name | status | stats | capabilities |<br>+--------------------------------------+--------------------------+--------------+--------+-------+--------------+<br>| 918a8f6e-9e7e-453e-8583-cbefa7ae7f8f | vagrant-ubuntu-trusty-64 | central      | UP     | -     | -            |<br>| 982f78d5-525a-4c36-af26-a09aa39de5d7 | vagrant-ubuntu-trusty-64 | api          | UP     | -     | -            |<br>| eda2dc16-ad27-4ee1-b091-bb75b6ceaffe | vagrant-ubuntu-trusty-64 | mdns         | UP     | -     | -            |<br>| 00c5c372-e630-49b1-a6b6-17e3fa4544ea | vagrant-ubuntu-trusty-64 | worker       | UP     | -     | -            |<br>| 8cdaf2e9-accd-4665-8e9e-be26f1ccfe4a | vagrant-ubuntu-trusty-64 | producer     | UP     | -     | -            |<br>+--------------------------------------+--------------------------+--------------+--------+-------+--------------+<br></code></pre></td></tr></table></figure>
+
+
+
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/zfb.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/wx.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/29/openstack%E4%B9%8BDesignate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack之Designate组件，入门级安装（快速）</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          小叶的技术Logs
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://example.com/2022/04/29/openstack之Designate组件，入门级安装（快速）/" title="openstack之Designate组件，入门级安装（快速）" target="_blank">http://example.com/2022/04/29/openstack之Designate组件，入门级安装（快速）/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/04/29/openstack%E4%B9%8BDesignate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" class="archive-article-date">
-        <time datetime="2022-04-25T13:39:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-25</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Istio实际操作篇,Istio入门10分钟快速安装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" target="_blank">Istio实际操作篇,Istio入门10分钟快速安装</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E6%8F%90%E5%87%86%E5%A4%87"><span class="toc-number">2.1.</span> <span class="toc-text">前提准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E7%BB%84%E4%BB%B6"><span class="toc-number">2.2.</span> <span class="toc-text">安装和配置组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E6%93%8D%E4%BD%9C"><span class="toc-number">2.3.</span> <span class="toc-text">验证操作</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" class="archive-article-date">
-        <time datetime="2022-04-22T11:27:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" target="_blank">Istio是什么？ 还不知道你就out了,一文40分钟快速理解</a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2022-04-20T00:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank">代理是什么？nginx快速入门+反向代理hexo个人博客</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/" class="archive-article-date">
-        <time datetime="2022-04-17T09:24:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-17</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/" target="_blank">没接触过kubevirt？15分钟快速入门kubevirt</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" class="archive-article-date">
-        <time datetime="2022-04-16T10:05:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" target="_blank">还不会搭建博客吗？centos7系统部署hexo博客新手入门-进阶，看这一篇就够了</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "openstack之Designate组件，入门级安装（快速）" -->
+  var giteement = new Giteement({
+    id: '20220429221047',
+    owner: 'yjcadmin',
+    repo: 'yilia-plus-demo',
+    backcall_uri: 'http://139.155.25.211',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '2aff0fdfef5fd6c52d0f290d75f06142b8c25e67523f07f59b068c3eb1e0d13c',
+      client_secret: '1c4f03b26a83eaaa8972b92a695f666ae01b5d2a5aaa30d883dca62e96a489a3'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
+
+
+
+
+
+
 
 
           </div>
@@ -461,8 +566,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
