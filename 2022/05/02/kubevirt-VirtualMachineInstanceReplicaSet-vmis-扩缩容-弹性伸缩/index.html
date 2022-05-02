@@ -6,23 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Istio实际操作篇,Istio入门10分钟快速安装 | My World</title>
+  <title>kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩 | My World</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="前言上一篇讲了什么是Istio的理论篇，这次我们就来实际操作。 想看上一篇理论篇的看这里（看完绝对有所收获）：[Istio是什么？] 还不知道你就out了,一文40分钟快速理解_小叶的技术Logs的博客-CSDN博客">
+  <meta name="description" content="@TOC 概述&#x2F;理解VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。也可以借助HorizontalPod">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Istio实际操作篇,Istio入门10分钟快速安装">
-<meta property="og:url" content="http://example.com/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:title" content="kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩">
+<meta property="og:url" content="http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/index.html">
 <meta property="og:site_name" content="My World">
-<meta property="og:description" content="前言上一篇讲了什么是Istio的理论篇，这次我们就来实际操作。 想看上一篇理论篇的看这里（看完绝对有所收获）：[Istio是什么？] 还不知道你就out了,一文40分钟快速理解_小叶的技术Logs的博客-CSDN博客">
+<meta property="og:description" content="@TOC 概述&#x2F;理解VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。也可以借助HorizontalPod">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/37af7e311e3d49719b3f2002baeaa497.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5bCP5Y-255qE5oqA5pyvTG9ncw==,size_20,color_FFFFFF,t_70,g_se,x_16">
-<meta property="article:published_time" content="2022-04-25T13:39:21.000Z">
-<meta property="article:modified_time" content="2022-04-25T13:40:42.458Z">
+<meta property="article:published_time" content="2022-05-02T14:49:34.000Z">
+<meta property="article:modified_time" content="2022-05-02T14:50:56.885Z">
 <meta property="article:author" content="小叶的技术Logs">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/37af7e311e3d49719b3f2002baeaa497.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5bCP5Y-255qE5oqA5pyvTG9ncw==,size_20,color_FFFFFF,t_70,g_se,x_16">
   
     <link rel="alternative" href="/atom.xml" title="My World" type="application/atom+xml">
   
@@ -217,14 +215,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Istio实际操作篇-Istio入门10分钟快速安装" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Istio实际操作篇,Istio入门10分钟快速安装
+      kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩
     </h1>
   
 
@@ -236,8 +234,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" class="archive-article-date">
-        <time datetime="2022-04-25T13:39:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-25</time>
+<a href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" class="archive-article-date">
+        <time datetime="2022-05-02T14:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
 </a>
 
   
@@ -250,7 +248,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">850字</span>
+      <span class="post-count">847字</span>
     </span>
   </span>
 
@@ -270,68 +268,36 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇讲了什么是Istio的理论篇，这次我们就来实际操作。</p>
-<p>想看上一篇理论篇的看这里（看完绝对有所收获）：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124347864">[Istio是什么？] 还不知道你就out了,一文40分钟快速理解_小叶的技术Logs的博客-CSDN博客</a></p>
+    <p>@<a href="%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95">TOC</a></p>
+<h2 id="概述-x2F-理解"><a href="#概述-x2F-理解" class="headerlink" title="概述&#x2F;理解"></a>概述&#x2F;理解</h2><p>VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。<br>我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。<br>也可以借助HorizontalPodAutoscaler（hpa）实现弹性伸缩。这里我们就说vmis控制器，在这里的vmis控制器，管理我们vmi虚拟机实例的副本数，也可以实现扩缩容，借助hpa实现弹性伸缩。所有我们的yaml文件写法原理都类似。</p>
 <span id="more"></span>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>当需要许多相同的虚拟机，并且不关心在虚拟机终止后任何磁盘状态时。<br><br></p>
+<h2 id="创建vmis"><a href="#创建vmis" class="headerlink" title="创建vmis"></a>创建vmis</h2><ol>
+<li>编写vmis的yaml文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># cat vmis.yaml</span><br>apiVersion: kubevirt.io/v1alpha3<br>kind: VirtualMachineInstanceReplicaSet<br>metadata:<br>  name: testreplicaset<br>spec:<br>  replicas: 2<br>  selector:<br>    matchLabels:<br>      myvmi: myvmi  <span class="hljs-comment"># 保持一致，选择</span><br>  template:<br>    metadata:<br>      labels:<br>        myvmi: myvmi <span class="hljs-comment"># 保持一致，匹配</span><br>    spec:<br>      domain:<br>        devices:<br>          disks:<br>          - name: containerdisk<br>            disk:<br>              bus: virtio<br>        resources:<br>          requests:<br>            memory: 1024M<br>      volumes:<br>      - name: containerdisk<br>        containerDisk:<br>          image: centos7<br>          imagePullPolicy: IfNotPresent<br></code></pre></td></tr></table></figure></li>
+<li>使用kubectl命令创建vmis<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl apply -f vmis.yaml</span><br>virtualmachineinstancereplicaset.kubevirt.io/testreplicaset created<br></code></pre></td></tr></table></figure></li>
+<li>查看运行状态<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl get vmis</span><br>NAME                  AGE   PHASE        IP             NODENAME   READY<br>testreplicaset6vm9s   42s   Running      10.244.0.139   master     False<br>testreplicaset8dshm   22s   Scheduling                             False<br>testreplicasetbqxnb   22s   Scheduling                             False<br>[root@master vm]<span class="hljs-comment"># kubectl get vmis</span><br>NAME                  AGE   PHASE     IP             NODENAME   READY<br>testreplicaset8dshm   46s   Running   10.244.0.141   master     False<br>testreplicasetbqxnb   46s   Running   10.244.0.140   master     False<br>[root@master vm]<span class="hljs-comment"># kubectl get pod</span><br>NAME                                      READY   STATUS    RESTARTS   AGE<br>virt-launcher-testreplicaset8dshm-nz7x2   2/2     Running   0          69s<br>virt-launcher-testreplicasetbqxnb-ljp2f   2/2     Running   0          70s<br></code></pre></td></tr></table></figure></li>
+<li>describe 查看详细信息</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl describe vmirs testreplicaset</span><br>Name:         testreplicaset<br>Namespace:    default<br>Labels:       &lt;none&gt;<br>Annotations:  kubevirt.io/latest-observed-api-version: v1<br>              kubevirt.io/storage-observed-api-version: v1alpha3<br>API Version:  kubevirt.io/v1<br>Kind:         VirtualMachineInstanceReplicaSet<br>Metadata:<br>  Creation Timestamp:  2022-05-02T13:50:05Z<br>  Generation:          2<br>  Managed Fields:<br>    API Version:  kubevirt.io/v1alpha3<br>    Fields Type:  FieldsV1<br>    fieldsV1:<br>      f:metadata:<br>        f:annotations:<br>          f:kubevirt.io/latest-observed-api-version:<br>          f:kubevirt.io/storage-observed-api-version:<br>      f:spec:<br>        f:template:<br>          f:metadata:<br>            f:creationTimestamp:<br>      f:status:<br>        .:<br>        f:labelSelector:<br>        f:replicas:<br>    Manager:      Go-http-client<br>    Operation:    Update<br>    Time:         2022-05-02T13:50:05Z<br>    API Version:  kubevirt.io/v1alpha3<br>    Fields Type:  FieldsV1<br>    fieldsV1:<br>      f:metadata:<br>        f:annotations:<br> ...<br> ...<br>                  .:<br>                  f:memory:<br>            f:volumes:<br>    Manager:         kubectl<br>    Operation:       Update<br>    Time:            2022-05-02T13:50:05Z<br>  Resource Version:  267261<br>  Self Link:         /apis/kubevirt.io/v1/namespaces/default/virtualmachineinstancereplicasets/testreplicaset<br>  UID:               96d17d12-17b5-4df7-940a-fac7c6b820d2<br>Spec:<br>  Replicas:  2<br>  Selector:<br>    Match Labels:<br>      Myvmi:  myvmi<br>  Template:<br>    Metadata:<br>      Creation Timestamp:  &lt;nil&gt;<br>      Labels:<br>        Myvmi:  myvmi<br>    Spec:<br>      Domain:<br>        Devices:<br>          Disks:<br>            Disk:<br>              Bus:  virtio<br>            Name:   containerdisk<br>        Resources:<br>          Requests:<br>            Memory:  1024M<br>      Volumes:<br>        Container Disk:<br>          Image:              kubevirt/cirros-container-disk-demo<br>          Image Pull Policy:  IfNotPresent<br>        Name:                 containerdisk<br>Status:<br>  Label Selector:  myvmi=myvmi<br>  Replicas:        2<br>Events:<br>  Type    Reason            Age    From                                 Message<br>  ----    ------            ----   ----                                 -------<br>  Normal  SuccessfulCreate  5m21s  virtualmachinereplicaset-controller  Started the virtual machine by creating the new virtual machine instance testreplicaseth6zsl<br>  Normal  SuccessfulCreate  5m21s  virtualmachinereplicaset-controller  Started the virtual machine by creating the new virtual machine instance testreplicasetw75s4<br></code></pre></td></tr></table></figure>
+<h3 id="扩缩容"><a href="#扩缩容" class="headerlink" title="扩缩容"></a>扩缩容</h3><ol>
+<li>查看vmis<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl get -f vmis.yaml</span><br>NAME             DESIRED   CURRENT   READY   AGE<br>testreplicaset   3         3                 2m52s<br></code></pre></td></tr></table></figure></li>
+<li>使用scale命令，设置副本数为5<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl scale vmirs testreplicaset --replicas 5</span><br>virtualmachineinstancereplicaset.kubevirt.io/testreplicaset scaled<br></code></pre></td></tr></table></figure></li>
+<li>查看效果</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl get vmis</span><br>NAME                  AGE     PHASE     IP             NODENAME   READY<br>testreplicaset98x8d   5m29s   Running   10.244.0.146   master     False<br>testreplicasetddqc9   2m24s   Running   10.244.0.148   master     False<br>testreplicasetdss8l   5m29s   Running   10.244.0.144   master     False<br>testreplicasetmhm6x   5m29s   Running   10.244.0.145   master     False<br>testreplicasetv4dzs   2m24s   Running   10.244.0.147   master     False<br><br>[root@master vm]<span class="hljs-comment"># kubectl get pod</span><br>NAME                                      READY   STATUS    RESTARTS   AGE<br>virt-launcher-testreplicaset98x8d-5p99p   2/2     Running   0          3m15s<br>virt-launcher-testreplicasetddqc9-6c2m4   2/2     Running   0          10s<br>virt-launcher-testreplicasetdss8l-9mv56   2/2     Running   0          3m15s<br>virt-launcher-testreplicasetmhm6x-r76wt   2/2     Running   0          3m15s<br>virt-launcher-testreplicasetv4dzs-bm4s8   2/2     Running   0          10s<br></code></pre></td></tr></table></figure>
+
+<h3 id="弹性伸缩"><a href="#弹性伸缩" class="headerlink" title="弹性伸缩"></a>弹性伸缩</h3><h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><ol>
+<li>使用Horizo​​ntal Pod Autoscaler（hpa），创建yaml文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># cat vmis-hpa.yaml</span><br>apiVersion: autoscaling/v1<br>kind: HorizontalPodAutoscaler<br>metadata:<br>  creationTimestamp: null<br>  name: testreplicaset<br>spec:<br>  maxReplicas: 5<br>  minReplicas: 2<br>  scaleTargetRef:<br>    apiVersion: kubevirt.io/v1<br>    kind: VirtualMachineInstanceReplicaSet<br>    name: testreplicaset<br></code></pre></td></tr></table></figure></li>
+<li>创建vmis-hpa<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl apply -f vmis-hpa.yaml</span><br>horizontalpodautoscaler.autoscaling/testreplicaset created<br></code></pre></td></tr></table></figure></li>
+<li>查看状态</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl get hpa</span><br>NAME             REFERENCE                                         TARGETS         MINPODS   MAXPODS   REPLICAS   AGE<br>testreplicaset   VirtualMachineInstanceReplicaSet/testreplicaset   &lt;unknown&gt;/80%   2         5         0          7s<br></code></pre></td></tr></table></figure>
+<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><ol>
+<li>使用<code>kubectl autoscale</code>命令</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl autoscale vmirs testreplicaset --min=2 --max=5</span><br></code></pre></td></tr></table></figure>
 
 
-<h2 id="本文说明-请大家务必查看"><a href="#本文说明-请大家务必查看" class="headerlink" title="本文说明   请大家务必查看"></a>本文说明   <code>请大家务必查看</code></h2><p>本文有两个版本，<strong>详细版、简洁版</strong>。</p>
-<p>前者适合新手，后者适合老手<strong>（方便大家查找，从而过滤掉某些步骤，节约时间成本）</strong> 所以大家按需查看哟。</p>
-<table>
-<thead>
-<tr>
-<th>详细版</th>
-<th>简洁版</th>
-</tr>
-</thead>
-</table>
-<p><strong>简洁版</strong>：包含所有步骤，以及命令的执行过程（适合新手）</p>
-<p><strong>简洁版</strong>：只包含命令（适合有一定熟练度的人）<br><br></p>
-<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><hr>
-<table>
-<thead>
-<tr>
-<th align="center">系统</th>
-<th align="center">Vcpu</th>
-<th align="center">Memory</th>
-<th>集群</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">centos7</td>
-<td align="center">2</td>
-<td align="center">8</td>
-<td>kubernetes</td>
-</tr>
-</tbody></table>
-<h2 id="详细版"><a href="#详细版" class="headerlink" title="详细版"></a>详细版<br></h2><h3 id="入门：搭建步骤"><a href="#入门：搭建步骤" class="headerlink" title="入门：搭建步骤"></a>入门：搭建步骤</h3><h4 id="Istio软件包下载"><a href="#Istio软件包下载" class="headerlink" title="Istio软件包下载"></a>Istio软件包下载</h4><p> <strong>安装最新软件包</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ curl -L https://istio.io/downloadIstio | sh -  <span class="hljs-comment"># 安装最新软件包</span><br></code></pre></td></tr></table></figure>
-<p>这一条命令如果下载不下来，可以直接访问下载地址：<a target="_blank" rel="noopener" href="https://github.com/istio/istio/releases/">Istio下载</a></p>
-<p>挑选对应的istio版本、下载对应的压缩文件，如图所示：<br><code>注意：Istio1.13.3版本，要求kubernetes最低集群版是1.19</code><br><img src="https://img-blog.csdnimg.cn/37af7e311e3d49719b3f2002baeaa497.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5bCP5Y-255qE5oqA5pyvTG9ncw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><strong>解压软件包：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master istio]<span class="hljs-comment"># ll</span><br>total 22704<br>-rw-r--r-- 1 root root 23245765 Apr 23 10:39 istio-1.12.3-linux-amd64.tar.gz<br>[root@master istio]<span class="hljs-comment"># tar -vzxf istio-1.12.3-linux-amd64.tar.gz</span><br>istio-1.12.3/<br>istio-1.12.3/manifest.yaml<br>istio-1.12.3/bin/<br>istio-1.12.3/bin/istioctl<br>istio-1.12.3/manifests/<br>istio-1.12.3/manifests/examples/<br>istio-1.12.3/manifests/examples/customresource/<br>istio-1.12.3/manifests/examples/customresource/istio_v1alpha1_istiooperator_cr.yaml<br>istio-1.12.3/manifests/examples/user-gateway/<br><br></code></pre></td></tr></table></figure>
-<p><strong>安装目录包含：</strong></p>
-<ul>
-<li>samples&#x2F; 目录下的示例应用程序</li>
-<li>bin&#x2F; 目录下的 istioctl 客户端二进制文件 .</li>
-</ul>
-<p><strong>配置环境变量：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master istio]<span class="hljs-comment"># cat /etc/profile</span><br><span class="hljs-built_in">export</span> ISTIO_HOME=/root/istio/istio-1.12.3  <br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$ISTIO_HOME</span>/bin<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master istio]<span class="hljs-comment"># istioctl version</span><br>client version: 1.12.3<br>control plane version: 1.12.3<br>data plane version: 1.12.3 (10 proxies)<br></code></pre></td></tr></table></figure>
-
-<h3 id="下载Istio"><a href="#下载Istio" class="headerlink" title="下载Istio"></a>下载Istio</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master ~]<span class="hljs-comment"># istioctl install --set profile=demo -y</span><br>Detected that your cluster does not support third party JWT authentication. Falling back to less secure first party JWT. See https://istio.io/v1.12/docs/ops/best-practices/security/<span class="hljs-comment">#configure-third-party-service-account-tokens for details.</span><br>! values.global.jwtPolicy is deprecated; use Values.global.jwtPolicy=third-party-jwt. See http://istio.io/latest/docs/ops/best-practices/security/<span class="hljs-comment">#configure-third-party-service-account-tokens for more information instead</span><br>WARNING: Istio control planes installed: 1.13.3.<br>WARNING: An older installed version of Istio has been detected. Running this <span class="hljs-built_in">command</span> will overwrite it.<br>✔ Istio core installed<br>✔ Istiod installed<br>✔ Egress gateways installed<br>✔ Ingress gateways installed<br>✔ Installation complete                                                                                                         Making this installation the default <span class="hljs-keyword">for</span> injection and validation.<br><br>Thank you <span class="hljs-keyword">for</span> installing Istio 1.12.  Please take a few minutes to tell us about your install/upgrade experience!  https://forms.gle/FegQbc9UvePd4Z9z7<br></code></pre></td></tr></table></figure>
-<p><strong>自动注入 Envoy 边车代理</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master ~]<span class="hljs-comment">#  kubectl label namespace default istio-injection=enabled</span><br>namespace/default labeled<br></code></pre></td></tr></table></figure>
-
-
-<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p>完整卸载 Istio</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master istio]<span class="hljs-comment"># istioctl x uninstall --purge</span><br>All Istio resources will be pruned from the cluster<br>Proceed? (y/N) y<br>  Removed IstioOperator:istio-system:installed-state.<br>  Removed PodDisruptionBudget:istio-system:istio-egressgateway.<br>  Removed PodDisruptionBudget:istio-system:istio-ingressgateway.<br>  Removed PodDisruptionBudget:istio-system:istiod.<br>  Removed Deployment:istio-system:istio-egressgateway.<br>  Removed Deployment:istio-system:istio-ingressgateway.<br>  Removed Deployment:istio-system:istiod.<br>  Removed Service:istio-system:istio-egressgateway.<br>  Removed Service:istio-system:istio-ingressgateway.<br>  Removed Service:istio-system:istiod.<br>  Removed ConfigMap:istio-system:istio.<br>  Removed ConfigMap:istio-system:istio-sidecar-injector.<br>  Removed Pod:istio-system:istio-egressgateway-6b69dfb9f8-x7zwb.<br>  Removed Pod:istio-system:istio-ingressgateway-7484f57fd6-hrjjt.<br>  Removed Pod:istio-system:istiod-7989b7749b-rmslt.<br></code></pre></td></tr></table></figure>
-
-
-<h2 id="简洁版"><a href="#简洁版" class="headerlink" title="简洁版"></a>简洁版</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master istio]<span class="hljs-comment"># curl -L https://istio.io/downloadIstio | sh -</span><br>[root@master istio]<span class="hljs-comment"># tar -vzxf istio-1.12.3-linux-amd64.tar.gz</span><br>[root@master istio]<span class="hljs-comment"># cat /etc/profile</span><br><span class="hljs-built_in">export</span> ISTIO_HOME=/root/istio/istio-1.12.3  <br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$ISTIO_HOME</span>/bin<br>[root@master ~]<span class="hljs-comment"># istioctl install --set profile=demo -y</span><br>[root@master istio]<span class="hljs-comment"># kubectl label namespace default istio-injection=enabled</span><br><br></code></pre></td></tr></table></figure>
-<h3 id="卸载-1"><a href="#卸载-1" class="headerlink" title="卸载"></a>卸载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master istio]<span class="hljs-comment"># istioctl x uninstall --purge</span><br></code></pre></td></tr></table></figure>
-
-<h1 id="学习不走弯路，gz号「yeTechLog」"><a href="#学习不走弯路，gz号「yeTechLog」" class="headerlink" title="学习不走弯路，gz号「yeTechLog」"></a>学习不走弯路，gz号「yeTechLog」</h1>
     
 
     
@@ -377,7 +343,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://example.com/2022/04/25/Istio实际操作篇-Istio入门10分钟快速安装/" title="Istio实际操作篇,Istio入门10分钟快速安装" target="_blank">http://example.com/2022/04/25/Istio实际操作篇-Istio入门10分钟快速安装/</a>
+          <a href="http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩/" title="kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩" target="_blank">http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩/</a>
         </li>
         
         <li>
@@ -444,7 +410,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -459,18 +425,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          openstack-Designate组件，入门级安装（快速）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Istio是什么？ 还不知道你就out了,一文40分钟快速理解</div>
+    <a href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">openstack-cloudkitty组件，入门级安装（快速）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -497,8 +454,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%96%87%E8%AF%B4%E6%98%8E-%E8%AF%B7%E5%A4%A7%E5%AE%B6%E5%8A%A1%E5%BF%85%E6%9F%A5%E7%9C%8B"><span class="toc-number">2.</span> <span class="toc-text">本文说明   请大家务必查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">3.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E7%BB%86%E7%89%88"><span class="toc-number">4.</span> <span class="toc-text">详细版
-</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A5%E9%97%A8%EF%BC%9A%E6%90%AD%E5%BB%BA%E6%AD%A5%E9%AA%A4"><span class="toc-number">4.1.</span> <span class="toc-text">入门：搭建步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Istio%E8%BD%AF%E4%BB%B6%E5%8C%85%E4%B8%8B%E8%BD%BD"><span class="toc-number">4.1.1.</span> <span class="toc-text">Istio软件包下载</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDIstio"><span class="toc-number">4.2.</span> <span class="toc-text">下载Istio</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD"><span class="toc-number">5.</span> <span class="toc-text">卸载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E6%B4%81%E7%89%88"><span class="toc-number">6.</span> <span class="toc-text">简洁版</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">6.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD-1"><span class="toc-number">6.2.</span> <span class="toc-text">卸载</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E4%B8%8D%E8%B5%B0%E5%BC%AF%E8%B7%AF%EF%BC%8Cgz%E5%8F%B7%E3%80%8CyeTechLog%E3%80%8D"><span class="toc-number"></span> <span class="toc-text">学习不走弯路，gz号「yeTechLog」</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-x2F-%E7%90%86%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">概述&#x2F;理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAvmis"><span class="toc-number">3.</span> <span class="toc-text">创建vmis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E7%BC%A9%E5%AE%B9"><span class="toc-number">3.1.</span> <span class="toc-text">扩缩容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9"><span class="toc-number">3.2.</span> <span class="toc-text">弹性伸缩</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%951"><span class="toc-number">3.2.1.</span> <span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%952"><span class="toc-number">3.2.2.</span> <span class="toc-text">方法2</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -522,9 +478,9 @@
     <script src="/lib/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "Istio实际操作篇,Istio入门10分钟快速安装" -->
+  <!-- id: "kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩" -->
   var giteement = new Giteement({
-    id: '20220425213921',
+    id: '20220502224934',
     owner: 'yjcadmin',
     repo: 'yilia-plus-demo',
     backcall_uri: 'http://139.155.25.211',
