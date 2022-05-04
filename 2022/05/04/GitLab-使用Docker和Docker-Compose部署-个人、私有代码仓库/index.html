@@ -6,19 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022 | My World</title>
+  <title>GitLab--使用Docker和Docker-Compose部署-个人、私有代码仓库 | My World</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="this is a blog.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="My World">
-<meta property="og:url" content="http://example.com/archives/2022/index.html">
+  <meta name="description" content="概述GitLab 是一个用于仓库管理系统的开源项目，使用Git作为代码管理工具，并在此基础上搭建起来的Web服务。GitLab和GitHub一样是仓库管理系统，不一样的是GitLab可以自己搭建，自己或企业内部使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitLab--使用Docker和Docker-Compose部署-个人、私有代码仓库">
+<meta property="og:url" content="http://example.com/2022/05/04/GitLab-%E4%BD%BF%E7%94%A8Docker%E5%92%8CDocker-Compose%E9%83%A8%E7%BD%B2-%E4%B8%AA%E4%BA%BA%E3%80%81%E7%A7%81%E6%9C%89%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/index.html">
 <meta property="og:site_name" content="My World">
-<meta property="og:description" content="this is a blog.">
+<meta property="og:description" content="概述GitLab 是一个用于仓库管理系统的开源项目，使用Git作为代码管理工具，并在此基础上搭建起来的Web服务。GitLab和GitHub一样是仓库管理系统，不一样的是GitLab可以自己搭建，自己或企业内部使用。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6f2259a058124dd08325470e52f73220.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/992811ecb939494c92aed90fa9f30293.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c05b1a3d266f414ba32861b91debe359.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fc17d6a8bcfc441fbe43cd42eca0ae6e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/97aee55f2edb4b7c93acaf38eeaaa793.png">
+<meta property="article:published_time" content="2022-05-04T12:12:13.000Z">
+<meta property="article:modified_time" content="2022-05-04T12:12:44.161Z">
 <meta property="article:author" content="小叶的技术Logs">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/6f2259a058124dd08325470e52f73220.png">
   
     <link rel="alternative" href="/atom.xml" title="My World" type="application/atom+xml">
   
@@ -213,342 +221,348 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-GitLab-使用Docker和Docker-Compose部署-个人、私有代码仓库" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/04/%E5%AE%B9%E5%99%A8-docker-comopse%E5%AE%89%E8%A3%85-%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/" class="archive-article-date">
-        <time datetime="2022-05-04T12:13:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-04</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/04/%E5%AE%B9%E5%99%A8-docker-comopse%E5%AE%89%E8%A3%85-%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/" target="_blank">容器--docker-comopse安装+案例练习</a>
   
+    <h1 class="article-title" itemprop="name">
+      GitLab--使用Docker和Docker-Compose部署-个人、私有代码仓库
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2022/05/04/GitLab-%E4%BD%BF%E7%94%A8Docker%E5%92%8CDocker-Compose%E9%83%A8%E7%BD%B2-%E4%B8%AA%E4%BA%BA%E3%80%81%E7%A7%81%E6%9C%89%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/" class="archive-article-date">
         <time datetime="2022-05-04T12:12:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-04</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">639字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>GitLab 是一个用于仓库管理系统的开源项目，使用Git作为代码管理工具，并在此基础上搭建起来的Web服务。<br>GitLab和GitHub一样是仓库管理系统，不一样的是GitLab可以自己搭建，自己或企业内部使用。</p>
+<span id="more"></span>
+<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><ul>
+<li>Linux系统</li>
+<li>docker</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124575551?csdn_share_tail=%7B%22type%22:%22blog%22,%22rType%22:%22article%22,%22rId%22:%22124575551%22,%22source%22:%22qq_48450494%22%7D&ctrtid=JPx9C">docker-compose</a></li>
+</ul>
+<h1 id="硬件要求"><a href="#硬件要求" class="headerlink" title="硬件要求"></a>硬件要求</h1><p><strong>CPU</strong></p>
+<ul>
+<li><strong>4 核</strong>是<strong>推荐</strong>的最小核数，最多支持 500 个用户</li>
+<li>8核最多支持1000个用户</li>
+</ul>
+<p><strong>RAM</strong></p>
+<ul>
+<li>4GB RAM是所需的最小内存大小，最多可支持 500 个用户</li>
+<li>8GB RAM 支持多达 1000 个用户</li>
+</ul>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>GitLab Docker 镜像可以以多种方式运行：这里介绍前面2种</p>
+<ul>
+<li>使用 Docker 引擎</li>
+<li>使用 Docker-compose</li>
+<li>使用 Docker swarm集群模式</li>
+</ul>
+<h2 id="1-docker引擎安装gitlab"><a href="#1-docker引擎安装gitlab" class="headerlink" title="1.docker引擎安装gitlab"></a>1.docker引擎安装gitlab</h2><ul>
+<li><p>拉取镜像，目前2022年5月，gitlab&#x2F;gitlab-ce最新版docker镜像2.36GB（有点大可以提前下载）<br><img src="https://img-blog.csdnimg.cn/6f2259a058124dd08325470e52f73220.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>下载并启动 GitLab 容器，并发布访问 SSH、HTTP 和 HTTPS 所需的端口。所有 GitLab 数据都将存储为 &#x2F;mydata&#x2F;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run --detach \<br>  --hostname gitlab.admin.com \<br>  --publish 1443:443 --publish 81:80 --publish 1022:22 \<br>  --name gitlab \<br>  --restart always \<br>  --volume /mydata/config:/etc/gitlab \<br>  --volume /mydata/logs:/var/log/gitlab \<br>  --volume /mydata/data:/var/opt/gitlab \<br>  gitlab/gitlab-ce:latest<br></code></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="left">本地位置</th>
+<th align="left">容器位置</th>
+<th align="left">用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>/mydata/data</code></td>
+<td align="left"><code>/var/opt/gitlab</code></td>
+<td align="left">用于存储应用程序数据</td>
+</tr>
+<tr>
+<td align="left"><code>/mydata/logs</code></td>
+<td align="left"><code>/var/log/gitlab</code></td>
+<td align="left">用于存储日志</td>
+</tr>
+<tr>
+<td align="left"><code>/mydata/config</code></td>
+<td align="left"><code>/etc/gitlab</code></td>
+<td align="left">用于存储 GitLab 配置文件</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>GitLab初始化启动过程需要很长时间，您可以通过logs方式跟踪此过程：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker logs -ft gitlab<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>启动容器后，浏览器访问gitlab.admin.com:81，这里如果域名没做hosts映射的话，请使用ip地址：<code>192.168.200.11:81</code>。<br><img src="https://img-blog.csdnimg.cn/992811ecb939494c92aed90fa9f30293.png" alt="**插入图片**"></li>
+<li>这里GitLab 默认创建root用户和密码，<code>root用户 密码查询</code>：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker <span class="hljs-built_in">exec</span> -it gitlab grep <span class="hljs-string">&#x27;Password:&#x27;</span> /etc/gitlab/initial_root_password<br></code></pre></td></tr></table></figure></li>
+<li>输入root用户（管理员）和密码登录：<br><img src="https://img-blog.csdnimg.cn/c05b1a3d266f414ba32861b91debe359.png" alt="在这里插入图片描述"></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/fc17d6a8bcfc441fbe43cd42eca0ae6e.png" alt="在这里插入图片描述"></p>
+<h2 id="2-使用-Docker-Compose-安装-GitLab—-compose案例看这里！！"><a href="#2-使用-Docker-Compose-安装-GitLab—-compose案例看这里！！" class="headerlink" title="2.使用 Docker Compose 安装 GitLab—**(compose案例看这里！！)*"></a>2.使用 Docker Compose 安装 GitLab—**(compose案例看这里！！)*</h2><p>使用<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124575551?csdn_share_tail=%7B%22type%22:%22blog%22,%22rType%22:%22article%22,%22rId%22:%22124575551%22,%22source%22:%22qq_48450494%22%7D&ctrtid=JPx9C">Docker Compose</a>，您可以轻松配置、安装和升级 GitLab ：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124575551?csdn_share_tail=%7B%22type%22:%22blog%22,%22rType%22:%22article%22,%22rId%22:%22124575551%22,%22source%22:%22qq_48450494%22%7D&ctrtid=JPx9C">安装 Docker Compose</a></li>
+<li>创建<code>docker-compose.yml</code>文件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">version: <span class="hljs-string">&#x27;3.6&#x27;</span><br>services:<br>  web:<br>    image: <span class="hljs-string">&#x27;gitlab/gitlab-ce:latest&#x27;</span><br>    restart: always<br>    hostname: <span class="hljs-string">&#x27;gitlab.admin.com&#x27;</span><br>    ports:<br>      - <span class="hljs-string">&#x27;82:80&#x27;</span><br>      - <span class="hljs-string">&#x27;10443:443&#x27;</span><br>      - <span class="hljs-string">&#x27;11022:22&#x27;</span><br>    volumes:<br>      - <span class="hljs-string">&#x27;/mydata-2/config:/etc/gitlab&#x27;</span><br>      - <span class="hljs-string">&#x27;/mydata-2/logs:/var/log/gitlab&#x27;</span><br>      - <span class="hljs-string">&#x27;/mydata-2/data:/var/opt/gitlab&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>确保您<code>docker-compose.yml</code>与启动 GitLab 位于同一目录中：</li>
+</ol>
+<ul>
+<li>后台启动compose<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker-compose up -d<br></code></pre></td></tr></table></figure></li>
+<li>查看状态<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master cicd]<span class="hljs-comment"># docker-compose ps</span><br>   Name          Command          State                                     Ports<br>---------------------------------------------------------------------------------------------------------------<br>cicd_web_1   /assets/wrapper   Up (healthy)   0.0.0.0:11022-&gt;22/tcp, 0.0.0.0:10443-&gt;443/tcp, 0.0.0.0:82-&gt;80/tcp<br><br></code></pre></td></tr></table></figure></li>
+<li>浏览器访问登录<br><img src="https://img-blog.csdnimg.cn/97aee55f2edb4b7c93acaf38eeaaa793.png" alt="在这里插入图片描述"></li>
+</ul>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/zfb.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/wx.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/04/GitLab-%E4%BD%BF%E7%94%A8Docker%E5%92%8CDocker-Compose%E9%83%A8%E7%BD%B2-%E4%B8%AA%E4%BA%BA%E3%80%81%E7%A7%81%E6%9C%89%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/" target="_blank">GitLab--使用Docker和Docker-Compose部署-个人、私有代码仓库</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          小叶的技术Logs
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://example.com/2022/05/04/GitLab-使用Docker和Docker-Compose部署-个人、私有代码仓库/" title="GitLab--使用Docker和Docker-Compose部署-个人、私有代码仓库" target="_blank">http://example.com/2022/05/04/GitLab-使用Docker和Docker-Compose部署-个人、私有代码仓库/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/04/GitLab-%E4%BD%BF%E7%94%A8Docker%E5%92%8CDocker-Compose%E9%83%A8%E7%BD%B2-%E4%B8%AA%E4%BA%BA%E3%80%81%E7%A7%81%E6%9C%89%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" class="archive-article-date">
-        <time datetime="2022-05-02T14:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/2022/05/04/%E5%AE%B9%E5%99%A8-docker-comopse%E5%AE%89%E8%A3%85-%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          容器--docker-comopse安装+案例练习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" target="_blank">kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E8%A6%81%E6%B1%82"><span class="toc-number">3.</span> <span class="toc-text">硬件要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">4.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-docker%E5%BC%95%E6%93%8E%E5%AE%89%E8%A3%85gitlab"><span class="toc-number">4.1.</span> <span class="toc-text">1.docker引擎安装gitlab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8-Docker-Compose-%E5%AE%89%E8%A3%85-GitLab%E2%80%94-compose%E6%A1%88%E4%BE%8B%E7%9C%8B%E8%BF%99%E9%87%8C%EF%BC%81%EF%BC%81"><span class="toc-number">4.2.</span> <span class="toc-text">2.使用 Docker Compose 安装 GitLab—**(compose案例看这里！！)*</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
-        <time datetime="2022-05-02T13:21:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-cloudkitty组件，入门级安装（快速）</a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
-        <time datetime="2022-04-29T14:10:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-Designate组件，入门级安装（快速）</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" class="archive-article-date">
-        <time datetime="2022-04-25T13:39:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-25</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" target="_blank">Istio实际操作篇,Istio入门10分钟快速安装</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" class="archive-article-date">
-        <time datetime="2022-04-22T11:27:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" target="_blank">Istio是什么？ 还不知道你就out了,一文40分钟快速理解</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2022-04-20T00:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank">代理是什么？nginx快速入门+反向代理hexo个人博客</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+  <div id="giteement-ctn"></div>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/" class="archive-article-date">
-        <time datetime="2022-04-17T09:24:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-17</time>
-</a>
-
-        </div>
-    	 
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/" target="_blank">没接触过kubevirt？15分钟快速入门kubevirt</a>
-  
-    </h1>
-  
+  <script>
+  <!-- id: "GitLab--使用Docker和Docker-Compose部署-个人、私有代码仓库" -->
+  var giteement = new Giteement({
+    id: '20220504201213',
+    owner: 'yjcadmin',
+    repo: 'yilia-plus-demo',
+    backcall_uri: 'http://139.155.25.211',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '2aff0fdfef5fd6c52d0f290d75f06142b8c25e67523f07f59b068c3eb1e0d13c',
+      client_secret: '1c4f03b26a83eaaa8972b92a695f666ae01b5d2a5aaa30d883dca62e96a489a3'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" class="archive-article-date">
-        <time datetime="2022-04-16T10:05:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" target="_blank">还不会搭建博客吗？centos7系统部署hexo博客新手入门-进阶，看这一篇就够了</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
 
 
           </div>
@@ -589,8 +603,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

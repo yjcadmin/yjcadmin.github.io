@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="@TOC 概述&#x2F;理解VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。也可以借助HorizontalPod">
+  <meta name="description" content="概述&#x2F;理解VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。也可以借助HorizontalPodAutos">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩">
 <meta property="og:url" content="http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/index.html">
 <meta property="og:site_name" content="My World">
-<meta property="og:description" content="@TOC 概述&#x2F;理解VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。也可以借助HorizontalPod">
+<meta property="og:description" content="概述&#x2F;理解VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。也可以借助HorizontalPodAutos">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-02T14:49:34.000Z">
-<meta property="article:modified_time" content="2022-05-02T14:50:56.885Z">
+<meta property="article:modified_time" content="2022-05-02T14:52:35.691Z">
 <meta property="article:author" content="小叶的技术Logs">
 <meta name="twitter:card" content="summary">
   
@@ -248,7 +248,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">847字</span>
+      <span class="post-count">846字</span>
     </span>
   </span>
 
@@ -268,8 +268,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>@<a href="%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95">TOC</a></p>
-<h2 id="概述-x2F-理解"><a href="#概述-x2F-理解" class="headerlink" title="概述&#x2F;理解"></a>概述&#x2F;理解</h2><p>VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。<br>我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。<br>也可以借助HorizontalPodAutoscaler（hpa）实现弹性伸缩。这里我们就说vmis控制器，在这里的vmis控制器，管理我们vmi虚拟机实例的副本数，也可以实现扩缩容，借助hpa实现弹性伸缩。所有我们的yaml文件写法原理都类似。</p>
+    <h2 id="概述-x2F-理解"><a href="#概述-x2F-理解" class="headerlink" title="概述&#x2F;理解"></a>概述&#x2F;理解</h2><p>VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。<br>我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。<br>也可以借助HorizontalPodAutoscaler（hpa）实现弹性伸缩。这里我们就说vmis控制器，在这里的vmis控制器，管理我们vmi虚拟机实例的副本数，也可以实现扩缩容，借助hpa实现弹性伸缩。所有我们的yaml文件写法原理都类似。</p>
 <span id="more"></span>
 <h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>当需要许多相同的虚拟机，并且不关心在虚拟机终止后任何磁盘状态时。<br><br></p>
 <h2 id="创建vmis"><a href="#创建vmis" class="headerlink" title="创建vmis"></a>创建vmis</h2><ol>
@@ -424,6 +423,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2022/05/04/GitLab-%E4%BD%BF%E7%94%A8Docker%E5%92%8CDocker-Compose%E9%83%A8%E7%BD%B2-%E4%B8%AA%E4%BA%BA%E3%80%81%E7%A7%81%E6%9C%89%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          GitLab--使用Docker和Docker-Compose部署-个人、私有代码仓库
+        
+      </div>
+    </a>
   
   
     <a href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
