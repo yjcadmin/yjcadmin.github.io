@@ -6,21 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩 | 叶子翻面</title>
+  <title>kuberneter-新版helm3的三大概念+快速指南+自定义charts模板 | 叶子翻面</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="概述&#x2F;理解VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。也可以借助HorizontalPodAutos">
+  <meta name="description" content="***&gt;个人博客地址 概述 Helm 是 Kubernetes 的包管理器  Helm的三大概念 chart：代表helm包，包含在 Kubernetes 集群内部运行应用程序，工具或服务所需的所有资源定义。 Repository（仓库）：用来存放和共享 charts 的地方。 Release ：运行在 Kubernetes 集群中的 chart 的实例，一个 chart 通常可以在同一个集">
 <meta property="og:type" content="article">
-<meta property="og:title" content="kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩">
-<meta property="og:url" content="http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/index.html">
+<meta property="og:title" content="kuberneter-新版helm3的三大概念+快速指南+自定义charts模板">
+<meta property="og:url" content="http://example.com/2022/05/06/kuberneter-helm%E4%B8%89%E5%A4%A7%E6%A6%82%E5%BF%B5-%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97-%E8%87%AA%E5%AE%9A%E4%B9%89charts%E6%A8%A1%E6%9D%BF/index.html">
 <meta property="og:site_name" content="叶子翻面">
-<meta property="og:description" content="概述&#x2F;理解VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。也可以借助HorizontalPodAutos">
+<meta property="og:description" content="***&gt;个人博客地址 概述 Helm 是 Kubernetes 的包管理器  Helm的三大概念 chart：代表helm包，包含在 Kubernetes 集群内部运行应用程序，工具或服务所需的所有资源定义。 Repository（仓库）：用来存放和共享 charts 的地方。 Release ：运行在 Kubernetes 集群中的 chart 的实例，一个 chart 通常可以在同一个集">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-05-02T14:49:34.000Z">
-<meta property="article:modified_time" content="2022-05-02T14:52:35.691Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b873085800d7439492dd82eef293ec72.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20cf9104fb4e424e8e2ba91a8f55db2d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/aa1e6c17f61a4718b87de677c5e6e862.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6a3ae0f589a844fcb60744c8e9d83706.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e6f1416b2e0748258d7d8cd80b9d4547.png">
+<meta property="article:published_time" content="2022-05-06T07:56:07.000Z">
+<meta property="article:modified_time" content="2022-05-06T08:03:06.407Z">
 <meta property="article:author" content="Cloud叶子翻面er">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/b873085800d7439492dd82eef293ec72.png">
   
     <link rel="alternative" href="/atom.xml" title="叶子翻面" type="application/atom+xml">
   
@@ -215,14 +221,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-kuberneter-helm三大概念-快速指南-自定义charts模板" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩
+      kuberneter-新版helm3的三大概念+快速指南+自定义charts模板
     </h1>
   
 
@@ -234,8 +240,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" class="archive-article-date">
-        <time datetime="2022-05-02T14:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
+<a href="/2022/05/06/kuberneter-helm%E4%B8%89%E5%A4%A7%E6%A6%82%E5%BF%B5-%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97-%E8%87%AA%E5%AE%9A%E4%B9%89charts%E6%A8%A1%E6%9D%BF/" class="archive-article-date">
+        <time datetime="2022-05-06T07:56:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-06</time>
 </a>
 
   
@@ -248,7 +254,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">846字</span>
+      <span class="post-count">1.7k字</span>
     </span>
   </span>
 
@@ -257,7 +263,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">8分</span>
     </span>
   </span>
 </div>
@@ -268,34 +274,112 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="概述-x2F-理解"><a href="#概述-x2F-理解" class="headerlink" title="概述&#x2F;理解"></a>概述&#x2F;理解</h2><p>VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。<br>我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。<br>也可以借助HorizontalPodAutoscaler（hpa）实现弹性伸缩。这里我们就说vmis控制器，在这里的vmis控制器，管理我们vmi虚拟机实例的副本数，也可以实现扩缩容，借助hpa实现弹性伸缩。所有我们的yaml文件写法原理都类似。</p>
-<span id="more"></span>
-<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>当需要许多相同的虚拟机，并且不关心在虚拟机终止后任何磁盘状态时。<br><br></p>
-<h2 id="创建vmis"><a href="#创建vmis" class="headerlink" title="创建vmis"></a>创建vmis</h2><ol>
-<li>编写vmis的yaml文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># cat vmis.yaml</span><br>apiVersion: kubevirt.io/v1alpha3<br>kind: VirtualMachineInstanceReplicaSet<br>metadata:<br>  name: testreplicaset<br>spec:<br>  replicas: 2<br>  selector:<br>    matchLabels:<br>      myvmi: myvmi  <span class="hljs-comment"># 保持一致，选择</span><br>  template:<br>    metadata:<br>      labels:<br>        myvmi: myvmi <span class="hljs-comment"># 保持一致，匹配</span><br>    spec:<br>      domain:<br>        devices:<br>          disks:<br>          - name: containerdisk<br>            disk:<br>              bus: virtio<br>        resources:<br>          requests:<br>            memory: 1024M<br>      volumes:<br>      - name: containerdisk<br>        containerDisk:<br>          image: centos7<br>          imagePullPolicy: IfNotPresent<br></code></pre></td></tr></table></figure></li>
-<li>使用kubectl命令创建vmis<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl apply -f vmis.yaml</span><br>virtualmachineinstancereplicaset.kubevirt.io/testreplicaset created<br></code></pre></td></tr></table></figure></li>
-<li>查看运行状态<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl get vmis</span><br>NAME                  AGE   PHASE        IP             NODENAME   READY<br>testreplicaset6vm9s   42s   Running      10.244.0.139   master     False<br>testreplicaset8dshm   22s   Scheduling                             False<br>testreplicasetbqxnb   22s   Scheduling                             False<br>[root@master vm]<span class="hljs-comment"># kubectl get vmis</span><br>NAME                  AGE   PHASE     IP             NODENAME   READY<br>testreplicaset8dshm   46s   Running   10.244.0.141   master     False<br>testreplicasetbqxnb   46s   Running   10.244.0.140   master     False<br>[root@master vm]<span class="hljs-comment"># kubectl get pod</span><br>NAME                                      READY   STATUS    RESTARTS   AGE<br>virt-launcher-testreplicaset8dshm-nz7x2   2/2     Running   0          69s<br>virt-launcher-testreplicasetbqxnb-ljp2f   2/2     Running   0          70s<br></code></pre></td></tr></table></figure></li>
-<li>describe 查看详细信息</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl describe vmirs testreplicaset</span><br>Name:         testreplicaset<br>Namespace:    default<br>Labels:       &lt;none&gt;<br>Annotations:  kubevirt.io/latest-observed-api-version: v1<br>              kubevirt.io/storage-observed-api-version: v1alpha3<br>API Version:  kubevirt.io/v1<br>Kind:         VirtualMachineInstanceReplicaSet<br>Metadata:<br>  Creation Timestamp:  2022-05-02T13:50:05Z<br>  Generation:          2<br>  Managed Fields:<br>    API Version:  kubevirt.io/v1alpha3<br>    Fields Type:  FieldsV1<br>    fieldsV1:<br>      f:metadata:<br>        f:annotations:<br>          f:kubevirt.io/latest-observed-api-version:<br>          f:kubevirt.io/storage-observed-api-version:<br>      f:spec:<br>        f:template:<br>          f:metadata:<br>            f:creationTimestamp:<br>      f:status:<br>        .:<br>        f:labelSelector:<br>        f:replicas:<br>    Manager:      Go-http-client<br>    Operation:    Update<br>    Time:         2022-05-02T13:50:05Z<br>    API Version:  kubevirt.io/v1alpha3<br>    Fields Type:  FieldsV1<br>    fieldsV1:<br>      f:metadata:<br>        f:annotations:<br> ...<br> ...<br>                  .:<br>                  f:memory:<br>            f:volumes:<br>    Manager:         kubectl<br>    Operation:       Update<br>    Time:            2022-05-02T13:50:05Z<br>  Resource Version:  267261<br>  Self Link:         /apis/kubevirt.io/v1/namespaces/default/virtualmachineinstancereplicasets/testreplicaset<br>  UID:               96d17d12-17b5-4df7-940a-fac7c6b820d2<br>Spec:<br>  Replicas:  2<br>  Selector:<br>    Match Labels:<br>      Myvmi:  myvmi<br>  Template:<br>    Metadata:<br>      Creation Timestamp:  &lt;nil&gt;<br>      Labels:<br>        Myvmi:  myvmi<br>    Spec:<br>      Domain:<br>        Devices:<br>          Disks:<br>            Disk:<br>              Bus:  virtio<br>            Name:   containerdisk<br>        Resources:<br>          Requests:<br>            Memory:  1024M<br>      Volumes:<br>        Container Disk:<br>          Image:              kubevirt/cirros-container-disk-demo<br>          Image Pull Policy:  IfNotPresent<br>        Name:                 containerdisk<br>Status:<br>  Label Selector:  myvmi=myvmi<br>  Replicas:        2<br>Events:<br>  Type    Reason            Age    From                                 Message<br>  ----    ------            ----   ----                                 -------<br>  Normal  SuccessfulCreate  5m21s  virtualmachinereplicaset-controller  Started the virtual machine by creating the new virtual machine instance testreplicaseth6zsl<br>  Normal  SuccessfulCreate  5m21s  virtualmachinereplicaset-controller  Started the virtual machine by creating the new virtual machine instance testreplicasetw75s4<br></code></pre></td></tr></table></figure>
-<h3 id="扩缩容"><a href="#扩缩容" class="headerlink" title="扩缩容"></a>扩缩容</h3><ol>
-<li>查看vmis<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl get -f vmis.yaml</span><br>NAME             DESIRED   CURRENT   READY   AGE<br>testreplicaset   3         3                 2m52s<br></code></pre></td></tr></table></figure></li>
-<li>使用scale命令，设置副本数为5<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl scale vmirs testreplicaset --replicas 5</span><br>virtualmachineinstancereplicaset.kubevirt.io/testreplicaset scaled<br></code></pre></td></tr></table></figure></li>
-<li>查看效果</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl get vmis</span><br>NAME                  AGE     PHASE     IP             NODENAME   READY<br>testreplicaset98x8d   5m29s   Running   10.244.0.146   master     False<br>testreplicasetddqc9   2m24s   Running   10.244.0.148   master     False<br>testreplicasetdss8l   5m29s   Running   10.244.0.144   master     False<br>testreplicasetmhm6x   5m29s   Running   10.244.0.145   master     False<br>testreplicasetv4dzs   2m24s   Running   10.244.0.147   master     False<br><br>[root@master vm]<span class="hljs-comment"># kubectl get pod</span><br>NAME                                      READY   STATUS    RESTARTS   AGE<br>virt-launcher-testreplicaset98x8d-5p99p   2/2     Running   0          3m15s<br>virt-launcher-testreplicasetddqc9-6c2m4   2/2     Running   0          10s<br>virt-launcher-testreplicasetdss8l-9mv56   2/2     Running   0          3m15s<br>virt-launcher-testreplicasetmhm6x-r76wt   2/2     Running   0          3m15s<br>virt-launcher-testreplicasetv4dzs-bm4s8   2/2     Running   0          10s<br></code></pre></td></tr></table></figure>
+    <p>***&gt;<a target="_blank" rel="noopener" href="http://ygcloud.work/"><strong>个人博客地址</strong></a></p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>Helm 是 Kubernetes 的包管理器</p>
+</blockquote>
+<h2 id="Helm的三大概念"><a href="#Helm的三大概念" class="headerlink" title="Helm的三大概念"></a>Helm的三大概念</h2><ul>
+<li><strong>chart</strong>：代表helm包，包含在 Kubernetes 集群内部运行应用程序，工具或服务所需的所有资源定义。</li>
+<li><strong>Repository</strong>（仓库）：用来存放和共享 charts 的地方。</li>
+<li><strong>Release</strong> ：运行在 Kubernetes 集群中的 chart 的实例，一个 chart 通常可以在同一个集群中安装多次，每一次安装都会创建一个新的 release。<h2 id="简单来说！！"><a href="#简单来说！！" class="headerlink" title="简单来说！！"></a>简单来说！！</h2><span id="more"></span>
+<blockquote>
+<p>其实我们可以对比yum来理解</p>
+</blockquote>
+</li>
+</ul>
+<p>chart看作linux中<code>rpm包</code>，repository看作<code>repo仓库</code>，release就是我们的<code>yum install</code>安装启动后的<code>软件</code>。</p>
+<h2 id="还不理解吗？？"><a href="#还不理解吗？？" class="headerlink" title="还不理解吗？？"></a>还不理解吗？？</h2><blockquote>
+<p>还可以，这样</p>
+</blockquote>
+<p>chart看作<code>docker镜像</code>，release看作<code>docker镜像运行的容器</code>，而Repository看作我们的<code>docker Hub镜像仓库</code>。</p>
+<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><ul>
+<li>一个 Kubernetes 集群</li>
+</ul>
+<h1 id="支持的版本"><a href="#支持的版本" class="headerlink" title="支持的版本"></a>支持的版本</h1><p>Helm的版本用 <code>x.y.z</code> 描述，<code>x</code>是主版本，<code>y</code>是次版本，<code>z</code>是补丁版本，遵循 <a target="_blank" rel="noopener" href="https://semver.org/spec/v2.0.0.html">语义化版本</a> 术语<br><img src="https://img-blog.csdnimg.cn/b873085800d7439492dd82eef293ec72.png" alt="在这里插入图片描述"></p>
+<h1 id="安装Helm"><a href="#安装Helm" class="headerlink" title="安装Helm"></a>安装Helm</h1><p><a target="_blank" rel="noopener" href="https://github.com/helm/helm/releases">helm官方下载地址</a></p>
+<blockquote>
+<p>两种方式安装Helm，按需选择。这里使用二进制安装。</p>
+</blockquote>
+<p>方式1：使用二进制版本安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -zxf helm-v3.7.0-linux-amd64.tar.gz<br><span class="hljs-built_in">cp</span> linux-amd64/helm /usr/local/bin/helm  或者 <span class="hljs-built_in">mv</span> linux-amd64/helm /usr/local/bin/helm<br>helm version<br></code></pre></td></tr></table></figure>
+<p>方式二：使用脚本安装<br>这是官方提供的脚本，自动拉取最新的Helm版本并安装在本地。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3<br>$ <span class="hljs-built_in">chmod</span> 700 get_helm.sh<br>$ ./get_helm.sh<br></code></pre></td></tr></table></figure>
 
-<h3 id="弹性伸缩"><a href="#弹性伸缩" class="headerlink" title="弹性伸缩"></a>弹性伸缩</h3><h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><ol>
-<li>使用Horizo​​ntal Pod Autoscaler（hpa），创建yaml文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># cat vmis-hpa.yaml</span><br>apiVersion: autoscaling/v1<br>kind: HorizontalPodAutoscaler<br>metadata:<br>  creationTimestamp: null<br>  name: testreplicaset<br>spec:<br>  maxReplicas: 5<br>  minReplicas: 2<br>  scaleTargetRef:<br>    apiVersion: kubevirt.io/v1<br>    kind: VirtualMachineInstanceReplicaSet<br>    name: testreplicaset<br></code></pre></td></tr></table></figure></li>
-<li>创建vmis-hpa<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl apply -f vmis-hpa.yaml</span><br>horizontalpodautoscaler.autoscaling/testreplicaset created<br></code></pre></td></tr></table></figure></li>
-<li>查看状态</li>
+<h1 id="Helm的基本操作（快速指南）"><a href="#Helm的基本操作（快速指南）" class="headerlink" title="Helm的基本操作（快速指南）"></a>Helm的基本操作（快速指南）</h1><blockquote>
+<p>下列所有操作以nginx为例</p>
+</blockquote>
+<p>Helm 自带一个强大的搜索命令，可以从两种来源中进行搜索：</p>
+<ul>
+<li>helm search hub 从 <a target="_blank" rel="noopener" href="https://artifacthub.io/">Artifact Hub</a> 中查找并列出 helm charts。 Artifact Hub中存放了大量不同的仓库。</li>
+<li>helm search repo 从你添加（使用 helm repo add）到本地 helm 客户端中的仓库中进行查找。该命令基于本地数据进行搜索，无需连接互联网。</li>
+</ul>
+<ol>
+<li><p>从 Artifact Hub 中搜索所有的 nginx charts。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ helm search hub nginx<br>URL                                                     CHART VERSION   APP VERSION                     DESCRIPTION                              <br>https://artifacthub.io/packages/helm/wiremind/n...      2.1.1                                           An NGINX HTTP server                     <br>https://artifacthub.io/packages/helm/zrepo-test...      5.1.5           1.16.1                          Chart <span class="hljs-keyword">for</span> the nginx server               <br>https://artifacthub.io/packages/helm/mirantis/n...      0.1.0           1.16.0                          A NGINX Docker Community based Helm chart <span class="hljs-keyword">for</span> K...<br>...<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>使用 <code>helm repo add</code> 命令，添加gitlab仓库。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ helm repo add bitnami https://charts.bitnami.com/bitnami<br><span class="hljs-string">&quot;bitnami&quot;</span> has been added to your repositories<br></code></pre></td></tr></table></figure></li>
+<li><p>使用 <code>helm search repo</code> 命令，你可以从你所添加的仓库中查找chart的名字。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ helm search repo nginx<br>NAME                                    CHART VERSION   APP VERSION     DESCRIPTION<br>bitnami/nginx                           10.2.1          1.21.6          NGINX Open Source is a web server that can be a...<br>bitnami/nginx-ingress-controller        9.1.27          1.2.0           NGINX Ingress Controller is an Ingress controll...<br>bitnami/nginx-intel                     1.0.5           0.4.7           NGINX Open Source <span class="hljs-keyword">for</span> Intel is a lightweight se...<br>bitnami/kong                            5.0.2           2.7.0           Kong is a scalable, open <span class="hljs-built_in">source</span> API layer (aka ...<br><br></code></pre></td></tr></table></figure></li>
+<li><p>一旦你找到你想安装的 helm 包，便可以通过使用<code>helm install</code>命令来安装它。</p>
+</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl get hpa</span><br>NAME             REFERENCE                                         TARGETS         MINPODS   MAXPODS   REPLICAS   AGE<br>testreplicaset   VirtualMachineInstanceReplicaSet/testreplicaset   &lt;unknown&gt;/80%   2         5         0          7s<br></code></pre></td></tr></table></figure>
-<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><ol>
-<li>使用<code>kubectl autoscale</code>命令</li>
+<blockquote>
+<p>Helm 安装 <em>charts</em> 到 Kubernetes 集群中，每次安装都会创建一个新的 <em>release</em>。你可以在 Helm 的 chart <em>repositories</em> 中寻找新的 chart。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ helm install my-nginx bitnami/nginx --version 10.2.1 <br>NAME: my-nginx<br>LAST DEPLOYED: Fri May  6 11:06:07 2022<br>NAMESPACE: default<br>STATUS: deployed<br>REVISION: 1<br>TEST SUITE: None<br>NOTES:<br>CHART NAME: nginx<br>CHART VERSION: 10.2.1<br>APP VERSION: 1.21.6<br>...<br><br></code></pre></td></tr></table></figure>
+<ol start="5">
+<li>使用 <code>helm status </code>来追踪 release 的状态、信息。</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl autoscale vmirs testreplicaset --min=2 --max=5</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ helm status my-nginx<br>NAME: my-nginx<br>LAST DEPLOYED: Fri May  6 11:06:07 2022<br>NAMESPACE: default<br>STATUS: deployed<br>REVISION: 1<br>TEST SUITE: None<br>NOTES:<br>CHART NAME: nginx<br>CHART VERSION: 10.2.1<br>APP VERSION: 1.21.6<br>...<br><br></code></pre></td></tr></table></figure>
+<ol start="6">
+<li>查看helm安装，releases的列表<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master helm]<span class="hljs-comment"># helm list</span><br>NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION<br>my-nginx        default         1               2022-05-06 11:06:07.215433713 +0800 CST deployed        nginx-10.2.1    1.21.6<br></code></pre></td></tr></table></figure></li>
+<li>浏览器访问，验证nginx服务</li>
+</ol>
+<p>查看nginx的svc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master ~]<span class="hljs-comment"># kubectl get svc</span><br>NAME         TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE<br>kubernetes   ClusterIP      10.96.0.1        &lt;none&gt;        443/TCP        115d<br>my-nginx     LoadBalancer   10.102.231.181   &lt;pending&gt;     80:30769/TCP   25m<br></code></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20cf9104fb4e424e8e2ba91a8f55db2d.png" alt="在这里插入图片描述"></p>
+<h1 id="自定义Charts模板"><a href="#自定义Charts模板" class="headerlink" title="自定义Charts模板"></a>自定义Charts模板</h1><p>上述nginx安装只是使用仓库chart的默认配置。不利于个性化需求和生成环境的使用。我们也可以修改chart默认配置，也可以自己创建Charts模板。</p>
+<h3 id="1-创建一个chart模板"><a href="#1-创建一个chart模板" class="headerlink" title="1. 创建一个chart模板"></a><strong>1. 创建一个chart模板</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># helm create testnginx</span><br>Creating testnginx<br></code></pre></td></tr></table></figure>
+<h3 id="2-Helm-chart的目录结构如下："><a href="#2-Helm-chart的目录结构如下：" class="headerlink" title="2. Helm chart的目录结构如下："></a><strong>2. Helm chart的目录结构如下：</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># tree testnginx/</span><br>testnginx/<br>├── charts<br>├── Chart.yaml<br>├── templates<br>│   ├── deployment.yaml<br>│   ├── _helpers.tpl<br>│   ├── hpa.yaml<br>│   ├── ingress.yaml<br>│   ├── NOTES.txt<br>│   ├── serviceaccount.yaml<br>│   ├── service.yaml<br>│   └── tests<br>│       └── test-connection.yaml<br>└── values.yaml<br></code></pre></td></tr></table></figure>
+<ul>
+<li>templates&#x2F;目录是我们资源清单的yaml文件。</li>
+<li>values.yaml文件内容，定义一些template目录下yaml文件所引用的字段</li>
+<li>Chart.yaml文件是该chart的描述信息。charts&#x2F;目录 可以 包含其他的chart(称之为 子chart)。</li>
+</ul>
+<h3 id="3-templates-x2F-目录下，会注意到一些文件："><a href="#3-templates-x2F-目录下，会注意到一些文件：" class="headerlink" title="3. templates&#x2F; 目录下，会注意到一些文件："></a><strong>3. templates&#x2F; 目录下，会注意到一些文件：</strong></h3><ul>
+<li>NOTES.txt: chart的”帮助文本”。这会在你的用户执行helm install时展示给他们。</li>
+<li>_helpers.tpl: 放置可以通过chart复用的模板辅助对象</li>
+</ul>
+<p>我们删除templates&#x2F;目录下的文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># rm -rf testnginx/templates/*</span><br></code></pre></td></tr></table></figure>
+<p>修改values.yaml文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># cat values.yaml</span><br>name: app-nginx<br>image:<br>  repository: 192.168.200.11/library/nginx<br></code></pre></td></tr></table></figure>
 
+<p>创建deploy.yaml文件，并引用<code>values.yaml</code>文件的字段，之后只要我们修改<code>values.yaml</code>文件，就可以达到改变<code>templates/deploy.yaml</code>文件的效果。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># cat templates/deploy.yaml</span><br>kind: Deployment<br>apiVersion: apps/v1<br>metadata:<br>  name: &#123;&#123; .Values.name  &#125;&#125;<br>spec:<br>  replicas: 1<br>  selector:<br>    matchLabels:<br>      app: nginx<br>  template:<br>    metadata:<br>      labels:<br>        app: nginx<br>    spec:<br>      containers:<br>        - name: web-nginx<br>          image: &#123;&#123; .Values.image.repository  &#125;&#125;<br>          ports:<br>            - name: http<br>              containerPort: 80<br>---<br>kind: Service<br>apiVersion: v1<br>metadata:<br>  name: svc-nginx<br>spec:<br>  ports:<br>    - name: http<br>      port: 80<br>      targetPort: 80<br>  selector:<br>    app: nginx<br>  <span class="hljs-built_in">type</span>: NodePort<br><br></code></pre></td></tr></table></figure>
+<p>使用<code>helm install </code>创建release </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># helm install test-nginx testnginx/</span><br>NAME: test-nginx<br>LAST DEPLOYED: Fri May  6 14:52:43 2022<br>NAMESPACE: default<br>STATUS: deployed<br>REVISION: 1<br>TEST SUITE: None<br></code></pre></td></tr></table></figure>
+<p>检查服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># helm list</span><br>NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION<br>test-nginx      default         1               2022-05-06 14:52:43.081379354 +0800 CST deployed        testnginx-0.1.0 1.16.0<br><span class="hljs-comment"># kubectl get deploy,pod</span><br>NAME                        READY   UP-TO-DATE   AVAILABLE   AGE<br>deployment.apps/app-nginx   1/1     1            1           5m14s<br><br>NAME                             READY   STATUS    RESTARTS   AGE<br>pod/app-nginx-57fbfbd5c5-g2sjq   1/1     Running   0          5m14s<br><br>NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE<br>service/kubernetes   ClusterIP   10.96.0.1       &lt;none&gt;        443/TCP        115d<br>service/svc-nginx    NodePort    10.106.42.241   &lt;none&gt;        80:32755/TCP   5m14s<br><br></code></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/aa1e6c17f61a4718b87de677c5e6e862.png" alt="在这里插入图片描述"></p>
+<h3 id="4-helm-upgrade升级-release"><a href="#4-helm-upgrade升级-release" class="headerlink" title="4. helm upgrade升级 release"></a><strong>4. helm upgrade升级 release</strong></h3><p>当我们想给我们的<code>服务升级版本</code>时，就需要使用到<code>helm upgrade 命令</code>非常简便快捷</p>
+<ul>
+<li>修改values.yaml文件切换版本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># cat testnginx/values.yaml</span><br>name: app-nginx<br>image:<br>  <span class="hljs-comment">#repository: 192.168.200.11/library/nginx</span><br>  repository: 192.168.200.11/library/nginx-2<br></code></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># helm upgrade test-nginx testnginx/</span><br>Release <span class="hljs-string">&quot;test-nginx&quot;</span> has been upgraded. Happy Helming!<br>NAME: test-nginx<br>LAST DEPLOYED: Fri May  6 15:26:08 2022<br>NAMESPACE: default<br>STATUS: deployed<br>REVISION: 2<br>TEST SUITE: None<br><br></code></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/6a3ae0f589a844fcb60744c8e9d83706.png" alt="在这里插入图片描述"></p>
+<h3 id="5-helm-rollback回滚"><a href="#5-helm-rollback回滚" class="headerlink" title="5. helm rollback回滚"></a><strong>5. helm rollback回滚</strong></h3><p>假如在一次发布过程中，发生了不符合预期的事情，就需要使用<code> helm rollback 命令</code>回滚到之前的发布版本。</p>
+<ul>
+<li>查看test-nginx历史版本：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master helm]<span class="hljs-comment"># helm history test-nginx</span><br>REVISION        UPDATED                         STATUS          CHART           APP VERSION     DESCRIPTION<br>1               Fri May  6 15:28:12 2022        superseded      testnginx-0.1.0 1.16.0          Install complete<br>2               Fri May  6 15:28:56 2022        superseded      testnginx-0.1.0 1.16.0          Upgrade complete<br></code></pre></td></tr></table></figure></li>
+<li>回滚到版本1：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># helm rollback test-nginx 1</span><br>Rollback was a success! Happy Helming!<br></code></pre></td></tr></table></figure>
+<img src="https://img-blog.csdnimg.cn/e6f1416b2e0748258d7d8cd80b9d4547.png" alt="在这里插入图片描述"></li>
+</ul>
+<h1 id="卸载一个版本"><a href="#卸载一个版本" class="headerlink" title="卸载一个版本"></a>卸载一个版本</h1><p>新版helm3卸载后不会保留历史版本，如果您在执行 helm uninstall 的时候提供 –keep-history 选项， Helm将会保存版本历史。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># helm uninstall test-nginx</span><br>release <span class="hljs-string">&quot;test-nginx&quot;</span> uninstalled<br></code></pre></td></tr></table></figure>
+
+<p><br><br></p>
+<p><strong>——————————————————————————————END——————————————————————————————</strong></p>
 
     
 
@@ -342,7 +426,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩/" title="kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩" target="_blank">http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩/</a>
+          <a href="http://example.com/2022/05/06/kuberneter-helm三大概念-快速指南-自定义charts模板/" title="kuberneter-新版helm3的三大概念+快速指南+自定义charts模板" target="_blank">http://example.com/2022/05/06/kuberneter-helm三大概念-快速指南-自定义charts模板/</a>
         </li>
         
         <li>
@@ -409,7 +493,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/06/kuberneter-helm%E4%B8%89%E5%A4%A7%E6%A6%82%E5%BF%B5-%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97-%E8%87%AA%E5%AE%9A%E4%B9%89charts%E6%A8%A1%E6%9D%BF/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -424,18 +508,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/05/04/GitLab-%E4%BD%BF%E7%94%A8Docker%E5%92%8CDocker-Compose%E9%83%A8%E7%BD%B2-%E4%B8%AA%E4%BA%BA%E3%80%81%E7%A7%81%E6%9C%89%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          GitLab--使用Docker和Docker-Compose部署-个人、私有代码仓库
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">openstack-cloudkitty组件，入门级安装（快速）</div>
+    <a href="/2022/05/04/%E5%AE%B9%E5%99%A8-docker-comopse%E5%AE%89%E8%A3%85-%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">容器--docker-comopse安装+案例练习</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -462,7 +537,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-x2F-%E7%90%86%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">概述&#x2F;理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAvmis"><span class="toc-number">3.</span> <span class="toc-text">创建vmis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E7%BC%A9%E5%AE%B9"><span class="toc-number">3.1.</span> <span class="toc-text">扩缩容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9"><span class="toc-number">3.2.</span> <span class="toc-text">弹性伸缩</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%951"><span class="toc-number">3.2.1.</span> <span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%952"><span class="toc-number">3.2.2.</span> <span class="toc-text">方法2</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Helm%E7%9A%84%E4%B8%89%E5%A4%A7%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">Helm的三大概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%9D%A5%E8%AF%B4%EF%BC%81%EF%BC%81"><span class="toc-number">1.2.</span> <span class="toc-text">简单来说！！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%98%E4%B8%8D%E7%90%86%E8%A7%A3%E5%90%97%EF%BC%9F%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">还不理解吗？？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E7%9A%84%E7%89%88%E6%9C%AC"><span class="toc-number">3.</span> <span class="toc-text">支持的版本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Helm"><span class="toc-number">4.</span> <span class="toc-text">安装Helm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Helm%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%88%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">Helm的基本操作（快速指南）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89Charts%E6%A8%A1%E6%9D%BF"><span class="toc-number">6.</span> <span class="toc-text">自定义Charts模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAchart%E6%A8%A1%E6%9D%BF"><span class="toc-number">6.0.1.</span> <span class="toc-text">1. 创建一个chart模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Helm-chart%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">6.0.2.</span> <span class="toc-text">2. Helm chart的目录结构如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-templates-x2F-%E7%9B%AE%E5%BD%95%E4%B8%8B%EF%BC%8C%E4%BC%9A%E6%B3%A8%E6%84%8F%E5%88%B0%E4%B8%80%E4%BA%9B%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="toc-number">6.0.3.</span> <span class="toc-text">3. templates&#x2F; 目录下，会注意到一些文件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-helm-upgrade%E5%8D%87%E7%BA%A7-release"><span class="toc-number">6.0.4.</span> <span class="toc-text">4. helm upgrade升级 release</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-helm-rollback%E5%9B%9E%E6%BB%9A"><span class="toc-number">6.0.5.</span> <span class="toc-text">5. helm rollback回滚</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD%E4%B8%80%E4%B8%AA%E7%89%88%E6%9C%AC"><span class="toc-number">7.</span> <span class="toc-text">卸载一个版本</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -486,9 +561,9 @@
     <script src="/lib/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩" -->
+  <!-- id: "kuberneter-新版helm3的三大概念+快速指南+自定义charts模板" -->
   var giteement = new Giteement({
-    id: '20220502224934',
+    id: '20220506155607',
     owner: 'yjcadmin',
     repo: 'yilia-plus-demo',
     backcall_uri: 'http://139.155.25.211',

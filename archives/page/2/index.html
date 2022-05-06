@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩 | 叶子翻面</title>
+  <title>Archives | 叶子翻面</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="概述&#x2F;理解VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。也可以借助HorizontalPodAutos">
-<meta property="og:type" content="article">
-<meta property="og:title" content="kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩">
-<meta property="og:url" content="http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/index.html">
+  <meta name="description" content="this is a blog.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="叶子翻面">
+<meta property="og:url" content="http://example.com/archives/page/2/index.html">
 <meta property="og:site_name" content="叶子翻面">
-<meta property="og:description" content="概述&#x2F;理解VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。也可以借助HorizontalPodAutos">
+<meta property="og:description" content="this is a blog.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-05-02T14:49:34.000Z">
-<meta property="article:modified_time" content="2022-05-02T14:52:35.691Z">
 <meta property="article:author" content="Cloud叶子翻面er">
 <meta name="twitter:card" content="summary">
   
@@ -215,297 +213,58 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" class="archive-article-date">
+        <time datetime="2022-04-16T10:05:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-16</time>
+</a>
+
+        </div>
+    	 
   
+    <h1 itemprop="name">
+	
+	  <a class="archive-article-title" href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" target="_blank">还不会搭建博客吗？centos7系统部署hexo博客新手入门-进阶，看这一篇就够了</a>
   
-    <h1 class="article-title" itemprop="name">
-      kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩
     </h1>
   
 
 
-  
-  
-        
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" class="archive-article-date">
-        <time datetime="2022-05-02T14:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">846字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="概述-x2F-理解"><a href="#概述-x2F-理解" class="headerlink" title="概述&#x2F;理解"></a>概述&#x2F;理解</h2><p>VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。<br>我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。<br>也可以借助HorizontalPodAutoscaler（hpa）实现弹性伸缩。这里我们就说vmis控制器，在这里的vmis控制器，管理我们vmi虚拟机实例的副本数，也可以实现扩缩容，借助hpa实现弹性伸缩。所有我们的yaml文件写法原理都类似。</p>
-<span id="more"></span>
-<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>当需要许多相同的虚拟机，并且不关心在虚拟机终止后任何磁盘状态时。<br><br></p>
-<h2 id="创建vmis"><a href="#创建vmis" class="headerlink" title="创建vmis"></a>创建vmis</h2><ol>
-<li>编写vmis的yaml文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># cat vmis.yaml</span><br>apiVersion: kubevirt.io/v1alpha3<br>kind: VirtualMachineInstanceReplicaSet<br>metadata:<br>  name: testreplicaset<br>spec:<br>  replicas: 2<br>  selector:<br>    matchLabels:<br>      myvmi: myvmi  <span class="hljs-comment"># 保持一致，选择</span><br>  template:<br>    metadata:<br>      labels:<br>        myvmi: myvmi <span class="hljs-comment"># 保持一致，匹配</span><br>    spec:<br>      domain:<br>        devices:<br>          disks:<br>          - name: containerdisk<br>            disk:<br>              bus: virtio<br>        resources:<br>          requests:<br>            memory: 1024M<br>      volumes:<br>      - name: containerdisk<br>        containerDisk:<br>          image: centos7<br>          imagePullPolicy: IfNotPresent<br></code></pre></td></tr></table></figure></li>
-<li>使用kubectl命令创建vmis<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl apply -f vmis.yaml</span><br>virtualmachineinstancereplicaset.kubevirt.io/testreplicaset created<br></code></pre></td></tr></table></figure></li>
-<li>查看运行状态<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl get vmis</span><br>NAME                  AGE   PHASE        IP             NODENAME   READY<br>testreplicaset6vm9s   42s   Running      10.244.0.139   master     False<br>testreplicaset8dshm   22s   Scheduling                             False<br>testreplicasetbqxnb   22s   Scheduling                             False<br>[root@master vm]<span class="hljs-comment"># kubectl get vmis</span><br>NAME                  AGE   PHASE     IP             NODENAME   READY<br>testreplicaset8dshm   46s   Running   10.244.0.141   master     False<br>testreplicasetbqxnb   46s   Running   10.244.0.140   master     False<br>[root@master vm]<span class="hljs-comment"># kubectl get pod</span><br>NAME                                      READY   STATUS    RESTARTS   AGE<br>virt-launcher-testreplicaset8dshm-nz7x2   2/2     Running   0          69s<br>virt-launcher-testreplicasetbqxnb-ljp2f   2/2     Running   0          70s<br></code></pre></td></tr></table></figure></li>
-<li>describe 查看详细信息</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl describe vmirs testreplicaset</span><br>Name:         testreplicaset<br>Namespace:    default<br>Labels:       &lt;none&gt;<br>Annotations:  kubevirt.io/latest-observed-api-version: v1<br>              kubevirt.io/storage-observed-api-version: v1alpha3<br>API Version:  kubevirt.io/v1<br>Kind:         VirtualMachineInstanceReplicaSet<br>Metadata:<br>  Creation Timestamp:  2022-05-02T13:50:05Z<br>  Generation:          2<br>  Managed Fields:<br>    API Version:  kubevirt.io/v1alpha3<br>    Fields Type:  FieldsV1<br>    fieldsV1:<br>      f:metadata:<br>        f:annotations:<br>          f:kubevirt.io/latest-observed-api-version:<br>          f:kubevirt.io/storage-observed-api-version:<br>      f:spec:<br>        f:template:<br>          f:metadata:<br>            f:creationTimestamp:<br>      f:status:<br>        .:<br>        f:labelSelector:<br>        f:replicas:<br>    Manager:      Go-http-client<br>    Operation:    Update<br>    Time:         2022-05-02T13:50:05Z<br>    API Version:  kubevirt.io/v1alpha3<br>    Fields Type:  FieldsV1<br>    fieldsV1:<br>      f:metadata:<br>        f:annotations:<br> ...<br> ...<br>                  .:<br>                  f:memory:<br>            f:volumes:<br>    Manager:         kubectl<br>    Operation:       Update<br>    Time:            2022-05-02T13:50:05Z<br>  Resource Version:  267261<br>  Self Link:         /apis/kubevirt.io/v1/namespaces/default/virtualmachineinstancereplicasets/testreplicaset<br>  UID:               96d17d12-17b5-4df7-940a-fac7c6b820d2<br>Spec:<br>  Replicas:  2<br>  Selector:<br>    Match Labels:<br>      Myvmi:  myvmi<br>  Template:<br>    Metadata:<br>      Creation Timestamp:  &lt;nil&gt;<br>      Labels:<br>        Myvmi:  myvmi<br>    Spec:<br>      Domain:<br>        Devices:<br>          Disks:<br>            Disk:<br>              Bus:  virtio<br>            Name:   containerdisk<br>        Resources:<br>          Requests:<br>            Memory:  1024M<br>      Volumes:<br>        Container Disk:<br>          Image:              kubevirt/cirros-container-disk-demo<br>          Image Pull Policy:  IfNotPresent<br>        Name:                 containerdisk<br>Status:<br>  Label Selector:  myvmi=myvmi<br>  Replicas:        2<br>Events:<br>  Type    Reason            Age    From                                 Message<br>  ----    ------            ----   ----                                 -------<br>  Normal  SuccessfulCreate  5m21s  virtualmachinereplicaset-controller  Started the virtual machine by creating the new virtual machine instance testreplicaseth6zsl<br>  Normal  SuccessfulCreate  5m21s  virtualmachinereplicaset-controller  Started the virtual machine by creating the new virtual machine instance testreplicasetw75s4<br></code></pre></td></tr></table></figure>
-<h3 id="扩缩容"><a href="#扩缩容" class="headerlink" title="扩缩容"></a>扩缩容</h3><ol>
-<li>查看vmis<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl get -f vmis.yaml</span><br>NAME             DESIRED   CURRENT   READY   AGE<br>testreplicaset   3         3                 2m52s<br></code></pre></td></tr></table></figure></li>
-<li>使用scale命令，设置副本数为5<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl scale vmirs testreplicaset --replicas 5</span><br>virtualmachineinstancereplicaset.kubevirt.io/testreplicaset scaled<br></code></pre></td></tr></table></figure></li>
-<li>查看效果</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl get vmis</span><br>NAME                  AGE     PHASE     IP             NODENAME   READY<br>testreplicaset98x8d   5m29s   Running   10.244.0.146   master     False<br>testreplicasetddqc9   2m24s   Running   10.244.0.148   master     False<br>testreplicasetdss8l   5m29s   Running   10.244.0.144   master     False<br>testreplicasetmhm6x   5m29s   Running   10.244.0.145   master     False<br>testreplicasetv4dzs   2m24s   Running   10.244.0.147   master     False<br><br>[root@master vm]<span class="hljs-comment"># kubectl get pod</span><br>NAME                                      READY   STATUS    RESTARTS   AGE<br>virt-launcher-testreplicaset98x8d-5p99p   2/2     Running   0          3m15s<br>virt-launcher-testreplicasetddqc9-6c2m4   2/2     Running   0          10s<br>virt-launcher-testreplicasetdss8l-9mv56   2/2     Running   0          3m15s<br>virt-launcher-testreplicasetmhm6x-r76wt   2/2     Running   0          3m15s<br>virt-launcher-testreplicasetv4dzs-bm4s8   2/2     Running   0          10s<br></code></pre></td></tr></table></figure>
-
-<h3 id="弹性伸缩"><a href="#弹性伸缩" class="headerlink" title="弹性伸缩"></a>弹性伸缩</h3><h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><ol>
-<li>使用Horizo​​ntal Pod Autoscaler（hpa），创建yaml文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># cat vmis-hpa.yaml</span><br>apiVersion: autoscaling/v1<br>kind: HorizontalPodAutoscaler<br>metadata:<br>  creationTimestamp: null<br>  name: testreplicaset<br>spec:<br>  maxReplicas: 5<br>  minReplicas: 2<br>  scaleTargetRef:<br>    apiVersion: kubevirt.io/v1<br>    kind: VirtualMachineInstanceReplicaSet<br>    name: testreplicaset<br></code></pre></td></tr></table></figure></li>
-<li>创建vmis-hpa<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl apply -f vmis-hpa.yaml</span><br>horizontalpodautoscaler.autoscaling/testreplicaset created<br></code></pre></td></tr></table></figure></li>
-<li>查看状态</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl get hpa</span><br>NAME             REFERENCE                                         TARGETS         MINPODS   MAXPODS   REPLICAS   AGE<br>testreplicaset   VirtualMachineInstanceReplicaSet/testreplicaset   &lt;unknown&gt;/80%   2         5         0          7s<br></code></pre></td></tr></table></figure>
-<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><ol>
-<li>使用<code>kubectl autoscale</code>命令</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@master vm]<span class="hljs-comment"># kubectl autoscale vmirs testreplicaset --min=2 --max=5</span><br></code></pre></td></tr></table></figure>
-
-
-    
-
-    
-    <div class="page-reward">
-      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
-        <div class="tooltip tooltip-east">
-          <span class="tooltip-item">
-            赏
-          </span>
-          <span class="tooltip-content">
-            <span class="tooltip-text">
-              <span class="tooltip-inner">
-                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
-                    class="icon icon-quo-right"></i></p>
-                <div class="reward-box">
-                  
-                  <div class="reward-box-item">
-                    <img class="reward-img" src="/img/zfb.png">
-                    <span class="reward-type">支付宝</span>
-                  </div>
-                  
-                  
-                  <div class="reward-box-item">
-                    <img class="reward-img" src="/img/wx.png">
-                    <span class="reward-type">微信</span>
-                  </div>
-                  
-                </div>
-              </span>
-            </span>
-          </span>
-        </div>
-      </a>
-    </div>
-    
-
-    
-    <div class="declare"> 
-      <ul class="post-copyright">
-        <li>
-          <strong>本文作者：</strong>
-          Cloud叶子翻面er
-        </li>
-        <li>
-          <strong>本文链接：</strong>
-          <a href="http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩/" title="kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩" target="_blank">http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩/</a>
-        </li>
-        
-        <li>
-          <strong>版权声明： </strong>
+        <div class="article-info info-on-right">
           
-          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
-        </li>
-        
-      </ul>
-    </div>
-    
+          
 
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-
-    
-    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a> -->
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" alt="微信分享二维码"> -->
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-    
-    <div class="clearfix"></div>
-  </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2022/05/04/GitLab-%E4%BD%BF%E7%94%A8Docker%E5%92%8CDocker-Compose%E9%83%A8%E7%BD%B2-%E4%B8%AA%E4%BA%BA%E3%80%81%E7%A7%81%E6%9C%89%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          GitLab--使用Docker和Docker-Compose部署-个人、私有代码仓库
-        
-      </div>
-    </a>
   
   
-    <a href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">openstack-cloudkitty组件，入门级安装（快速）</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-x2F-%E7%90%86%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">概述&#x2F;理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAvmis"><span class="toc-number">3.</span> <span class="toc-text">创建vmis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E7%BC%A9%E5%AE%B9"><span class="toc-number">3.1.</span> <span class="toc-text">扩缩容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9"><span class="toc-number">3.2.</span> <span class="toc-text">弹性伸缩</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%951"><span class="toc-number">3.2.1.</span> <span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%952"><span class="toc-number">3.2.2.</span> <span class="toc-text">方法2</span></a></li></ol></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-
-
-
-  <div id="giteement-ctn"></div>
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+    </nav>
   
-    <link rel="stylesheet" href="/lib/default.css">
-    <script src="/lib/giteement.browser.js"></script>
-  
-  <script>
-  <!-- id: "kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩" -->
-  var giteement = new Giteement({
-    id: '20220502224934',
-    owner: 'yjcadmin',
-    repo: 'yilia-plus-demo',
-    backcall_uri: 'http://139.155.25.211',
-    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
-    oauth: {
-      client_id: '2aff0fdfef5fd6c52d0f290d75f06142b8c25e67523f07f59b068c3eb1e0d13c',
-      client_secret: '1c4f03b26a83eaaa8972b92a695f666ae01b5d2a5aaa30d883dca62e96a489a3'
-    },
-  })
-  giteement.render('giteement-ctn')
-  </script>
-
-
-
-
-
-
 
 
           </div>
@@ -546,8 +305,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
