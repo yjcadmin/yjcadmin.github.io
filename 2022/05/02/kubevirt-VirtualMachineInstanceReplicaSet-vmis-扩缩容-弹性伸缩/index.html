@@ -5,24 +5,24 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://example.com">
-  <title>kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩 | 叶子翻面</title>
+  <link rel="dns-prefetch" href="http://ygcloud.work">
+  <title>kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩 | CloudLog无名小歌</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="概述&#x2F;理解VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。也可以借助HorizontalPodAutos">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩">
-<meta property="og:url" content="http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/index.html">
-<meta property="og:site_name" content="叶子翻面">
+<meta property="og:url" content="http://ygcloud.work/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/index.html">
+<meta property="og:site_name" content="CloudLog无名小歌">
 <meta property="og:description" content="概述&#x2F;理解VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。也可以借助HorizontalPodAutos">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-02T14:49:34.000Z">
 <meta property="article:modified_time" content="2022-05-02T14:52:35.691Z">
-<meta property="article:author" content="Cloud叶子翻面er">
+<meta property="article:author" content="CloudLog无名小歌">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="叶子翻面" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="CloudLog无名小歌" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -66,7 +66,7 @@
 			<img src="/img/%E4%BA%91%E6%95%88.png" class="js-avatar">
 		</a>
 		<hgroup>
-			<h1 class="header-author"><a href="/">Cloud叶子翻面er</a></h1>
+			<h1 class="header-author"><a href="/">CloudLog无名小歌</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">this is a blog.</p>
@@ -150,7 +150,7 @@
 				</a>
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Cloud叶子翻面er</h1>
+			  <h1 class="header-author js-header-author">CloudLog无名小歌</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>this is a blog.<i class="icon icon-quo-right"></i></p>
@@ -338,11 +338,11 @@
       <ul class="post-copyright">
         <li>
           <strong>本文作者：</strong>
-          Cloud叶子翻面er
+          CloudLog无名小歌
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩/" title="kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩" target="_blank">http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩/</a>
+          <a href="http://ygcloud.work/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩/" title="kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩" target="_blank">http://ygcloud.work/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩/</a>
         </li>
         
         <li>
@@ -409,7 +409,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ygcloud.work/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -515,7 +515,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2022 <a href="http://example.com/" target="_blank">Cloud叶子翻面er</a>
+    		&copy; 2018-2022 <a href="http://ygcloud.work/" target="_blank">CloudLog无名小歌</a>
     	</div>
       	<div class="footer-right">
 			
