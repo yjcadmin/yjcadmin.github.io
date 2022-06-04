@@ -227,6 +227,478 @@
 
 
   
+    <article id="post-kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" target="_blank">kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" class="archive-article-date">
+        <time datetime="2022-05-02T14:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="概述-x2F-理解"><a href="#概述-x2F-理解" class="headerlink" title="概述&#x2F;理解"></a>概述&#x2F;理解</h2><p>VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。<br>我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。<br>也可以借助HorizontalPodAutoscaler（hpa）实现弹性伸缩。这里我们就说vmis控制器，在这里的vmis控制器，管理我们vmi虚拟机实例的副本数，也可以实现扩缩容，借助hpa实现弹性伸缩。所有我们的yaml文件写法原理都类似。</p>
+    
+    <a class="article-more-a" href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-openstack-cloudkitty组件，入门级安装（快速）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-cloudkitty组件，入门级安装（快速）</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
+        <time datetime="2022-05-02T13:21:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>什么是CloudKitty？</strong><br>CloudKitty是OpenStack等的评级即服务项目。该项目旨在成为云的退款和评级的通用解决方案。从历史上看，它只能在OpenStack上下文中运行它，但现在可以在独立模式下运行CloudKitty。</p>
+    
+    <a class="article-more-a" href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-openstack-Designate组件，入门级安装（快速）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-Designate组件，入门级安装（快速）</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
+        <time datetime="2022-04-29T14:10:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Designate 是一个开源 DNS 即服务实施，是用于运行云的 OpenStack 服务生态系统的一部分。<br>Designate 是 OpenStack 的多租户 DNSaaS 服务。它提供了一个带有集成 Keystone 身份验证的 REST API。它可以配置为根据 Nova 和 Neutron 操作自动生成记录。Designate 支持多种 DNS 服务器，包括 Bind9 和 PowerDNS 4。</p>
+    
+    <a class="article-more-a" href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Istio实际操作篇-Istio入门10分钟快速安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" target="_blank">Istio实际操作篇,Istio入门10分钟快速安装</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" class="archive-article-date">
+        <time datetime="2022-04-25T13:39:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-25</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇讲了什么是Istio的理论篇，这次我们就来实际操作。</p>
+<p>想看上一篇理论篇的看这里（看完绝对有所收获）：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124347864">[Istio是什么？] 还不知道你就out了,一文40分钟快速理解_小叶的技术Logs的博客-CSDN博客</a></p>
+    
+    <a class="article-more-a" href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Istio是什么？-还不知道你就out了-一文40分钟快速理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" target="_blank">Istio是什么？ 还不知道你就out了,一文40分钟快速理解</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" class="archive-article-date">
+        <time datetime="2022-04-22T11:27:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章属于纯理论，所含内容如下，按需阅读：</p>
+<ul>
+<li><p><code>Istio概念、服务网格、流量管理、istio架构（Envoy、Sidecar 、Istiod）</code></p>
+</li>
+<li><p><code>虚拟服务(VirtualService)、路由规则、目标规则(DestinationRule)</code></p>
+</li>
+<li><p><code>网关(Gateway)、网络弹性和测试（超时、重试、熔断器、故障注入）</code></p>
+    
+    <a class="article-more-a" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-代理是什么？nginx快速入门-反向代理hexo个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank">代理是什么？nginx快速入门+反向代理hexo个人博客</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
+        <time datetime="2022-04-20T00:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li><p><strong>什么是nginx？</strong><br>Nginx是一款轻量级的Web 服务器&#x2F;反向代理服务器及电子邮件（IMAP&#x2F;POP3）代理服务器。特点是占有内存少，并发能力特别强。</p>
+</li>
+<li><p><strong>nginx作用？</strong></p>
+    
+    <a class="article-more-a" href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-没接触过kubevirt？15分钟快速入门kubevirt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

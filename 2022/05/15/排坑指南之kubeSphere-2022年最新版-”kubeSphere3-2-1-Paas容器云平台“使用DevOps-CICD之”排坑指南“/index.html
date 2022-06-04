@@ -6,19 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygcloud.work">
-  <title>Archives: 2022 | CloudLog无名小歌</title>
+  <title>排坑指南之kubeSphere-2022年最新版-”kubeSphere3.2.1 Paas容器云平台“使用DevOps-CICD之”排坑指南“ | CloudLog无名小歌</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="this is a blog.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CloudLog无名小歌">
-<meta property="og:url" content="http://ygcloud.work/archives/2022/page/2/index.html">
+  <meta name="description" content="前言**作者主页**：https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_48450494?type&#x3D;blog**作者博客**：http:&#x2F;&#x2F;ygcloud.work&#x2F;  最近几天一直在学习kubeSphere Paas容器云平台，在这期间遇到了不少坑。   下面统一告诉各位，希望各位少走弯路！！！看在作者努力排坑+分享的份上，给个三连吧！！！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排坑指南之kubeSphere-2022年最新版-”kubeSphere3.2.1 Paas容器云平台“使用DevOps-CICD之”排坑指南“">
+<meta property="og:url" content="http://ygcloud.work/2022/05/15/%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E4%B9%8BkubeSphere-2022%E5%B9%B4%E6%9C%80%E6%96%B0%E7%89%88-%E2%80%9DkubeSphere3-2-1-Paas%E5%AE%B9%E5%99%A8%E4%BA%91%E5%B9%B3%E5%8F%B0%E2%80%9C%E4%BD%BF%E7%94%A8DevOps-CICD%E4%B9%8B%E2%80%9D%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E2%80%9C/index.html">
 <meta property="og:site_name" content="CloudLog无名小歌">
-<meta property="og:description" content="this is a blog.">
+<meta property="og:description" content="前言**作者主页**：https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_48450494?type&#x3D;blog**作者博客**：http:&#x2F;&#x2F;ygcloud.work&#x2F;  最近几天一直在学习kubeSphere Paas容器云平台，在这期间遇到了不少坑。   下面统一告诉各位，希望各位少走弯路！！！看在作者努力排坑+分享的份上，给个三连吧！！！">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ba119f1364a94970b4f99e0f68a92626.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c5ba72e6d47146d48cdc1a62113c1c80.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6cf7dfcf071a4aeaa3f6ecb4a8a52972.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e4f8d2f4516a491486670c941cb775ad.png">
+<meta property="article:published_time" content="2022-05-15T13:32:01.000Z">
+<meta property="article:modified_time" content="2022-05-15T13:33:06.269Z">
 <meta property="article:author" content="CloudLog无名小歌">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/ba119f1364a94970b4f99e0f68a92626.png">
   
     <link rel="alternative" href="/atom.xml" title="CloudLog无名小歌" type="application/atom+xml">
   
@@ -213,282 +220,310 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-排坑指南之kubeSphere-2022年最新版-”kubeSphere3-2-1-Paas容器云平台“使用DevOps-CICD之”排坑指南“" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" class="archive-article-date">
-        <time datetime="2022-05-02T14:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" target="_blank">kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩</a>
   
+    <h1 class="article-title" itemprop="name">
+      排坑指南之kubeSphere-2022年最新版-”kubeSphere3.2.1 Paas容器云平台“使用DevOps-CICD之”排坑指南“
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
-        <time datetime="2022-05-02T13:21:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2022/05/15/%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E4%B9%8BkubeSphere-2022%E5%B9%B4%E6%9C%80%E6%96%B0%E7%89%88-%E2%80%9DkubeSphere3-2-1-Paas%E5%AE%B9%E5%99%A8%E4%BA%91%E5%B9%B3%E5%8F%B0%E2%80%9C%E4%BD%BF%E7%94%A8DevOps-CICD%E4%B9%8B%E2%80%9D%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E2%80%9C/" class="archive-article-date">
+        <time datetime="2022-05-15T13:32:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-15</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">813字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>**<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494?type=blog">作者主页</a>**：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494?type=blog">https://blog.csdn.net/qq_48450494?type=blog</a><br>**<a href="http://ygcloud.work/">作者博客</a>**：<a href="http://ygcloud.work/">http://ygcloud.work/</a></p>
+<blockquote>
+<p>最近几天一直在学习kubeSphere Paas容器云平台，在这期间遇到了不少坑。</p>
+</blockquote>
+<p><font size=5 color=red> <strong>下面统一告诉各位，希望各位少走弯路！！！</strong></font><br><br><strong>看在作者努力排坑+分享的份上，给个三连吧！！！</strong></p>
+<span id="more"></span>
+<p><strong>看在作者努力排坑+分享的份上，给个三连吧！！！</strong><br><strong>看在作者努力排坑+分享的份上，给个三连吧！！！</strong><br><br></p>
+<h1 id="坑位！！！"><a href="#坑位！！！" class="headerlink" title="坑位！！！"></a>坑位！！！</h1><h3 id="坑位1（配置-Kubernetes默认存储类型）"><a href="#坑位1（配置-Kubernetes默认存储类型）" class="headerlink" title="坑位1（配置 Kubernetes默认存储类型）"></a>坑位1（配置 Kubernetes默认存储类型）</h3><p>在安装kubeSphere Paas容器云平台之前（后期出一篇kubeSphere安装教程），需要一个重要的环境准备（不只有这一个环境），配置 Kubernetes <strong>默认</strong>存储类型（storageclass）<strong>它的作用就是创建pvc之后自动创建pv与之绑定</strong>，在这里<strong>折腾了两天</strong>。。。。，**<code>最后发现官方的镜像不可用</code>**，导致创建pvc后不会自动创建pv与之绑定。。。</p>
+<h3 id="坑位2（java-lang-NullPointerException）"><a href="#坑位2（java-lang-NullPointerException）" class="headerlink" title="坑位2（java.lang.NullPointerException）"></a>坑位2（java.lang.NullPointerException）</h3><p>使用kubeSphere平台的DevOps-CICD部署服务时，前面的拉取代码、构建docker镜像、上传docker镜像到Harbor仓库、拉取Harbor仓库到本地，这一切都没问题直到最后一步<strong>部署服务时始终报错</strong>（**<code>java.lang.NullPointerException</code><strong>），</strong>在这里也折腾了两天**。。。。就，， **<code>最后发现这种方式（kubernetesDeploy）已经不维护了</code>**。。。说多了都是泪aaa。。。。,</p>
+<p><strong>坑位2报错信息，见下图：</strong><br><img src="https://img-blog.csdnimg.cn/ba119f1364a94970b4f99e0f68a92626.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/c5ba72e6d47146d48cdc1a62113c1c80.png" alt="在这里插入图片描述"></p>
+<h1 id="排坑！！！"><a href="#排坑！！！" class="headerlink" title="排坑！！！"></a>排坑！！！</h1><h3 id="排坑位1"><a href="#排坑位1" class="headerlink" title="排坑位1"></a>排坑位1</h3><p>修改自己的nfs-client-provisioner服务，对应的image镜像，如下：</p>
+<blockquote>
+<p>这里的<code>quay.io/external_storage/nfs-client-provisioner:latest</code>镜像不可用，<br>请使用<code>registry.cn-hangzhou.aliyuncs.com/jijic/provisioner:v4.0.2</code>镜像，这个镜像是我自己阿里云镜像。<strong>我放在我资源里面，大家自取吧！！</strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494?type=download">下载provisioner镜像</a></p>
+</blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://artifacthub.io/packages/helm/nfs-subdir-external-provisioner/nfs-subdir-external-provisioner">helm3安装默认存储类型</a></strong> </p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124582138">helm3是什么？，点这里</a><br>helm包里的镜像（k8s.gcr.io&#x2F;sig-storage&#x2F;nfs-subdir-external-provisioner:v4.0.2）是国外的，国内翻墙也下载不到，贼坑。所有<strong>我为大家准备好了，放在我资源里面了，大家自取吧！！</strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494?type=download">下载provisioner镜像</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs bash">kind: Deployment<br>apiVersion: apps/v1<br>metadata:<br>  name: nfs-client-provisioner<br>spec:<br>  replicas: 1<br>  selector:<br>    matchLabels:<br>      app: nfs-client-provisioner<br>  strategy:<br>    <span class="hljs-built_in">type</span>: Recreate<br>  template:<br>    metadata:<br>      labels:<br>        app: nfs-client-provisioner<br>    spec:<br>      serviceAccountName: nfs-client-provisioner<br>      containers:<br>        - name: nfs-client-provisioner<br>        <span class="hljs-comment"># image: quay.io/external_storage/nfs-client-provisioner:latest</span><br>          image: registry.cn-hangzhou.aliyuncs.com/jijic/provisioner:v4.0.2<br>          volumeMounts:<br>            - name: nfs-client-root<br>              mountPath: /persistentvolumes<br>          <span class="hljs-built_in">env</span>:<br>            - name: PROVISIONER_NAME<br>              value: fuseim.pri/ifs<br>            - name: NFS_SERVER<br>              value: 192.168.200.37<br>            - name: NFS_PATH<br>              value: /data/k8s<br>      volumes:<br>        - name: nfs-client-root<br>          nfs:<br>            server: 192.168.200.37<br>            path: /data/k8s<br></code></pre></td></tr></table></figure>
+
+<h3 id="排坑位2"><a href="#排坑位2" class="headerlink" title="排坑位2"></a>排坑位2</h3><blockquote>
+<p>这里流水线部署阶段做一个对比就明白了</p>
+</blockquote>
+<ol>
+<li>使用kubernetesDeploy方式：<strong>不可用的</strong></li>
+</ol>
+<ul>
+<li>web界面内容：<br><img src="https://img-blog.csdnimg.cn/6cf7dfcf071a4aeaa3f6ecb4a8a52972.png" alt="在这里插入图片描述"></li>
+<li>对应Jenkinsfile文件内容：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"> stage(<span class="hljs-string">&#x27;deploy&#x27;</span>) &#123;<br>  agent none<br>  steps &#123;<br>    container(<span class="hljs-string">&#x27;maven&#x27;</span>) &#123;<br>      kubernetesDeploy(enableConfigSubstitution: <span class="hljs-literal">true</span>, deleteResource: <span class="hljs-literal">false</span>, kubeconfigId: <span class="hljs-string">&#x27;demo-kubeconfig&#x27;</span>, configs: <span class="hljs-string">&#x27;yaml/gpmall.yaml&#x27;</span>)<br>    &#125;<br><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>添加凭证方式：<strong>可用的</strong></li>
+</ol>
+<ul>
+<li>web界面内容：<br><img src="https://img-blog.csdnimg.cn/e4f8d2f4516a491486670c941cb775ad.png" alt="在这里插入图片描述"></li>
+<li>对应Jenkinsfile文件内容：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">stage(<span class="hljs-string">&#x27;deploy to dev&#x27;</span>) &#123;<br>     steps &#123;<br>         container (<span class="hljs-string">&#x27;maven&#x27;</span>) &#123;<br>              withCredentials([<br>                  kubeconfigFile(<br>                  credentialsId: env.KUBECONFIG_CREDENTIAL_ID,<br>                  variable: <span class="hljs-string">&#x27;KUBECONFIG&#x27;</span>)<br>                  ]) &#123;<br>                  sh <span class="hljs-string">&#x27;envsubst &lt; ./gpmall.yaml | kubectl apply -f -&#x27;</span><br>              &#125;<br>         &#125;<br>     &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>看在作者努力排坑+分享的份上，给个三连吧！！！</strong><br><strong>看在作者努力排坑+分享的份上，给个三连吧！！！</strong><br><strong>看在作者努力排坑+分享的份上，给个三连吧！！！</strong><br><br></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://kubesphere.com.cn/docs/devops-user-guide/examples/a-maven-project/">https://kubesphere.com.cn/docs/devops-user-guide/examples/a-maven-project/</a></p>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/zfb.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/wx.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-cloudkitty组件，入门级安装（快速）</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          CloudLog无名小歌
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://ygcloud.work/2022/05/15/排坑指南之kubeSphere-2022年最新版-”kubeSphere3-2-1-Paas容器云平台“使用DevOps-CICD之”排坑指南“/" title="排坑指南之kubeSphere-2022年最新版-”kubeSphere3.2.1 Paas容器云平台“使用DevOps-CICD之”排坑指南“" target="_blank">http://ygcloud.work/2022/05/15/排坑指南之kubeSphere-2022年最新版-”kubeSphere3-2-1-Paas容器云平台“使用DevOps-CICD之”排坑指南“/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ygcloud.work/2022/05/15/%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E4%B9%8BkubeSphere-2022%E5%B9%B4%E6%9C%80%E6%96%B0%E7%89%88-%E2%80%9DkubeSphere3-2-1-Paas%E5%AE%B9%E5%99%A8%E4%BA%91%E5%B9%B3%E5%8F%B0%E2%80%9C%E4%BD%BF%E7%94%A8DevOps-CICD%E4%B9%8B%E2%80%9D%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E2%80%9C/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
-        <time datetime="2022-04-29T14:10:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/2022/05/21/Jenkins-Blue-Ocean-docker%E9%83%A8%E7%BD%B2Jenkins%EF%BC%8C%E7%BC%96%E5%86%99Jenkinsfile%E5%88%9B%E5%BB%BA%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%8C%E4%B8%80%E7%AF%87%E8%A7%A3%E5%86%B3%E2%80%9C%E8%B4%BC%E5%B8%A6%E5%8A%B2%E2%80%9D/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Jenkins+Blue Ocean-docker部署Jenkins，编写Jenkinsfile创建流水线，一篇解决“贼带劲”
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/05/11/Drone-Gitlab-%E4%BB%8E%E4%BB%8B%E7%BB%8D-%EF%BC%9E%E9%83%A8%E7%BD%B2-%EF%BC%9E%E9%85%8D%E7%BD%AE-%EF%BC%9E%E5%86%99-drone-yml%E6%B5%81%E6%B0%B4%E7%BA%BF-%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%EF%BC%8C%E4%B8%80%E6%9D%A1%E9%BE%99%E6%9C%8D%E5%8A%A1%EF%BC%8C%E7%9B%B4%E6%8E%A5%E8%B5%B7%E9%A3%9E/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Drone+Gitlab 从介绍-＞部署-＞配置-＞写.drone.yml流水线+常见的报错解决，一条龙服务，直接起飞</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-Designate组件，入门级安装（快速）</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9D%91%E4%BD%8D%EF%BC%81%EF%BC%81%EF%BC%81"><span class="toc-number">2.</span> <span class="toc-text">坑位！！！</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%91%E4%BD%8D1%EF%BC%88%E9%85%8D%E7%BD%AE-Kubernetes%E9%BB%98%E8%AE%A4%E5%AD%98%E5%82%A8%E7%B1%BB%E5%9E%8B%EF%BC%89"><span class="toc-number">2.0.1.</span> <span class="toc-text">坑位1（配置 Kubernetes默认存储类型）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%91%E4%BD%8D2%EF%BC%88java-lang-NullPointerException%EF%BC%89"><span class="toc-number">2.0.2.</span> <span class="toc-text">坑位2（java.lang.NullPointerException）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%92%E5%9D%91%EF%BC%81%EF%BC%81%EF%BC%81"><span class="toc-number">3.</span> <span class="toc-text">排坑！！！</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%9D%91%E4%BD%8D1"><span class="toc-number">3.0.1.</span> <span class="toc-text">排坑位1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%9D%91%E4%BD%8D2"><span class="toc-number">3.0.2.</span> <span class="toc-text">排坑位2</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" class="archive-article-date">
-        <time datetime="2022-04-25T13:39:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-25</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" target="_blank">Istio实际操作篇,Istio入门10分钟快速安装</a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" class="archive-article-date">
-        <time datetime="2022-04-22T11:27:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" target="_blank">Istio是什么？ 还不知道你就out了,一文40分钟快速理解</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2022-04-20T00:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank">代理是什么？nginx快速入门+反向代理hexo个人博客</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/" class="archive-article-date">
-        <time datetime="2022-04-17T09:24:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-17</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/" target="_blank">没接触过kubevirt？15分钟快速入门kubevirt</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" class="archive-article-date">
-        <time datetime="2022-04-16T10:05:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" target="_blank">还不会搭建博客吗？centos7系统部署hexo博客新手入门-进阶，看这一篇就够了</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "排坑指南之kubeSphere-2022年最新版-”kubeSphere3.2.1 Paas容器云平台“使用DevOps-CICD之”排坑指南“" -->
+  var giteement = new Giteement({
+    id: '20220515213201',
+    owner: 'yjcadmin',
+    repo: 'yilia-plus-demo',
+    backcall_uri: 'http://139.155.25.211',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '2aff0fdfef5fd6c52d0f290d75f06142b8c25e67523f07f59b068c3eb1e0d13c',
+      client_secret: '1c4f03b26a83eaaa8972b92a695f666ae01b5d2a5aaa30d883dca62e96a489a3'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2022/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2022/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
+
+
+
 
 
           </div>
@@ -529,8 +564,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

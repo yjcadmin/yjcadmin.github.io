@@ -6,19 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygcloud.work">
-  <title>Archives: 2022 | CloudLog无名小歌</title>
+  <title>【CEPH-初识篇】ceph详细介绍、搭建集群及使用，带你认识新大陆 | CloudLog无名小歌</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="this is a blog.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CloudLog无名小歌">
-<meta property="og:url" content="http://ygcloud.work/archives/2022/page/2/index.html">
+  <meta name="description" content="前言你好，我是无名小歌。今天给大家分享一个分布式存储系统ceph。   简介（理论篇）什么是ceph？Ceph在一个统一的系统中独特地提供对象、块和文件存储。Ceph 高度可靠、易于管理且免费。Ceph 的强大功能可以改变您公司的 IT 基础架构和管理大量数据的能力。Ceph 提供了非凡的可扩展性——数以千计的客户端访问 PB 到 EB 的数据。ceph存储集群相互通信以动态复制和重新分配数据。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【CEPH-初识篇】ceph详细介绍、搭建集群及使用，带你认识新大陆">
+<meta property="og:url" content="http://ygcloud.work/2022/06/04/CEPH-%E5%88%9D%E8%AF%86%E7%AF%87%E3%80%91ceph%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%E3%80%81%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4%E5%8F%8A%E4%BD%BF%E7%94%A8%EF%BC%8C%E5%B8%A6%E4%BD%A0%E8%AE%A4%E8%AF%86%E6%96%B0%E5%A4%A7%E9%99%86/index.html">
 <meta property="og:site_name" content="CloudLog无名小歌">
-<meta property="og:description" content="this is a blog.">
+<meta property="og:description" content="前言你好，我是无名小歌。今天给大家分享一个分布式存储系统ceph。   简介（理论篇）什么是ceph？Ceph在一个统一的系统中独特地提供对象、块和文件存储。Ceph 高度可靠、易于管理且免费。Ceph 的强大功能可以改变您公司的 IT 基础架构和管理大量数据的能力。Ceph 提供了非凡的可扩展性——数以千计的客户端访问 PB 到 EB 的数据。ceph存储集群相互通信以动态复制和重新分配数据。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/69f07e2bbf0a46e689497cfde988b082.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/eadf473be3d24c68b07fa7c0b947ad46.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/25b6a8ec97cc47df9deaabe199e7684e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c7aed4ca7370454c91337b114511f6e9.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1a04b4e43be347c1b49f4a497d19ae69.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a635c7ebf69c4fe788e5eb4dc99cb6ab.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/055eaf70545944e88b2118783780f3f7.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1e66d8468e8147f096eb7b2bae1348b7.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/417588d72b0a425dadfa0c6a3ae7ff55.png">
+<meta property="article:published_time" content="2022-06-04T09:03:14.000Z">
+<meta property="article:modified_time" content="2022-06-04T09:04:25.488Z">
 <meta property="article:author" content="CloudLog无名小歌">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/69f07e2bbf0a46e689497cfde988b082.png">
   
     <link rel="alternative" href="/atom.xml" title="CloudLog无名小歌" type="application/atom+xml">
   
@@ -213,282 +225,540 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CEPH-初识篇】ceph详细介绍、搭建集群及使用，带你认识新大陆" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" class="archive-article-date">
-        <time datetime="2022-05-02T14:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" target="_blank">kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩</a>
   
+    <h1 class="article-title" itemprop="name">
+      【CEPH-初识篇】ceph详细介绍、搭建集群及使用，带你认识新大陆
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
-        <time datetime="2022-05-02T13:21:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2022/06/04/CEPH-%E5%88%9D%E8%AF%86%E7%AF%87%E3%80%91ceph%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%E3%80%81%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4%E5%8F%8A%E4%BD%BF%E7%94%A8%EF%BC%8C%E5%B8%A6%E4%BD%A0%E8%AE%A4%E8%AF%86%E6%96%B0%E5%A4%A7%E9%99%86/" class="archive-article-date">
+        <time datetime="2022-06-04T09:03:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-04</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">5.8k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">28分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>你好，我是无名小歌。<br>今天给大家分享一个分布式存储系统ceph。</p>
+<br>
+
+<h1 id="简介（理论篇）"><a href="#简介（理论篇）" class="headerlink" title="简介（理论篇）"></a>简介（理论篇）</h1><p><strong>什么是ceph？</strong><br>Ceph在一个统一的系统中独特地提供对象、块和文件存储。Ceph 高度可靠、易于管理且免费。Ceph 的强大功能可以改变您公司的 IT 基础架构和管理大量数据的能力。Ceph 提供了非凡的可扩展性——数以千计的客户端访问 PB 到 EB 的数据。ceph存储集群相互通信以动态复制和重新分配数据。</p>
+<p><strong>为什么使用ceph？</strong><br>目前众多云厂商都在使用ceph，应用广泛。如：华为、阿里、腾讯等等。目前火热的云技术openstack、kubernetes都支持后端整合ceph，从而提高数据的可用性、扩展性、容错等能力。</p>
+<span id="more"></span>
+<br>
+一个 Ceph 存储集群至少需要一个 Ceph Monitor（监视器）、Ceph Manager（管理） 和 Ceph OSD（对象存储守护进程）。
+![在这里插入图片描述](https://img-blog.csdnimg.cn/da896dfd199f474c82a9fddbefc4ac28.png)
+**Monitors**
+Ceph Monitor ( ceph-mon) 维护集群状态的映射，包括监视器映射、管理器映射、OSD 映射、MDS 映射和 CRUSH 映射。这些映射是 Ceph 守护进程相互协调所需的关键集群状态。监视器还负责管理守护进程和客户端之间的身份验证。冗余和高可用性通常需要至少三个监视器。
+**Managers**
+Ceph Manager守护进程 ( ceph-mgr) 负责跟踪运行时指标和 Ceph 集群的当前状态，包括存储利用率、当前性能指标和系统负载。高可用性通常需要至少两个管理器。
+**Ceph OSD**
+一个Ceph OSD（ceph-osd）存储数据、处理数据复制、恢复、重新平衡，并通过检查其他 Ceph OSD 守护进程的心跳来向 Ceph 监视器和管理器提供一些监视信息。冗余和高可用性通常需要至少三个 Ceph OSD。
+**MDS**
+Ceph 元数据服务器(MDS ceph-mds) 代表Ceph 文件系统存储元数据（即 Ceph 块设备和 Ceph 对象存储不使用 MDS）。Ceph 元数据服务器允许 POSIX 文件系统用户执行基本命令（如 ls、find等），而不会给 Ceph 存储集群带来巨大负担。
+
+<blockquote>
+<p>Ceph 将数据作为对象存储在逻辑存储池中。使用 CRUSH算法，Ceph 计算出哪个归置组应该包含该对象，并进一步计算出哪个 Ceph OSD Daemon 应该存储该归置组。CRUSH 算法使 Ceph 存储集群能够动态扩展、重新平衡和恢复。</p>
+</blockquote>
+<br>
+
+<h1 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h1><p><img src="https://img-blog.csdnimg.cn/69f07e2bbf0a46e689497cfde988b082.png" alt="在这里插入图片描述"></p>
+<p><strong>LIBRADOS：</strong> 一个允许应用程序直接访问 RADO 的库，支持 C、C++、Java、Python、Ruby 和 PHP</p>
+<p><strong>RADOSGW：</strong> 基于存储桶的 REST网关，兼容s3和Swift</p>
+<p><strong>RBD：</strong> 一个负责任的，完全-分布式块设备，使用Linux内核cliont和QEMU&#x2F;KVM驱动程序</p>
+<p><strong>CEPHFS：</strong> 符合POSIX标准的分发文件系统，具有Linux内核客户端和对FUSE的支持</p>
+<p><strong>RADOS：</strong> 由自我修复、自我管理、智能存储节点组成的可靠、自主、分布式对象存储</p>
+<br>
+
+<h1 id="数据存储原理"><a href="#数据存储原理" class="headerlink" title="数据存储原理"></a>数据存储原理</h1><p>Ceph 存储集群从Ceph 客户端接收数据——无论是通过Ceph 块设备、Ceph 对象存储、 Ceph 文件系统还是您使用创建的自定义实现 librados——都存储为 RADOS 对象。每个对象都存储在一个 对象存储设备上。Ceph OSD 守护进程处理存储驱动器上的读、写和复制操作。对于较旧的 Filestore 后端，每个 RADOS 对象都作为单独的文件存储在传统文件系统（通常是 XFS）上。使用新的默认 BlueStore 后端，对象以类似数据库的整体方式存储。<br><img src="https://img-blog.csdnimg.cn/eadf473be3d24c68b07fa7c0b947ad46.png" alt="在这里插入图片描述"></p>
+<p>Ceph OSD 守护进程将数据作为对象存储在平面命名空间中（例如，没有目录层次结构）。对象具有标识符、二进制数据和由一组名称&#x2F;值对组成的元数据。语义完全取决于Ceph 客户端。例如，CephFS 使用元数据来存储文件属性，例如文件所有者、创建日期、最后修改日期等。</p>
+<p><strong>ceph客户端：</strong> 可以访问 Ceph 存储集群的 Ceph 组件的集合。其中包括 Ceph 对象网关、Ceph 块设备、Ceph 文件系统及其相应的库、内核模块和 FUSE。</p>
+<p><img src="https://img-blog.csdnimg.cn/25b6a8ec97cc47df9deaabe199e7684e.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>对象 ID 在整个集群中是唯一的，而不仅仅是本地文件系统。</p>
+</blockquote>
+<br>
+
+<h1 id="三大存储"><a href="#三大存储" class="headerlink" title="三大存储"></a>三大存储</h1><h2 id="RADOSGW（对象网关）"><a href="#RADOSGW（对象网关）" class="headerlink" title="RADOSGW（对象网关）"></a>RADOSGW（对象网关）</h2><p>Ceph 对象网关是一个构建在librados之上的对象存储接口，Ceph 对象存储支持两个接口：</p>
+<ul>
+<li>兼容 S3 ：通过与 Amazon S3 RESTful API 的大部分子集兼容的接口提供对象存储功能。</li>
+<li>兼容 Swift：提供对象存储功能，其接口与 OpenStack Swift API 的大部分子集兼容。<br>Ceph 对象存储使用 Ceph 对象网关守护进程 ( radosgw)，它是用于与 Ceph 存储集群交互的 HTTP 服务器。由于它提供了与 OpenStack Swift 和 Amazon S3 兼容的接口，因此 Ceph 对象网关有自己的用户管理。<br><img src="https://img-blog.csdnimg.cn/c7aed4ca7370454c91337b114511f6e9.png" alt="在这里插入图片描述"><blockquote>
+<p>Ceph 对象存储不使用Ceph 元数据服务器。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="BRD（块存储）"><a href="#BRD（块存储）" class="headerlink" title="BRD（块存储）"></a>BRD（块存储）</h2><p>块是字节序列（通常为 512）。基于块的存储接口是在 HDD、SSD、CD、软盘甚至磁带等介质上存储数据的成熟且常见的方式。<br>Ceph 块设备是精简配置的、可调整大小的，并将数据分条存储在多个 OSD 上。Ceph 块设备利用 RADOS功能，包括快照、复制和强一致性。Ceph 块存储客户端通过内核模块或librbd库与 Ceph 集群通信。<br><img src="https://img-blog.csdnimg.cn/1a04b4e43be347c1b49f4a497d19ae69.png" alt="在这里插入图片描述"></p>
+<h2 id="CEPHFS（文件存储）"><a href="#CEPHFS（文件存储）" class="headerlink" title="CEPHFS（文件存储）"></a>CEPHFS（文件存储）</h2><p>Ceph 文件系统或CephFS是一个符合 POSIX 的文件系统，构建在 Ceph 的分布式对象存储RADOS之上。</p>
+<p>文件元数据与文件数据存储在单独的 RADOS 池中，并通过可调整大小的元数据服务器集群或MDS提供服务，该集群可以扩展以支持更高吞吐量的元数据工作负载。文件系统的客户端可以直接访问 RADOS 以读取和写入文件数据块。</p>
+<p>对数据的访问是通过 MDS 集群来协调的，MDS 集群作为由客户端和 MDS 共同维护的分布式元数据缓存状态的权限。元数据的突变由每个 MDS 聚合成一系列有效的写入 RADOS 上的日志；MDS 没有在本地存储元数据状态。该模型允许在 POSIX 文件系统的上下文中客户端之间进行一致和快速的协作。<br><img src="https://img-blog.csdnimg.cn/a635c7ebf69c4fe788e5eb4dc99cb6ab.png" alt="在这里插入图片描述"></p>
+<br>
+
+<h1 id="所有组件结合起来"><a href="#所有组件结合起来" class="headerlink" title="所有组件结合起来"></a>所有组件结合起来</h1><blockquote>
+<p>在这之前还需要明白两个概率：POOLS、PG</p>
+</blockquote>
+<h2 id="POOL、PG简介"><a href="#POOL、PG简介" class="headerlink" title="POOL、PG简介"></a>POOL、PG简介</h2><p><strong>1、POOLS：</strong> 存储池，它们是用于存储对象的逻辑分区。<br>Ceph 客户端从 Ceph 监视器检索集群映射，并将对象写入池中。池size或副本的数量、CRUSH 规则和归置组的数量决定了 Ceph 将如何放置数据。<br><img src="https://img-blog.csdnimg.cn/055eaf70545944e88b2118783780f3f7.png" alt="在这里插入图片描述"><br>池至少设置以下参数：</p>
+<ul>
+<li><p>对象的所有权&#x2F;访问权</p>
+</li>
+<li><p>归置组的数量</p>
+</li>
+<li><p>要使用的 CRUSH 规则</p>
+<blockquote>
+<p>CRUSH 是一种算法，详情自行百度吧。</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>2、PG:</strong> 每个池都有许多归置组。CRUSH 将 PG 动态映射到 OSD。当 Ceph 客户端存储对象时，CRUSH 会将每个对象映射到一个归置组。</p>
+<blockquote>
+<p>使用集群映射的副本和 CRUSH 算法，客户端可以准确计算在读取或写入特定对象时使用哪个 OSD。</p>
+</blockquote>
+<h2 id="组件结合"><a href="#组件结合" class="headerlink" title="组件结合"></a>组件结合</h2><blockquote>
+<p>这个架构图主要是把散乱的组件和概念结合起来，所有这里就不过多介绍了，相信大家看到这里都能明白。</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/1e66d8468e8147f096eb7b2bae1348b7.png" alt="在这里插入图片描述"></p>
+<p><br><br></p>
+<h1 id="搭建ceph（操作篇）"><a href="#搭建ceph（操作篇）" class="headerlink" title="搭建ceph（操作篇）"></a>搭建ceph（操作篇）</h1><p>个人环境</p>
+<table>
+<thead>
+<tr>
+<th>主机名</th>
+<th>IP</th>
+<th>网卡模式</th>
+<th>内存</th>
+<th>系统盘</th>
+<th>数据盘</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ceph-1</td>
+<td>192.168.200.43</td>
+<td>NAT</td>
+<td>2G</td>
+<td>100G</td>
+<td>20G</td>
+</tr>
+<tr>
+<td>ceph-2</td>
+<td>192.168.200.44</td>
+<td>NAT</td>
+<td>2G</td>
+<td>100G</td>
+<td>20G</td>
+</tr>
+<tr>
+<td>ceph-3</td>
+<td>192.168.200.45</td>
+<td>NAT</td>
+<td>2G</td>
+<td>100G</td>
+<td>20G</td>
+</tr>
+<tr>
+<td>ceph-client</td>
+<td>192.168.200.45</td>
+<td>NAT</td>
+<td>2G</td>
+<td>100G</td>
+<td>20G</td>
+</tr>
+</tbody></table>
+<h2 id="1、基础配置"><a href="#1、基础配置" class="headerlink" title="1、基础配置"></a>1、基础配置</h2><p> 后面的操作步骤，请注意观察命令是在那台主机上执行的（<code>非常重要</code>）</p>
+<p>1、修改主机名称（三节点操作）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@localhost ~]<span class="hljs-comment"># hostnamectl set-hostname ceph-1</span><br>[root@ceph-1 ~]<span class="hljs-comment"># bash</span><br>[root@localhost ~]<span class="hljs-comment"># hostnamectl set-hostname ceph-2</span><br>[root@ceph-2 ~]<span class="hljs-comment"># bash</span><br>[root@localhost ~]<span class="hljs-comment"># hostnamectl set-hostname ceph-3</span><br>[root@ceph-3 ~]<span class="hljs-comment"># bash</span><br>[root@localhost ~]<span class="hljs-comment"># hostnamectl set-hostname ceph-client</span><br>[root@ceph-clinet ~]<span class="hljs-comment"># bash</span><br></code></pre></td></tr></table></figure>
+
+<p>2、配置hosts文件映射（三节点操作）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cat</span> &gt;&gt; /etc/hosts &lt;&lt; <span class="hljs-string">EOF</span><br><span class="hljs-string">192.168.200.43 ceph-1</span><br><span class="hljs-string">192.168.200.44 ceph-2</span><br><span class="hljs-string">192.168.200.45 ceph-3</span><br><span class="hljs-string">192.168.200.46 ceph-client</span><br><span class="hljs-string">EOF</span><br></code></pre></td></tr></table></figure>
+<p>3、关闭防火墙（三节点操作）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ systemctl stop firewalld &amp;&amp; systemctl <span class="hljs-built_in">disable</span> firewalld<br>$ setenforce 0<br>$ sed -i <span class="hljs-string">&#x27;s/SELINUX=.*/SELINUX=permissive/g&#x27;</span> /etc/selinux/config<br></code></pre></td></tr></table></figure>
+
+<p>4、配置ssh免密登录</p>
+<blockquote>
+<p>使用 ssh-keygen 命令生成公钥、私钥（一直按回车），再使用 ssh-copy-id 命令将公钥copy复制到目标主机，最后使用一个for循环测试是否可免密登录。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ~]<span class="hljs-comment"># ssh-keygen</span><br>[root@ceph-1 ~]<span class="hljs-comment"># ssh-copy-id ceph-1</span><br>[root@ceph-1 ~]<span class="hljs-comment"># ssh-copy-id ceph-2</span><br>[root@ceph-1 ~]<span class="hljs-comment"># ssh-copy-id ceph-3</span><br>[root@ceph-1 ~]<span class="hljs-comment"># ssh-copy-id ceph-client</span><br>[root@ceph-1 ~]<span class="hljs-comment"># for i in 1 2 3 client; do ssh ceph-$i hostname ; done</span><br>ceph-1<br>ceph-2<br>ceph-3<br>ceph-clinet<br></code></pre></td></tr></table></figure>
+
+<p>5、配置yum源（ceph-1节点执行）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ yum install -y wget<br>$ <span class="hljs-built_in">mv</span> /etc/yum.repos.d/* /media/  <span class="hljs-comment"># 所有节点执行</span><br>$ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo<br>$ wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo<br>$ vi /etc/yum.repos.d/ceph.rpeo<br>[ceph]<br>name=Ceph packages <span class="hljs-keyword">for</span><br>baseurl=https://mirrors.aliyun.com/ceph/rpm-mimic/el7/<span class="hljs-variable">$basearch</span><br>enabled=1<br>gpgcheck=1<br><span class="hljs-built_in">type</span>=rpm-md<br>gpgkey=https://mirrors.aliyun.com/ceph/keys/release.asc<br>priority=1<br><br>[ceph-noarch]<br>name=Ceph noarch packages <br>baseurl=https://mirrors.aliyun.com/ceph/rpm-mimic/el7/noarch/<br>enabled=1<br>gpgcheck=1<br><span class="hljs-built_in">type</span>=rpm-md<br>gpgkey=https://mirrors.aliyun.com/ceph/keys/release.asc<br>priority=1<br><br>[ceph-source]<br>name=Ceph <span class="hljs-built_in">source</span> packages <br>baseurl=https://mirrors.aliyun.com/ceph/rpm-mimic/el7/SRPMS/<br>enabled=1<br>gpgcheck=1<br><span class="hljs-built_in">type</span>=rpm-md<br>gpgkey=https://mirrors.aliyun.com/ceph/keys/release.asc<br>priority=1<br><br><span class="hljs-comment"># 查看repo包个数，这里包个数为：28,719</span><br>$ yum clean all;yum repolist  <br>...<br>ceph                                                                                                                                                524/524<br>ceph-noarch                                                                                                                                           16/16<br>ceph-source                                                                                                                                           30/30<br>repo <span class="hljs-built_in">id</span>                                                     repo name                                                                                 status<br>base/7/x86_64                                               CentOS-7 - Base - mirrors.aliyun.com                                                      10,072<br>ceph/x86_64                                                 Ceph packages <span class="hljs-keyword">for</span>                                                                            524<br>ceph-noarch                                                 Ceph noarch packages                                                                          16<br>ceph-source                                                 Ceph <span class="hljs-built_in">source</span> packages                                                                           0<br>epel/x86_64                                                 Extra Packages <span class="hljs-keyword">for</span> Enterprise Linux 7 - x86_64                                            13,753<br>extras/7/x86_64                                             CentOS-7 - Extras - mirrors.aliyun.com                                                       512<br>updates/7/x86_64                                            CentOS-7 - Updates - mirrors.aliyun.com                                                    3,842<br>repolist: 28,719<br><br><br><br><span class="hljs-comment">#将ceph-1节点yum，复制到ceph-2、ceph-3、ceph-client节点（需要提前移除默认repo文件）</span><br>$ <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> 2 3 client; <span class="hljs-keyword">do</span> scp /etc/yum.repos.d/* ceph-<span class="hljs-variable">$i</span>:/etc/yum.repos.d/ ;<span class="hljs-keyword">done</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<p>6、chrony配置时间同步</p>
+<ul>
+<li>ceph-1节点执行</li>
+</ul>
+<blockquote>
+<p>注意：chronyc sources命令查看时间同步是否成功，左下角 ^* 表示成功， ^? 表示不成功。<br>这一步很重要确保完成，否则安装ceph集群时会报一些奇奇怪怪的错误。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ yum install chrony -y<br>$ sed -i <span class="hljs-string">&#x27;3,6s/^/#/g&#x27;</span> /etc/chrony.conf<br>$ sed -i <span class="hljs-string">&#x27;7s/^/server ceph-1 iburst/g&#x27;</span> /etc/chrony.conf<br>$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;allow 192.168.200.0/24&quot;</span> &gt;&gt; /etc/chrony.conf<br>$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;local stratum 10&quot;</span> &gt;&gt; /etc/chrony.conf<br>$ systemctl restart chronyd &amp;&amp; systemctl <span class="hljs-built_in">enable</span> chronyd<br><br>$ chronyc sources<br>210 Number of sources = 1<br>MS Name/IP address         Stratum Poll Reach LastRx Last sample<br>===============================================================================<br>^* ceph-1                       10   6     7     2    -25ns[-6354ns] +/-   10us<br>[root@ceph-1 ~]<span class="hljs-comment"># date</span><br>Fri Jun  3 17:45:29 CST 2022<br><br></code></pre></td></tr></table></figure>
+<ul>
+<li>ceph-2、ceph-3、ceph-client节点执行</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ yum install chrony -y<br>$ sed -i <span class="hljs-string">&#x27;3,6s/^/#/g&#x27;</span> /etc/chrony.conf<br>$ sed -i <span class="hljs-string">&#x27;7s/^/server ceph-1 iburst/g&#x27;</span> /etc/chrony.conf<br>$ systemctl restart chronyd &amp;&amp; systemctl <span class="hljs-built_in">enable</span> chronyd<br><br>$ chronyc sources<br>210 Number of sources = 1<br>MS Name/IP address         Stratum Poll Reach LastRx Last sample<br>===============================================================================<br>^* ceph-1                       11   6     7     1  -2624ns[ -411ms] +/- 1195us<br>[root@ceph-2 ~]<span class="hljs-comment"># date</span><br>Fri Jun  3 17:45:29 CST 2022<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="2、创建ceph集群"><a href="#2、创建ceph集群" class="headerlink" title="2、创建ceph集群"></a>2、创建ceph集群</h2><p> 后面的操作步骤，请注意观察命令是在那台主机上执行的（<code>非常重要</code>），几乎所有操作在ceph-1节点。</p>
+<p>1、 安装ceph-deploy（三节点操作）</p>
+<blockquote>
+<p>注意：检查ceph版本是否为 ceph-deploy-2.0.1 版本。如果使用ceph-deploy-1.5.x版本使用此文档会有小问题。<br>推荐使用ceph-deploy-2.0.1 版本</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ~]<span class="hljs-comment"># yum install ceph-deploy ceph python-setuptools -y</span><br>[root@ceph-1 ~]<span class="hljs-comment"># ceph-deploy --version</span><br>2.0.1<br>[root@ceph-2 ~]<span class="hljs-comment"># yum install ceph python-setuptools -y</span><br>[root@ceph-3 ~]<span class="hljs-comment"># yum install ceph python-setuptools -y</span><br></code></pre></td></tr></table></figure>
+
+<p>2、部署集群</p>
+<blockquote>
+<p>ceph.conf：ceph配置文件<br>ceph-deploy-ceph.log：日志文件<br>ceph.mon.keyring：mon密钥文件（mon之间通信会用到）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># cd /etc/ceph</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># ceph-deploy new ceph-1</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># ll</span><br>total 16<br>-rw-r--r--. 1 root root  198 Jun  2 16:06 ceph.conf<br>-rw-r--r--. 1 root root 2933 Jun  2 16:06 ceph-deploy-ceph.log<br>-rw-------. 1 root root   73 Jun  2 16:06 ceph.mon.keyring<br>-rw-r--r--. 1 root root   92 Apr 24  2020 rbdmap<br></code></pre></td></tr></table></figure>
+<p>修改副本数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># cat ceph.conf</span><br>[global]<br>fsid = 1bd553c0-75e5-4f1e-aa51-88cb9aae7ba5<br>mon_initial_members = ceph-1<br>mon_host = 192.168.200.43<br>auth_cluster_required = cephx<br>auth_service_required = cephx<br>auth_client_required = cephx<br>osd_pool_default_size = 2 		 <span class="hljs-comment">#添加</span><br></code></pre></td></tr></table></figure>
+<p>安装ceph相关程序包、依赖包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># ceph-deploy install ceph-1 ceph-2 ceph-3</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>安装ceph monitor监视器</p>
+<blockquote>
+<p>安装monitor后使用ceph -s查看集群状态报错（需要身份验证文件）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># ceph-deploy mon create ceph-1</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># ceph -s</span><br>2022-06-02 16:07:16.087 7fb927470700 -1 auth: unable to find a keyring on /etc/ceph/ceph.client.admin.keyring,/etc/ceph/ceph.keyring,/etc/ceph/keyring,/etc/ceph/keyring.bin,: (2) No such file or directory<br>2022-06-02 16:07:16.087 7fb927470700 -1 monclient: ERROR: missing keyring, cannot use cephx <span class="hljs-keyword">for</span> authentication<br>[errno 2] error connecting to the cluster<br></code></pre></td></tr></table></figure>
+
+<p>使用gatherkeys子命令，收集配置新节点的身份验证密钥。</p>
+<blockquote>
+<p>这时你会发现&#x2F;etc&#x2F;ceph目录下多了5个密钥文件，再一次使用ceph -s发现可以使用并且集群状态是HEALTH_OK。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># ceph-deploy gatherkeys ceph-1</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># ll</span><br>total 44<br>-rw-------. 1 root root   113 May 31 09:51 ceph.bootstrap-mds.keyring   <span class="hljs-comment">#mds密钥</span><br>-rw-------. 1 root root   113 May 31 09:51 ceph.bootstrap-mgr.keyring   <span class="hljs-comment">#mgr密钥</span><br>-rw-------. 1 root root   113 May 31 09:51 ceph.bootstrap-osd.keyring	<span class="hljs-comment">#osd密钥</span><br>-rw-------. 1 root root   113 May 31 09:51 ceph.bootstrap-rgw.keyring	<span class="hljs-comment">#rgw密钥</span><br>-rw-------. 1 root root   151 May 31 09:51 ceph.client.admin.keyring	<span class="hljs-comment">#admin管理用户密钥</span><br>-rw-r--r--. 1 root root   223 May 31 09:50 ceph.conf<br>-rw-r--r--. 1 root root 14695 May 31 09:51 ceph-deploy-ceph.log<br>-rw-------. 1 root root    73 May 31 09:47 ceph.mon.keyring<br><span class="hljs-comment"># 连接ceph集群admin用户密码</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># cat ceph.client.admin.keyring</span><br>[client.admin]<br>        key = AQAWHZZiaX5eFBAAwkKizCr+cjbeQpqmjMZ5sQ==<br>        caps mds = <span class="hljs-string">&quot;allow *&quot;</span><br>        caps mgr = <span class="hljs-string">&quot;allow *&quot;</span><br>        caps mon = <span class="hljs-string">&quot;allow *&quot;</span><br>        caps osd = <span class="hljs-string">&quot;allow *&quot;</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># ceph -s</span><br>  cluster:<br>    <span class="hljs-built_in">id</span>:     48a5d20d-b4b7-49cd-b50e-3876509024e2<br>    health: HEALTH_OK<br><br>  services:<br>    mon: 1 daemons, quorum ceph-1<br>    mgr: no daemons active<br>    osd: 0 osds: 0 up, 0 <span class="hljs-keyword">in</span><br><br>  data:<br>    pools:   0 pools, 0 pgs<br>    objects: 0  objects, 0 B<br>    usage:   0 B used, 0 B / 0 B avail<br>    pgs:<br></code></pre></td></tr></table></figure>
+
+<h2 id="3、部署mgr管理服务"><a href="#3、部署mgr管理服务" class="headerlink" title="3、部署mgr管理服务"></a>3、部署mgr管理服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># ceph-deploy mgr create ceph-1</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># ceph -s</span><br>  cluster:<br>    <span class="hljs-built_in">id</span>:     48a5d20d-b4b7-49cd-b50e-3876509024e2<br>    health: HEALTH_OK<br><br>  services:<br>    mon: 1 daemons, quorum ceph-1<br>    mgr: ceph-1(active)<br>    osd: 3 osds: 3 up, 3 <span class="hljs-keyword">in</span><br><br>  data:<br>    pools:   0 pools, 0 pgs<br>    objects: 0  objects, 0 B<br>    usage:   3.0 GiB used, 27 GiB / 30 GiB avail<br>    pgs:<br><br></code></pre></td></tr></table></figure>
+
+<p>统一集群配置</p>
+<blockquote>
+<p>将admin密钥文件拷贝到指定节点，这样每次执行ceph命令时就无需指定monitor地址和ceph.client.admin.keyring了。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ ceph-deploy admin ceph-1 ceph-2 ceph-3<br> <span class="hljs-comment">#各节点添加r读权限</span><br>$ <span class="hljs-built_in">chmod</span> +r /etc/ceph/ceph.client.admin.keyring<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="4、部署osd"><a href="#4、部署osd" class="headerlink" title="4、部署osd"></a>4、部署osd</h2><blockquote>
+<p>三节点磁盘都格式化为xfs格式</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># lsblk</span><br>NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT<br>...<br>sdb               8:16   0   20G  0 disk<br>sr0              11:0    1 1024M  0 rom<br><br>[root@ceph-1 ceph]<span class="hljs-comment"># mkfs.xfs /dev/sdb  #所有集群节点执行</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># lsblk -f</span><br>NAME            FSTYPE      LABEL UUID                                   MOUNTPOINT<br>...<br>sdb             xfs               5dfa0891-e40f-48ee-9591-da7e353cf842<br><br>[root@ceph-1 ceph]<span class="hljs-comment"># ceph-deploy osd create ceph-1 --data /dev/sdb</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># ceph-deploy osd create ceph-2 --data /dev/sdb</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># ceph-deploy osd create ceph-3 --data /dev/sdb</span><br><span class="hljs-comment">#查看osd状态</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># ceph-deploy osd list ceph-1 ceph-2 ceph-3</span><br><br>[root@ceph-1 ceph]<span class="hljs-comment">#  ceph -s</span><br>  cluster:<br>    <span class="hljs-built_in">id</span>:     e9ae008c-8567-4af5-a6be-22c75d430f2e<br>    health: HEALTH_OK<br><br>  services:<br>    mon: 1 daemons, quorum ceph-1<br>    mgr: ceph-1(active)<br>    osd: 3 osds: 3 up, 3 <span class="hljs-keyword">in</span><br><br>  data:<br>    pools:   0 pools, 0 pgs<br>    objects: 0  objects, 0 B<br>    usage:   3.0 GiB used, 57 GiB / 60 GiB avail<br>    pgs:<br><br><br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="使用ceph"><a href="#使用ceph" class="headerlink" title="使用ceph"></a>使用ceph</h1><h2 id="一、cephfs文件系统"><a href="#一、cephfs文件系统" class="headerlink" title="一、cephfs文件系统"></a>一、cephfs文件系统</h2><p>1、部署mds</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># ceph-deploy mds create ceph-1 ceph-2 ceph-3</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># ceph mds stat</span><br>, 3 up:standby<br>[root@ceph-1 ceph]<span class="hljs-comment"># ceph -s</span><br>  cluster:<br>    <span class="hljs-built_in">id</span>:     e9ae008c-8567-4af5-a6be-22c75d430f2e<br>    health: HEALTH_OK<br><br>  services:<br>    mon: 1 daemons, quorum ceph-1<br>    mgr: ceph-1(active)<br>    osd: 3 osds: 3 up, 3 <span class="hljs-keyword">in</span><br><br>  data:<br>    pools:   0 pools, 0 pgs<br>    objects: 0  objects, 0 B<br>    usage:   3.0 GiB used, 57 GiB / 60 GiB avail<br>    pgs:<br></code></pre></td></tr></table></figure>
+<p>2、创建存储池</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># ceph osd pool create cephfs_data 128</span><br>pool <span class="hljs-string">&#x27;cephfs_data&#x27;</span> created<br>[root@ceph-1 ceph]<span class="hljs-comment"># ceph osd pool create cephfs_metadata 60</span><br>pool <span class="hljs-string">&#x27;cephfs_metadata&#x27;</span> created<br><br></code></pre></td></tr></table></figure>
+<p>3、创建文件系统</p>
+<blockquote>
+<p>语法：ceph fs new  &lt;fs_name&gt;  &lt;metadata&gt;  &lt;data&gt;</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># ceph fs new cephfs cephfs_metadata cephfs_data</span><br>new fs with metadata pool 2 and data pool 1<br>[root@ceph-1 ceph]<span class="hljs-comment"># ceph fs ls</span><br>name: cephfs, metadata pool: cephfs_metadata, data pools: [cephfs_data ]<br></code></pre></td></tr></table></figure>
+<p>4、创建文件系统后，MDS 进入活动状态。</p>
+<blockquote>
+<p>创建了文件系统并且 MDS 处于活动状态（active），就可以挂载文件系统了。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># ceph mds stat  #1个处于活跃、2个处于热备份</span><br>cephfs-1/1/1 up  &#123;0=ceph-1=up:active&#125;, 2 up:standby<br><br><br>[root@ceph-1 ceph]<span class="hljs-comment"># ceph -s</span><br>  cluster:<br>    <span class="hljs-built_in">id</span>:     e9ae008c-8567-4af5-a6be-22c75d430f2e<br>    health: HEALTH_OK<br><br>  services:<br>    mon: 1 daemons, quorum ceph-1<br>    mgr: ceph-1(active)<br>    mds: cephfs-1/1/1 up  &#123;0=ceph-1=up:active&#125;, 2 up:standby<br>    osd: 3 osds: 3 up, 3 <span class="hljs-keyword">in</span><br><br>  data:<br>    pools:   2 pools, 188 pgs<br>    objects: 22  objects, 2.2 KiB<br>    usage:   3.0 GiB used, 57 GiB / 60 GiB avail<br>    pgs:     188 active+clean<br><br><br></code></pre></td></tr></table></figure>
+<p>5、 <strong>挂载使用cephfs</strong></p>
+<blockquote>
+<p>再客户端使用命令挂载</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># cat ceph.client.admin.keyring</span><br>[client.admin]<br>        key = AQCcb5hi9KIrGRAA+4Pq24BCk/JgnkX7WDMiqQ==<br>       ...<br>[root@ceph-clinet ~]<span class="hljs-comment"># mount -t ceph 192.168.200.43:6789:/ /mnt -o name=admin,secret=AQCcb5hi9KIrGRAA+4Pq24BCk/JgnkX7WDMiqQ==</span><br>[root@ceph-clinet ~]<span class="hljs-comment"># df -hT</span><br>Filesystem              Type      Size  Used Avail Use% Mounted on<br>...<br>192.168.200.43:6789:/   ceph       13G     0   13G   0% /mnt<br>[root@ceph-clinet ceph]<span class="hljs-comment"># umount /mnt  #取消挂载</span><br></code></pre></td></tr></table></figure>
+
+<p>6、密钥文件挂载客户端需要安装ceph-common，否则报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-clinet ceph]<span class="hljs-comment"># cat admin.secret</span><br>AQCcb5hi9KIrGRAA+4Pq24BCk/JgnkX7WDMiqQ==<br>[root@ceph-clinet ceph]<span class="hljs-comment"># mount -t ceph 192.168.200.43:6789:/ /opt/cephfs/ -o name=admin,secret=/etc/ceph/admin.secret</span><br>mount: wrong fs <span class="hljs-built_in">type</span>, bad option, bad superblock on 192.168.200.43:6789:/,<br>       missing codepage or helper program, or other error<br><br>       In some cases useful info is found <span class="hljs-keyword">in</span> syslog - try<br>       dmesg | <span class="hljs-built_in">tail</span> or so.<br><br></code></pre></td></tr></table></figure>
+
+<p>7、使用 FUSE 挂载 CEPHFS</p>
+<blockquote>
+<p>ceph -fuse是挂载 CephFS 的另一种方式，尽管它挂载在用户空间。因此，FUSE 的性能可能相对较低，但 FUSE 客户端更易于管理，尤其是在升级 CephFS 时。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-clinet ceph]<span class="hljs-comment"># yum install -y ceph-fuse</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># scp /etc/ceph/ceph.client.admin.keyring ceph-client:/etc/ceph</span><br>[root@ceph-clinet ceph]<span class="hljs-comment"># mkdir /etc/cephfs &amp;&amp; ceph-fuse -m 192.168.200.43:6789 /opt/cephfs/</span><br>[root@ceph-clinet ceph]<span class="hljs-comment"># df -h</span><br>Filesystem               Size  Used Avail Use% Mounted on<br>...<br>ceph-fuse                 13G     0   13G   0% /opt/cephfs<br>[root@ceph-clinet ceph]<span class="hljs-comment"># umount /opt/cephfs/</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>cephfs文件系统配置使用完，给虚拟机做个快照。后面会使用。</p>
+</blockquote>
+<h2 id="二、块存储"><a href="#二、块存储" class="headerlink" title="二、块存储"></a>二、块存储</h2><p>1、创建存储池pool</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># ceph osd pool create block_data 60</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># ceph osd lspools</span><br>1 cephfs_data<br>2 cephfs_metadata<br>3 block_data<br></code></pre></td></tr></table></figure>
+<p>2、创建RBD镜像，feature为layering</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment">#  rbd create myimage -s 10G --image-feature layering -p block_data</span><br>[root@ceph-1 ceph]<span class="hljs-comment">#  rbd ls -p block_data</span><br>myimage<br>[root@ceph-1 ceph]<span class="hljs-comment"># rbd info myimage -p block_data</span><br>rbd image <span class="hljs-string">&#x27;myimage&#x27;</span>:<br>        size 10 GiB <span class="hljs-keyword">in</span> 2560 objects<br>        order 22 (4 MiB objects)<br>        <span class="hljs-built_in">id</span>: 108b6b8b4567<br>        block_name_prefix: rbd_data.108b6b8b4567<br>        format: 2<br>        features: layering<br>        op_features:<br>        flags:<br>        create_timestamp: Thu Jun  2 21:33:40 2022<br></code></pre></td></tr></table></figure>
+<p>3、将myimage映射为块设备</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># rbd map myimage -p block_data</span><br>/dev/rbd0<br>[root@ceph-1 ceph]<span class="hljs-comment"># rbd showmapped</span><br><span class="hljs-built_in">id</span> pool       image   snap device<br>0  block_data myimage -    /dev/rbd0<br><br>[root@ceph-1 ceph]<span class="hljs-comment"># lsblk</span><br>NAME                        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT<br>...<br>rbd0                        252:0    0   10G  0 disk<br><br></code></pre></td></tr></table></figure>
+<p>4、格式化挂载使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># mkfs.xfs /dev/rbd0</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># mount /dev/rbd0 /mnt</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># df -h</span><br>Filesystem               Size  Used Avail Use% Mounted on<br>/dev/mapper/centos-root   50G  1.6G   49G   4% /<br>devtmpfs                 899M     0  899M   0% /dev<br>tmpfs                    911M     0  911M   0% /dev/shm<br>tmpfs                    911M  9.6M  902M   2% /run<br>tmpfs                    911M     0  911M   0% /sys/fs/cgroup<br>/dev/sda1               1014M  142M  873M  14% /boot<br>/dev/mapper/centos-home   47G   33M   47G   1% /home<br>tmpfs                    183M     0  183M   0% /run/user/0<br>tmpfs                    911M   52K  911M   1% /var/lib/ceph/osd/ceph-0<br>/dev/rbd0                 10G   33M   10G   1% /mnt<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="三、对象存储"><a href="#三、对象存储" class="headerlink" title="三、对象存储"></a>三、对象存储</h2><blockquote>
+<p>在使用对象存储之前，使用我们cephfs快照。（如果安装了块存储，这里的对象存储网关启动不了，原因不明。）</p>
+</blockquote>
+<p>1、在 ceph-1 上通过 ceph-deploy 将 ceph-radosgw 软件包安装到 ceph-1 中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># ceph-deploy install --rgw ceph-1</span><br></code></pre></td></tr></table></figure>
+<p>2、创建RGW服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># ceph-deploy rgw create ceph-1</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># ps -ef | grep radosgw</span><br>ceph        2347       1  2 15:50 ?        00:00:00 /usr/bin/radosgw -f --cluster ceph --name client.rgw.ceph-1 --setuser ceph --setgroup ceph<br>root        2962    1771  0 15:51 pts/0    00:00:00 grep --color=auto radosgw<br><br>[root@ceph-1 ceph]<span class="hljs-comment"># systemctl status ceph-radosgw\*</span><br>● ceph-radosgw@rgw.ceph-1.service - Ceph rados gateway<br>   Loaded: loaded (/usr/lib/systemd/system/ceph-radosgw@.service; enabled; vendor preset: disabled)<br>   Active: active (running) since Fri 2022-06-03 15:50:45 CST; 31s ago<br> Main PID: 2347 (radosgw)<br>   CGroup: /system.slice/system-ceph\x2dradosgw.slice/ceph-radosgw@rgw.ceph-1.service<br>           └─2347 /usr/bin/radosgw -f --cluster ceph --name client.rgw.ceph-1 --setuser ceph --setgroup ceph<br><br>Jun 03 15:50:45 ceph-1 systemd[1]: Started Ceph rados gateway.<br>Jun 03 15:50:45 ceph-1 systemd[1]: Starting Ceph rados gateway...<br><br></code></pre></td></tr></table></figure>
+<p>3、访问RGW</p>
+<blockquote>
+<p>RGW默认端口 7480</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># yum install -y net-tools</span><br>[root@ceph-1 ceph]<span class="hljs-comment"># netstat -tnplu</span><br>Active Internet connections (only servers)<br>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name<br>...<br>tcp        0      0 0.0.0.0:7480            0.0.0.0:*               LISTEN      2347/radosgw<br></code></pre></td></tr></table></figure>
+
+<p>浏览器访问<a target="_blank" rel="noopener" href="http://192.168.200.43:7480/">http://192.168.200.43:7480/</a><br><img src="https://img-blog.csdnimg.cn/417588d72b0a425dadfa0c6a3ae7ff55.png" alt="在这里插入图片描述"></p>
+<h3 id="使用-S3-访问-RGW"><a href="#使用-S3-访问-RGW" class="headerlink" title="使用 S3 访问 RGW"></a>使用 S3 访问 RGW</h3><p>1、创建 s3 的兼容用户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># radosgw-admin user create --uid ceph-s3-user --display-name &quot;Ceph S3 User Demo&quot;</span><br>...<br>    <span class="hljs-string">&quot;keys&quot;</span>: [ <br>        &#123; <br>            <span class="hljs-string">&quot;user&quot;</span>: <span class="hljs-string">&quot;ceph-s3-user&quot;</span>, <br>            <span class="hljs-string">&quot;access_key&quot;</span>: <span class="hljs-string">&quot;V3J9L4M1WKV5O5ECAKPU&quot;</span>, <br>           <span class="hljs-string">&quot;secret_key&quot;</span>:<span class="hljs-string">&quot;f5LqLVYOVNu38cuQwi0jXC2ZTboCSJDmdvB8oeYw&quot;</span> <br>  ...<br>        &#125; <br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>access_key 与 secret_key 这里可以记录一下，也可以使用命令再次查看。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># radosgw-admin user info --uid ceph-s3-user </span><br></code></pre></td></tr></table></figure>
+<h3 id="使用命令行方式操作-rgw"><a href="#使用命令行方式操作-rgw" class="headerlink" title="使用命令行方式操作 rgw"></a>使用命令行方式操作 rgw</h3><p>1、配置命令行工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># yum -y install s3cmd </span><br>[root@ceph-1 ceph]<span class="hljs-comment"># s3cmd --configure</span><br><br>Enter new values or accept defaults <span class="hljs-keyword">in</span> brackets with Enter.<br>Refer to user manual <span class="hljs-keyword">for</span> detailed description of all options.<br><br>Access key and Secret key are your identifiers <span class="hljs-keyword">for</span> Amazon S3. Leave them empty <span class="hljs-keyword">for</span> using the <span class="hljs-built_in">env</span> variables.<br>Access Key: 82EWM49KPWGFVR0CWSD4  <span class="hljs-comment">#输入用户Access </span><br>Secret Key: 129CSMM9Dk3CC1lZwM7kn75lXMhrWBAMPEuyJL5k <span class="hljs-comment">##输入用户Secret </span><br>Default Region [US]: <span class="hljs-comment">#默认回车</span><br><br>Use <span class="hljs-string">&quot;s3.amazonaws.com&quot;</span> <span class="hljs-keyword">for</span> S3 Endpoint and not modify it to the target Amazon S3.<br>S3 Endpoint [s3.amazonaws.com]: 192.168.200.43:7480  <span class="hljs-comment">#输入Rgw服务地址</span><br><br>Use <span class="hljs-string">&quot;%(bucket)s.s3.amazonaws.com&quot;</span> to the target Amazon S3. <span class="hljs-string">&quot;%(bucket)s&quot;</span> and <span class="hljs-string">&quot;%(location)s&quot;</span> vars can be used<br><span class="hljs-keyword">if</span> the target S3 system supports dns based buckets.<br>DNS-style bucket+hostname:port template <span class="hljs-keyword">for</span> accessing a bucket [%(bucket)s.s3.amazonaws.com]: 192.168.200.43:7480/%(bucket)s  <span class="hljs-comment">#输入</span><br><br>Encryption password is used to protect your files from reading<br>by unauthorized persons <span class="hljs-keyword">while</span> <span class="hljs-keyword">in</span> transfer to S3<br>Encryption password:  <span class="hljs-comment">##默认回车</span><br>Path to GPG program [/usr/bin/gpg]: <span class="hljs-comment">##默认回车</span><br><br>When using secure HTTPS protocol all communication with Amazon S3<br>servers is protected from 3rd party eavesdropping. This method is<br>slower than plain HTTP, and can only be proxied with Python 2.7 or newer<br>Use HTTPS protocol [Yes]: no  <span class="hljs-comment">#输入no</span><br><br>On some networks all internet access must go through a HTTP proxy.<br>Try setting it here <span class="hljs-keyword">if</span> you can<span class="hljs-string">&#x27;t connect to S3 directly</span><br><span class="hljs-string">HTTP Proxy server name:   </span><br><span class="hljs-string"></span><br><span class="hljs-string">New settings:</span><br><span class="hljs-string">  Access Key: 82EWM49KPWGFVR0CWSD4</span><br><span class="hljs-string">  Secret Key: 129CSMM9Dk3CC1lZwM7kn75lXMhrWBAMPEuyJL5k</span><br><span class="hljs-string">  Default Region: US</span><br><span class="hljs-string">  S3 Endpoint: 192.168.200.43:7480  ##输入Rgw服务地址</span><br><span class="hljs-string">  DNS-style bucket+hostname:port template for accessing a bucket: 192.168.200.43:7480/%(bucket)s</span><br><span class="hljs-string">  Encryption password:  </span><br><span class="hljs-string">  Path to GPG program: /usr/bin/gpg</span><br><span class="hljs-string">  Use HTTPS protocol: False</span><br><span class="hljs-string">  HTTP Proxy server name: </span><br><span class="hljs-string">  HTTP Proxy server port: 0</span><br><span class="hljs-string"></span><br><span class="hljs-string">Test access with supplied credentials? [Y/n] y  #输入y</span><br><span class="hljs-string">Please wait, attempting to list all buckets...</span><br><span class="hljs-string">Success. Your access key and secret key worked fine :-)</span><br><span class="hljs-string"></span><br><span class="hljs-string">Now verifying that encryption works...</span><br><span class="hljs-string">Not configured. Never mind.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Save settings? [y/N] y  #输入y</span><br><span class="hljs-string">Configuration saved to &#x27;</span>/root/.s3cfg<span class="hljs-string">&#x27;</span><br><span class="hljs-string"></span><br></code></pre></td></tr></table></figure>
+<p>2、这是需要修改版本，启用v2版本即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ~]<span class="hljs-comment"># s3cmd mb s3://s3cmd-demo</span><br>ERROR: S3 error: 403 (SignatureDoesNotMatch)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># sed -i &#x27;/signature_v2/s/False/True/g&#x27; /root/.s3cfg</span><br></code></pre></td></tr></table></figure>
+<p>3、创建</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># s3cmd mb s3://s3cmd-demo</span><br>Bucket <span class="hljs-string">&#x27;s3://s3cmd-demo/&#x27;</span> created<br><br></code></pre></td></tr></table></figure>
+<p>4、上传</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># s3cmd put /etc/fstab s3://s3cmd-demo/fatab-demo</span><br>upload: <span class="hljs-string">&#x27;/etc/fstab&#x27;</span> -&gt; <span class="hljs-string">&#x27;s3://s3cmd-demo/fatab-demo&#x27;</span>  [1 of 1]<br> 541 of 541   100% <span class="hljs-keyword">in</span>    1s   327.08 B/s  <span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+<p>5、下载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># s3cmd get s3://s3cmd-demo/fatab-demo</span><br>download: <span class="hljs-string">&#x27;s3://s3cmd-demo/fatab-demo&#x27;</span> -&gt; <span class="hljs-string">&#x27;./fatab-demo&#x27;</span>  [1 of 1]<br> 541 of 541   100% <span class="hljs-keyword">in</span>    0s    39.79 KB/s  <span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+<p>6、删除</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ceph-1 ceph]<span class="hljs-comment"># s3cmd del s3://s3cmd-demo/fatab-demo</span><br>delete: <span class="hljs-string">&#x27;s3://s3cmd-demo/fatab-demo&#x27;</span><br></code></pre></td></tr></table></figure>
+
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://docs.ceph.com/en/latest/">https://docs.ceph.com/en/latest/</a></p>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/zfb.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/wx.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-cloudkitty组件，入门级安装（快速）</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          CloudLog无名小歌
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://ygcloud.work/2022/06/04/CEPH-初识篇】ceph详细介绍、搭建集群及使用，带你认识新大陆/" title="【CEPH-初识篇】ceph详细介绍、搭建集群及使用，带你认识新大陆" target="_blank">http://ygcloud.work/2022/06/04/CEPH-初识篇】ceph详细介绍、搭建集群及使用，带你认识新大陆/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ygcloud.work/2022/06/04/CEPH-%E5%88%9D%E8%AF%86%E7%AF%87%E3%80%91ceph%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%E3%80%81%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4%E5%8F%8A%E4%BD%BF%E7%94%A8%EF%BC%8C%E5%B8%A6%E4%BD%A0%E8%AE%A4%E8%AF%86%E6%96%B0%E5%A4%A7%E9%99%86/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
-        <time datetime="2022-04-29T14:10:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/06/04/%E3%80%90Elastic-Stack%E3%80%91-%E6%90%AD%E5%BB%BA%E6%9C%80%E6%96%B0-ELK-%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F-8-2-2%E7%89%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Elastic Stack】 搭建最新 ELK 日志分析系统 8.2.2版</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-Designate组件，入门级安装（快速）</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B%EF%BC%88%E7%90%86%E8%AE%BA%E7%AF%87%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">简介（理论篇）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">逻辑结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">数据存储原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E5%A4%A7%E5%AD%98%E5%82%A8"><span class="toc-number">5.</span> <span class="toc-text">三大存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RADOSGW%EF%BC%88%E5%AF%B9%E8%B1%A1%E7%BD%91%E5%85%B3%EF%BC%89"><span class="toc-number">5.1.</span> <span class="toc-text">RADOSGW（对象网关）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BRD%EF%BC%88%E5%9D%97%E5%AD%98%E5%82%A8%EF%BC%89"><span class="toc-number">5.2.</span> <span class="toc-text">BRD（块存储）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CEPHFS%EF%BC%88%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%EF%BC%89"><span class="toc-number">5.3.</span> <span class="toc-text">CEPHFS（文件存储）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%80%E6%9C%89%E7%BB%84%E4%BB%B6%E7%BB%93%E5%90%88%E8%B5%B7%E6%9D%A5"><span class="toc-number">6.</span> <span class="toc-text">所有组件结合起来</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#POOL%E3%80%81PG%E7%AE%80%E4%BB%8B"><span class="toc-number">6.1.</span> <span class="toc-text">POOL、PG简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%BB%93%E5%90%88"><span class="toc-number">6.2.</span> <span class="toc-text">组件结合</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAceph%EF%BC%88%E6%93%8D%E4%BD%9C%E7%AF%87%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">搭建ceph（操作篇）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="toc-number">7.1.</span> <span class="toc-text">1、基础配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%88%9B%E5%BB%BAceph%E9%9B%86%E7%BE%A4"><span class="toc-number">7.2.</span> <span class="toc-text">2、创建ceph集群</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E9%83%A8%E7%BD%B2mgr%E7%AE%A1%E7%90%86%E6%9C%8D%E5%8A%A1"><span class="toc-number">7.3.</span> <span class="toc-text">3、部署mgr管理服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E9%83%A8%E7%BD%B2osd"><span class="toc-number">7.4.</span> <span class="toc-text">4、部署osd</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8ceph"><span class="toc-number">8.</span> <span class="toc-text">使用ceph</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81cephfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">8.1.</span> <span class="toc-text">一、cephfs文件系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9D%97%E5%AD%98%E5%82%A8"><span class="toc-number">8.2.</span> <span class="toc-text">二、块存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8"><span class="toc-number">8.3.</span> <span class="toc-text">三、对象存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-S3-%E8%AE%BF%E9%97%AE-RGW"><span class="toc-number">8.3.1.</span> <span class="toc-text">使用 S3 访问 RGW</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%96%B9%E5%BC%8F%E6%93%8D%E4%BD%9C-rgw"><span class="toc-number">8.3.2.</span> <span class="toc-text">使用命令行方式操作 rgw</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">9.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" class="archive-article-date">
-        <time datetime="2022-04-25T13:39:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-25</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" target="_blank">Istio实际操作篇,Istio入门10分钟快速安装</a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" class="archive-article-date">
-        <time datetime="2022-04-22T11:27:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" target="_blank">Istio是什么？ 还不知道你就out了,一文40分钟快速理解</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2022-04-20T00:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank">代理是什么？nginx快速入门+反向代理hexo个人博客</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/" class="archive-article-date">
-        <time datetime="2022-04-17T09:24:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-17</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/" target="_blank">没接触过kubevirt？15分钟快速入门kubevirt</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" class="archive-article-date">
-        <time datetime="2022-04-16T10:05:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" target="_blank">还不会搭建博客吗？centos7系统部署hexo博客新手入门-进阶，看这一篇就够了</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "【CEPH-初识篇】ceph详细介绍、搭建集群及使用，带你认识新大陆" -->
+  var giteement = new Giteement({
+    id: '20220604170314',
+    owner: 'yjcadmin',
+    repo: 'yilia-plus-demo',
+    backcall_uri: 'http://139.155.25.211',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '2aff0fdfef5fd6c52d0f290d75f06142b8c25e67523f07f59b068c3eb1e0d13c',
+      client_secret: '1c4f03b26a83eaaa8972b92a695f666ae01b5d2a5aaa30d883dca62e96a489a3'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2022/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2022/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
+
+
+
 
 
           </div>
@@ -529,8 +799,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

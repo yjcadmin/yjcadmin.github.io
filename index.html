@@ -227,6 +227,486 @@
 
 
   
+    <article id="post-CEPH-初识篇】ceph详细介绍、搭建集群及使用，带你认识新大陆" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/04/CEPH-%E5%88%9D%E8%AF%86%E7%AF%87%E3%80%91ceph%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%E3%80%81%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4%E5%8F%8A%E4%BD%BF%E7%94%A8%EF%BC%8C%E5%B8%A6%E4%BD%A0%E8%AE%A4%E8%AF%86%E6%96%B0%E5%A4%A7%E9%99%86/" target="_blank">【CEPH-初识篇】ceph详细介绍、搭建集群及使用，带你认识新大陆</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/04/CEPH-%E5%88%9D%E8%AF%86%E7%AF%87%E3%80%91ceph%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%E3%80%81%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4%E5%8F%8A%E4%BD%BF%E7%94%A8%EF%BC%8C%E5%B8%A6%E4%BD%A0%E8%AE%A4%E8%AF%86%E6%96%B0%E5%A4%A7%E9%99%86/" class="archive-article-date">
+        <time datetime="2022-06-04T09:03:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-04</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>你好，我是无名小歌。<br>今天给大家分享一个分布式存储系统ceph。</p>
+<br>
+
+<h1 id="简介（理论篇）"><a href="#简介（理论篇）" class="headerlink" title="简介（理论篇）"></a>简介（理论篇）</h1><p><strong>什么是ceph？</strong><br>Ceph在一个统一的系统中独特地提供对象、块和文件存储。Ceph 高度可靠、易于管理且免费。Ceph 的强大功能可以改变您公司的 IT 基础架构和管理大量数据的能力。Ceph 提供了非凡的可扩展性——数以千计的客户端访问 PB 到 EB 的数据。ceph存储集群相互通信以动态复制和重新分配数据。</p>
+<p><strong>为什么使用ceph？</strong><br>目前众多云厂商都在使用ceph，应用广泛。如：华为、阿里、腾讯等等。目前火热的云技术openstack、kubernetes都支持后端整合ceph，从而提高数据的可用性、扩展性、容错等能力。</p>
+    
+    <a class="article-more-a" href="/2022/06/04/CEPH-%E5%88%9D%E8%AF%86%E7%AF%87%E3%80%91ceph%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%E3%80%81%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4%E5%8F%8A%E4%BD%BF%E7%94%A8%EF%BC%8C%E5%B8%A6%E4%BD%A0%E8%AE%A4%E8%AF%86%E6%96%B0%E5%A4%A7%E9%99%86/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/04/CEPH-%E5%88%9D%E8%AF%86%E7%AF%87%E3%80%91ceph%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%E3%80%81%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4%E5%8F%8A%E4%BD%BF%E7%94%A8%EF%BC%8C%E5%B8%A6%E4%BD%A0%E8%AE%A4%E8%AF%86%E6%96%B0%E5%A4%A7%E9%99%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-【Elastic-Stack】-搭建最新-ELK-日志分析系统-8-2-2版" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/04/%E3%80%90Elastic-Stack%E3%80%91-%E6%90%AD%E5%BB%BA%E6%9C%80%E6%96%B0-ELK-%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F-8-2-2%E7%89%88/" target="_blank">【Elastic Stack】 搭建最新 ELK 日志分析系统 8.2.2版</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/04/%E3%80%90Elastic-Stack%E3%80%91-%E6%90%AD%E5%BB%BA%E6%9C%80%E6%96%B0-ELK-%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F-8-2-2%E7%89%88/" class="archive-article-date">
+        <time datetime="2022-06-04T09:02:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-04</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>大家好，我是无名小歌。<br><br>今天给大家分享一个centos7系统搭建2022年最新ELK日志分析系统，目前版本是8.2.2。值得注意的是安装 ELK 时，您必须在整个ELK中使用相同的版本，如：Elasticsearch 8.2.2，则安装Kibana 8.2.2 和 Logstash 8.2.2，如果出现不对应的情况，如：Elasticsearch 是8.2.2版本、Kibana-6.8等或是其他版本，则需要进行对应版本的升级到8.2.2版本。</p>
+<p>就说这么多，下面正式开始吧！！！</p>
+    
+    <a class="article-more-a" href="/2022/06/04/%E3%80%90Elastic-Stack%E3%80%91-%E6%90%AD%E5%BB%BA%E6%9C%80%E6%96%B0-ELK-%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F-8-2-2%E7%89%88/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/04/%E3%80%90Elastic-Stack%E3%80%91-%E6%90%AD%E5%BB%BA%E6%9C%80%E6%96%B0-ELK-%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F-8-2-2%E7%89%88/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-解决-浏览器访问kibana报错：Kibana-server-is-not-ready-yet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/04/%E8%A7%A3%E5%86%B3-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AEkibana%E6%8A%A5%E9%94%99%EF%BC%9AKibana-server-is-not-ready-yet/" target="_blank">解决 浏览器访问kibana报错：Kibana server is not ready yet.</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/04/%E8%A7%A3%E5%86%B3-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AEkibana%E6%8A%A5%E9%94%99%EF%BC%9AKibana-server-is-not-ready-yet/" class="archive-article-date">
+        <time datetime="2022-06-04T09:00:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-04</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>大家好，我是无名小歌！！！今天分享一个浏览器访问 Kibana 是出现的问题及解决方法。</p>
+<p>以下操作针对 kibana-8.2.2 版本</p>
+<p>推荐学习ELK搭建：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/125033125?csdn_share_tail=%7B%22type%22:%22blog%22,%22rType%22:%22article%22,%22rId%22:%22125033125%22,%22source%22:%22qq_48450494%22%7D&ctrtid=oVXhh">【Elastic Stack】 搭建最新 ELK 日志分析系统 8.2.2版</a><br><br></p>
+<p><strong>报错：</strong> Kibana server is not ready yet.（Kibana服务器尚未就绪）</p>
+<p><img src="https://img-blog.csdnimg.cn/aae489918a4e45f1b8a6b6426d78fc06.png" alt="在这里插入图片描述"></p>
+    
+    <a class="article-more-a" href="/2022/06/04/%E8%A7%A3%E5%86%B3-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AEkibana%E6%8A%A5%E9%94%99%EF%BC%9AKibana-server-is-not-ready-yet/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/04/%E8%A7%A3%E5%86%B3-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AEkibana%E6%8A%A5%E9%94%99%EF%BC%9AKibana-server-is-not-ready-yet/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-VMware-Workstaion-从零创建centos虚拟机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/04/VMware-Workstaion-%E4%BB%8E%E9%9B%B6%E5%88%9B%E5%BB%BAcentos%E8%99%9A%E6%8B%9F%E6%9C%BA/" target="_blank">VMware Workstaion-从零创建centos虚拟机</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/04/VMware-Workstaion-%E4%BB%8E%E9%9B%B6%E5%88%9B%E5%BB%BAcentos%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="archive-article-date">
+        <time datetime="2022-06-04T08:59:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-04</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>VMware Workstation Pro 是行业标准桌面 Hypervisor（虚拟化技术），使用它可在 Windows 或 Linux 桌面上运行 Windows、Linux 和 BSD 虚拟机。</p>
+<p><strong>什么意思呢？</strong><br>VMware Workstation Pro是工作在应用层的一款虚拟化软件，可以虚拟化出不同的操作系统。如图所示：<br><img src="https://img-blog.csdnimg.cn/c2cbf5314d8e4548bbe250ac4eef2c79.png" alt="在这里插入图片描述"></p>
+    
+    <a class="article-more-a" href="/2022/06/04/VMware-Workstaion-%E4%BB%8E%E9%9B%B6%E5%88%9B%E5%BB%BAcentos%E8%99%9A%E6%8B%9F%E6%9C%BA/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/04/VMware-Workstaion-%E4%BB%8E%E9%9B%B6%E5%88%9B%E5%BB%BAcentos%E8%99%9A%E6%8B%9F%E6%9C%BA/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Jenkins-Blue-Ocean-docker部署Jenkins，编写Jenkinsfile创建流水线，一篇解决“贼带劲”" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/05/21/Jenkins-Blue-Ocean-docker%E9%83%A8%E7%BD%B2Jenkins%EF%BC%8C%E7%BC%96%E5%86%99Jenkinsfile%E5%88%9B%E5%BB%BA%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%8C%E4%B8%80%E7%AF%87%E8%A7%A3%E5%86%B3%E2%80%9C%E8%B4%BC%E5%B8%A6%E5%8A%B2%E2%80%9D/" target="_blank">Jenkins+Blue Ocean-docker部署Jenkins，编写Jenkinsfile创建流水线，一篇解决“贼带劲”</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/05/21/Jenkins-Blue-Ocean-docker%E9%83%A8%E7%BD%B2Jenkins%EF%BC%8C%E7%BC%96%E5%86%99Jenkinsfile%E5%88%9B%E5%BB%BA%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%8C%E4%B8%80%E7%AF%87%E8%A7%A3%E5%86%B3%E2%80%9C%E8%B4%BC%E5%B8%A6%E5%8A%B2%E2%80%9D/" class="archive-article-date">
+        <time datetime="2022-05-21T09:45:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>**<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494?type=blog">作者主页</a>**：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494?type=blog">https://blog.csdn.net/qq_48450494?type=blog</a><br>**<a href="http://ygcloud.work/">个人博客</a>**：<a href="http://ygcloud.work/">http://ygcloud.work/</a></p>
+<blockquote>
+<p>Jenkins 是一个持续集成工具，可用于自动化与构建、测试、交付或部署软件相关的各种任务。<br>Jenkins 可以通过本机系统包、Docker 安装，甚至可以由任何安装了 Java 运行时环境 (JRE) 的机器独立运行。</p>
+</blockquote>
+<p>持续集成工具还有Drone、Gitlab-CICD（gitlab内置cicd）还要kubesphere容器云平台也能做持续集成（CICD）kubesphere是借助于Jenkins来实现CICD，本身没有该功能。<br>本章就带各位简单搭建Jenkins和使用Jenkins+Blue Ocean及编写Jenkinsfile流程。</p>
+    
+    <a class="article-more-a" href="/2022/05/21/Jenkins-Blue-Ocean-docker%E9%83%A8%E7%BD%B2Jenkins%EF%BC%8C%E7%BC%96%E5%86%99Jenkinsfile%E5%88%9B%E5%BB%BA%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%8C%E4%B8%80%E7%AF%87%E8%A7%A3%E5%86%B3%E2%80%9C%E8%B4%BC%E5%B8%A6%E5%8A%B2%E2%80%9D/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/05/21/Jenkins-Blue-Ocean-docker%E9%83%A8%E7%BD%B2Jenkins%EF%BC%8C%E7%BC%96%E5%86%99Jenkinsfile%E5%88%9B%E5%BB%BA%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%8C%E4%B8%80%E7%AF%87%E8%A7%A3%E5%86%B3%E2%80%9C%E8%B4%BC%E5%B8%A6%E5%8A%B2%E2%80%9D/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-排坑指南之kubeSphere-2022年最新版-”kubeSphere3-2-1-Paas容器云平台“使用DevOps-CICD之”排坑指南“" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/05/15/%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E4%B9%8BkubeSphere-2022%E5%B9%B4%E6%9C%80%E6%96%B0%E7%89%88-%E2%80%9DkubeSphere3-2-1-Paas%E5%AE%B9%E5%99%A8%E4%BA%91%E5%B9%B3%E5%8F%B0%E2%80%9C%E4%BD%BF%E7%94%A8DevOps-CICD%E4%B9%8B%E2%80%9D%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E2%80%9C/" target="_blank">排坑指南之kubeSphere-2022年最新版-”kubeSphere3.2.1 Paas容器云平台“使用DevOps-CICD之”排坑指南“</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/05/15/%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E4%B9%8BkubeSphere-2022%E5%B9%B4%E6%9C%80%E6%96%B0%E7%89%88-%E2%80%9DkubeSphere3-2-1-Paas%E5%AE%B9%E5%99%A8%E4%BA%91%E5%B9%B3%E5%8F%B0%E2%80%9C%E4%BD%BF%E7%94%A8DevOps-CICD%E4%B9%8B%E2%80%9D%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E2%80%9C/" class="archive-article-date">
+        <time datetime="2022-05-15T13:32:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-15</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>**<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494?type=blog">作者主页</a>**：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494?type=blog">https://blog.csdn.net/qq_48450494?type=blog</a><br>**<a href="http://ygcloud.work/">作者博客</a>**：<a href="http://ygcloud.work/">http://ygcloud.work/</a></p>
+<blockquote>
+<p>最近几天一直在学习kubeSphere Paas容器云平台，在这期间遇到了不少坑。</p>
+</blockquote>
+<p><font size=5 color=red> <strong>下面统一告诉各位，希望各位少走弯路！！！</strong></font><br><br><strong>看在作者努力排坑+分享的份上，给个三连吧！！！</strong></p>
+    
+    <a class="article-more-a" href="/2022/05/15/%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E4%B9%8BkubeSphere-2022%E5%B9%B4%E6%9C%80%E6%96%B0%E7%89%88-%E2%80%9DkubeSphere3-2-1-Paas%E5%AE%B9%E5%99%A8%E4%BA%91%E5%B9%B3%E5%8F%B0%E2%80%9C%E4%BD%BF%E7%94%A8DevOps-CICD%E4%B9%8B%E2%80%9D%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E2%80%9C/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/05/15/%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E4%B9%8BkubeSphere-2022%E5%B9%B4%E6%9C%80%E6%96%B0%E7%89%88-%E2%80%9DkubeSphere3-2-1-Paas%E5%AE%B9%E5%99%A8%E4%BA%91%E5%B9%B3%E5%8F%B0%E2%80%9C%E4%BD%BF%E7%94%A8DevOps-CICD%E4%B9%8B%E2%80%9D%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E2%80%9C/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Drone-Gitlab-从介绍-＞部署-＞配置-＞写-drone-yml流水线-常见的报错解决，一条龙服务，直接起飞" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -514,478 +994,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/05/04/GitLab-%E4%BD%BF%E7%94%A8Docker%E5%92%8CDocker-Compose%E9%83%A8%E7%BD%B2-%E4%B8%AA%E4%BA%BA%E3%80%81%E7%A7%81%E6%9C%89%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-kubevirt-VirtualMachineInstanceReplicaSet-vmis-扩缩容-弹性伸缩" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" target="_blank">kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" class="archive-article-date">
-        <time datetime="2022-05-02T14:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="概述-x2F-理解"><a href="#概述-x2F-理解" class="headerlink" title="概述&#x2F;理解"></a>概述&#x2F;理解</h2><p>VirtualMachineInstanceReplicaSet（vmis）确保指定数量的 VirtualMachineInstance（vmi） 副本在任何时候都在运行。<br>我们可以这样理解，vmis就是kubernetes（k8s）里面的控制器（DeployMent，ReplicaSet）管理我们pod的副本数，实现扩缩容、回滚等。<br>也可以借助HorizontalPodAutoscaler（hpa）实现弹性伸缩。这里我们就说vmis控制器，在这里的vmis控制器，管理我们vmi虚拟机实例的副本数，也可以实现扩缩容，借助hpa实现弹性伸缩。所有我们的yaml文件写法原理都类似。</p>
-    
-    <a class="article-more-a" href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-openstack-cloudkitty组件，入门级安装（快速）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-cloudkitty组件，入门级安装（快速）</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
-        <time datetime="2022-05-02T13:21:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>什么是CloudKitty？</strong><br>CloudKitty是OpenStack等的评级即服务项目。该项目旨在成为云的退款和评级的通用解决方案。从历史上看，它只能在OpenStack上下文中运行它，但现在可以在独立模式下运行CloudKitty。</p>
-    
-    <a class="article-more-a" href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-openstack-Designate组件，入门级安装（快速）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-Designate组件，入门级安装（快速）</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
-        <time datetime="2022-04-29T14:10:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Designate 是一个开源 DNS 即服务实施，是用于运行云的 OpenStack 服务生态系统的一部分。<br>Designate 是 OpenStack 的多租户 DNSaaS 服务。它提供了一个带有集成 Keystone 身份验证的 REST API。它可以配置为根据 Nova 和 Neutron 操作自动生成记录。Designate 支持多种 DNS 服务器，包括 Bind9 和 PowerDNS 4。</p>
-    
-    <a class="article-more-a" href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Istio实际操作篇-Istio入门10分钟快速安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" target="_blank">Istio实际操作篇,Istio入门10分钟快速安装</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" class="archive-article-date">
-        <time datetime="2022-04-25T13:39:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-25</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇讲了什么是Istio的理论篇，这次我们就来实际操作。</p>
-<p>想看上一篇理论篇的看这里（看完绝对有所收获）：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124347864">[Istio是什么？] 还不知道你就out了,一文40分钟快速理解_小叶的技术Logs的博客-CSDN博客</a></p>
-    
-    <a class="article-more-a" href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Istio是什么？-还不知道你就out了-一文40分钟快速理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" target="_blank">Istio是什么？ 还不知道你就out了,一文40分钟快速理解</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" class="archive-article-date">
-        <time datetime="2022-04-22T11:27:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章属于纯理论，所含内容如下，按需阅读：</p>
-<ul>
-<li><p><code>Istio概念、服务网格、流量管理、istio架构（Envoy、Sidecar 、Istiod）</code></p>
-</li>
-<li><p><code>虚拟服务(VirtualService)、路由规则、目标规则(DestinationRule)</code></p>
-</li>
-<li><p><code>网关(Gateway)、网络弹性和测试（超时、重试、熔断器、故障注入）</code></p>
-    
-    <a class="article-more-a" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-代理是什么？nginx快速入门-反向代理hexo个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank">代理是什么？nginx快速入门+反向代理hexo个人博客</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2022-04-20T00:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li><p><strong>什么是nginx？</strong><br>Nginx是一款轻量级的Web 服务器&#x2F;反向代理服务器及电子邮件（IMAP&#x2F;POP3）代理服务器。特点是占有内存少，并发能力特别强。</p>
-</li>
-<li><p><strong>nginx作用？</strong></p>
-    
-    <a class="article-more-a" href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
     </p>
     
 

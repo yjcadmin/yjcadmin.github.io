@@ -6,19 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygcloud.work">
-  <title>Archives: 2022 | CloudLog无名小歌</title>
+  <title>【Elastic Stack】 搭建最新 ELK 日志分析系统 8.2.2版 | CloudLog无名小歌</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="this is a blog.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CloudLog无名小歌">
-<meta property="og:url" content="http://ygcloud.work/archives/2022/page/2/index.html">
+  <meta name="description" content="前言大家好，我是无名小歌。今天给大家分享一个centos7系统搭建2022年最新ELK日志分析系统，目前版本是8.2.2。值得注意的是安装 ELK 时，您必须在整个ELK中使用相同的版本，如：Elasticsearch 8.2.2，则安装Kibana 8.2.2 和 Logstash 8.2.2，如果出现不对应的情况，如：Elasticsearch 是8.2.2版本、Kibana-6.8等或是其他">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Elastic Stack】 搭建最新 ELK 日志分析系统 8.2.2版">
+<meta property="og:url" content="http://ygcloud.work/2022/06/04/%E3%80%90Elastic-Stack%E3%80%91-%E6%90%AD%E5%BB%BA%E6%9C%80%E6%96%B0-ELK-%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F-8-2-2%E7%89%88/index.html">
 <meta property="og:site_name" content="CloudLog无名小歌">
-<meta property="og:description" content="this is a blog.">
+<meta property="og:description" content="前言大家好，我是无名小歌。今天给大家分享一个centos7系统搭建2022年最新ELK日志分析系统，目前版本是8.2.2。值得注意的是安装 ELK 时，您必须在整个ELK中使用相同的版本，如：Elasticsearch 8.2.2，则安装Kibana 8.2.2 和 Logstash 8.2.2，如果出现不对应的情况，如：Elasticsearch 是8.2.2版本、Kibana-6.8等或是其他">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ae63fcc832cc4532915d3acdf85cc413.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8e379b2ad8c4471aab48751029699e1a.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/47df67bebb61424b90d1a2297ffd1424.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ac505e93b58d4115b594315539d6b66e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1cfb521e86d9413db377332e0013d49c.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5e72f1b02a304b848c764d954bb9a5b9.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/aae489918a4e45f1b8a6b6426d78fc06.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/58eab0bc08384e44ac1336c8ee5447a5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/25ea45f52a93466b8642a852f4cf674e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d8ae216002d64570aa727ada15a00f04.png#pic_center">
+<meta property="article:published_time" content="2022-06-04T09:02:22.000Z">
+<meta property="article:modified_time" content="2022-06-04T09:02:53.068Z">
 <meta property="article:author" content="CloudLog无名小歌">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/ae63fcc832cc4532915d3acdf85cc413.png">
   
     <link rel="alternative" href="/atom.xml" title="CloudLog无名小歌" type="application/atom+xml">
   
@@ -213,282 +226,426 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-【Elastic-Stack】-搭建最新-ELK-日志分析系统-8-2-2版" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" class="archive-article-date">
-        <time datetime="2022-05-02T14:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" target="_blank">kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩</a>
   
+    <h1 class="article-title" itemprop="name">
+      【Elastic Stack】 搭建最新 ELK 日志分析系统 8.2.2版
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
-        <time datetime="2022-05-02T13:21:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2022/06/04/%E3%80%90Elastic-Stack%E3%80%91-%E6%90%AD%E5%BB%BA%E6%9C%80%E6%96%B0-ELK-%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F-8-2-2%E7%89%88/" class="archive-article-date">
+        <time datetime="2022-06-04T09:02:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-04</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.6k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">12分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>大家好，我是无名小歌。<br><br>今天给大家分享一个centos7系统搭建2022年最新ELK日志分析系统，目前版本是8.2.2。值得注意的是安装 ELK 时，您必须在整个ELK中使用相同的版本，如：Elasticsearch 8.2.2，则安装Kibana 8.2.2 和 Logstash 8.2.2，如果出现不对应的情况，如：Elasticsearch 是8.2.2版本、Kibana-6.8等或是其他版本，则需要进行对应版本的升级到8.2.2版本。</p>
+<p>就说这么多，下面正式开始吧！！！</p>
+<span id="more"></span>
+<br>
+
+<h1 id="ELK日志分析系统（介绍）"><a href="#ELK日志分析系统（介绍）" class="headerlink" title="ELK日志分析系统（介绍）"></a>ELK日志分析系统（介绍）</h1><ul>
+<li>Elasticsearch：ELK中最核心的是E（elasticsearch），我们可以从单词上理解翻译过来就是“弹性搜索”。提供搜索、分析、存储数据三大功能，特点稳定，可靠，快速（弹性）。</li>
+<li>Logstash：一个具有实时流水线功能的开源数据收集引擎。Logstash 可以动态地统一来自不同来源的数据，并将数据规范化到您选择的目的地。为各种高级下游分析和可视化用例清理和普及所有数据。简单理解的话就是用来收集日志log的。</li>
+<li>Kibana：ELK日志分析系统非常友好的 Web 界面，可以帮助我们搜索、观察、保护数据、分析数据、管理、监控和保护 Elastic Stack（ Elasticsearch、Kibana、Beats 和 Logstash等组合在一起的统称）</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/ae63fcc832cc4532915d3acdf85cc413.png" alt="在这里插入图片描述"></p>
+<p>日志是非结构化的数据（数据量大，不易查询），这也是使用ELK的主要原因之一。</p>
+<br>
+
+<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><p>本次教程采用单节点方式</p>
+<table>
+<thead>
+<tr>
+<th>系统</th>
+<th>内存</th>
+<th>IP</th>
+<th>网卡模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Linux</td>
+<td>12G</td>
+<td>192.168.200.4</td>
+<td>NAT</td>
+</tr>
+</tbody></table>
+<p>推荐内存12G，以下ELK系统占用内存为<img src="https://img-blog.csdnimg.cn/8e379b2ad8c4471aab48751029699e1a.png" alt="在这里插入图片描述">接近8G，所以只要大于8G应该问题不大，但为了保证体验推荐10G、12G。</p>
+<br>
+
+<h1 id="部署ELK"><a href="#部署ELK" class="headerlink" title="部署ELK"></a>部署ELK</h1><br>
+
+<h2 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h2><ol>
+<li>调整进程最大打开文件数数量</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> &gt;&gt; /etc/security/limits.conf &lt;&lt; <span class="hljs-string">EOF</span><br><span class="hljs-string">hard nofile 65535</span><br><span class="hljs-string">soft nofile 65535</span><br><span class="hljs-string">EOF</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>调整进程最大虚拟内存区域数量</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> &gt;&gt; /etc/sysctl.conf &lt;&lt; <span class="hljs-string">EOF</span><br><span class="hljs-string">vm.max_map_count=262144</span><br><span class="hljs-string">EOF</span><br>sysctl -p<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>安装公共签名密钥<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch<br></code></pre></td></tr></table></figure></li>
+<li>配置 elasticsearch yum源<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> &gt;&gt; /etc/yum.repos.d/ELK.repo &lt;&lt; <span class="hljs-string">EOF</span><br><span class="hljs-string">[elasticsearch]</span><br><span class="hljs-string">name=Elasticsearch repository for 8.x packages</span><br><span class="hljs-string">baseurl=https://artifacts.elastic.co/packages/8.x/yum</span><br><span class="hljs-string">gpgcheck=1</span><br><span class="hljs-string">gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch</span><br><span class="hljs-string">enabled=0</span><br><span class="hljs-string">autorefresh=1</span><br><span class="hljs-string">type=rpm-md</span><br><span class="hljs-string">EOF</span><br></code></pre></td></tr></table></figure></li>
+<li>使用yum install命令安装，安装过程需要等待一段时间，因为下载的包有足足的502M（挺大的）<blockquote>
+<p>注意看安装完成后会出现 Security autoconfiguration information 字段（安全自动配置信息）<br>安装 Elasticsearch 时，默认启用并配置安全功能，会自动进行以下安全配置：</p>
+<ul>
+<li>启用身份验证和授权，并为elastic内置超级用户生成密码。</li>
+<li>为传输层和 HTTP 层生成 TLS 的证书和密钥，并使用这些密钥和证书启用和配置 TLS。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>过程中如果出现下载中断，继续执行下列命令即可直至完成。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ yum install --enablerepo=elasticsearch elasticsearch -y<br>...<br>...<br>--------------------------- Security autoconfiguration information ------------------------------<br><br>Authentication and authorization are enabled.<br>TLS <span class="hljs-keyword">for</span> the transport and HTTP layers is enabled and configured.<br><br><span class="hljs-comment">#弹性内置超级用户生成的密码为：se_pNHcZwLawBfF7pxUs</span><br>The generated password <span class="hljs-keyword">for</span> the elastic built-in superuser is : se_pNHcZwLawBfF7pxUs<br><br><span class="hljs-comment">#如果此节点应加入现有群集，则可以使用下列命令</span><br>If this node should <span class="hljs-built_in">join</span> an existing cluster, you can reconfigure this with<br><span class="hljs-string">&#x27;/usr/share/elasticsearch/bin/elasticsearch-reconfigure-node --enrollment-token &lt;token-here&gt;&#x27;</span><br>after creating an enrollment token on your existing cluster.<br><br>You can complete the following actions at any time:<br><br><span class="hljs-comment">#重置弹性内置超级用户的密码</span><br>Reset the password of the elastic built-in superuser with<br><span class="hljs-string">&#x27;/usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic&#x27;</span>.<br><br><span class="hljs-comment">#使用为Kibana实例生成注册令牌</span><br>Generate an enrollment token <span class="hljs-keyword">for</span> Kibana instances with<br> <span class="hljs-string">&#x27;/usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana&#x27;</span>.<br><br><span class="hljs-comment">#使用为Elasticsearch节点生成注册令牌</span><br>Generate an enrollment token <span class="hljs-keyword">for</span> Elasticsearch nodes with<br><span class="hljs-string">&#x27;/usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s node&#x27;</span>.<br><br>-------------------------------------------------------------------------------------------------<br><span class="hljs-comment">### NOT starting on installation, please execute the following statements to configure elasticsearch service to start automatically using systemd</span><br><span class="hljs-comment">#自启动命令</span><br> sudo systemctl daemon-reload<br> sudo systemctl <span class="hljs-built_in">enable</span> elasticsearch.service<br><span class="hljs-comment">### You can start elasticsearch service by executing</span><br><span class="hljs-comment">#启动命令</span><br> sudo systemctl start elasticsearch.service<br><br></code></pre></td></tr></table></figure>
+<ol start="6">
+<li>启动Elasticsearch<blockquote>
+<p>使用上述生成的启动命令，启动也需要等待一段时间，这里内存占用大约6G。</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl daemon-reload<br>sudo systemctl <span class="hljs-built_in">enable</span> elasticsearch.service<br>sudo systemctl start elasticsearch.service<br></code></pre></td></tr></table></figure>
+<ol start="7">
+<li>测试Elasticsearch<blockquote>
+<p>这里你会发现我们浏览器使用http协议是不能访问的，并不是我们服务有问题。</p>
+</blockquote>
+</li>
+</ol>
+<p>本地宿主机访问Elasticsearch，服务端口9200：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ curl --cacert /etc/elasticsearch/certs/http_ca.crt -u elastic https://localhost:9200<br>Enter host password <span class="hljs-keyword">for</span> user <span class="hljs-string">&#x27;elastic&#x27;</span>:<br>&#123;<br>  <span class="hljs-string">&quot;name&quot;</span> : <span class="hljs-string">&quot;node1&quot;</span>,<br>  <span class="hljs-string">&quot;cluster_name&quot;</span> : <span class="hljs-string">&quot;elasticsearch&quot;</span>,<br>  <span class="hljs-string">&quot;cluster_uuid&quot;</span> : <span class="hljs-string">&quot;xuxHYu-0SN-PFcghs8V0ow&quot;</span>,<br>  <span class="hljs-string">&quot;version&quot;</span> : &#123;<br>    <span class="hljs-string">&quot;number&quot;</span> : <span class="hljs-string">&quot;8.2.2&quot;</span>,<br>    <span class="hljs-string">&quot;build_flavor&quot;</span> : <span class="hljs-string">&quot;default&quot;</span>,<br>    <span class="hljs-string">&quot;build_type&quot;</span> : <span class="hljs-string">&quot;rpm&quot;</span>,<br>    <span class="hljs-string">&quot;build_hash&quot;</span> : <span class="hljs-string">&quot;9876968ef3c745186b94fdabd4483e01499224ef&quot;</span>,<br>    <span class="hljs-string">&quot;build_date&quot;</span> : <span class="hljs-string">&quot;2022-05-25T15:47:06.259735307Z&quot;</span>,<br>    <span class="hljs-string">&quot;build_snapshot&quot;</span> : <span class="hljs-literal">false</span>,<br>    <span class="hljs-string">&quot;lucene_version&quot;</span> : <span class="hljs-string">&quot;9.1.0&quot;</span>,<br>    <span class="hljs-string">&quot;minimum_wire_compatibility_version&quot;</span> : <span class="hljs-string">&quot;7.17.0&quot;</span>,<br>    <span class="hljs-string">&quot;minimum_index_compatibility_version&quot;</span> : <span class="hljs-string">&quot;7.0.0&quot;</span><br>  &#125;,<br>  <span class="hljs-string">&quot;tagline&quot;</span> : <span class="hljs-string">&quot;You Know, for Search&quot;</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>浏览器访问Elasticsearch，服务端口9200，如：<code>https://192.168.200.4:9200</code></p>
+<blockquote>
+<p>浏览器访问请注意，Elasticsearch-8.2.2版本，如果使用http协议是无法访问的必须使用https协议。</p>
+</blockquote>
+<p>用户名：elastic<br>密码：se_pNHcZwLawBfF7pxUs</p>
+<blockquote>
+<p>注意：这里浏览器会出现提示不安全的情况（不要慌）依次点击：高级–&gt;接收风险，就会跳转到登录界面了。<br>密码对应弹性内置超级用户生成的密码。</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/47df67bebb61424b90d1a2297ffd1424.png" alt="在这里插入图片描述"><br>出现和本地访问的内容是一致的，这样我们的Elasticsearch安装完成。<br><img src="https://img-blog.csdnimg.cn/ac505e93b58d4115b594315539d6b66e.png" alt="在这里插入图片描述"></p>
+<h2 id="Kibana"><a href="#Kibana" class="headerlink" title="Kibana"></a>Kibana</h2><ol>
+<li>配置 Kibana yum源<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> &gt;&gt; /etc/yum.repos.d/ELK.repo &lt;&lt; <span class="hljs-string">EOF</span><br><span class="hljs-string">[kibana-8.x]</span><br><span class="hljs-string">name=Kibana repository for 8.x packages</span><br><span class="hljs-string">baseurl=https://artifacts.elastic.co/packages/8.x/yum</span><br><span class="hljs-string">gpgcheck=1</span><br><span class="hljs-string">gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch</span><br><span class="hljs-string">enabled=1</span><br><span class="hljs-string">autorefresh=1</span><br><span class="hljs-string">type=rpm-md</span><br><span class="hljs-string">EOF</span><br></code></pre></td></tr></table></figure></li>
+<li>使用yum install命令安装，安装过程也需要等待一段时间（248M）<blockquote>
+<p>过程中如果出现下载中断，继续执行下列命令即可直至完成。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install kibana -y<br></code></pre></td></tr></table></figure></li>
+<li>修改配置文件  &#x2F;etc&#x2F;kibana&#x2F;kibana.yml  <blockquote>
+<p>解除注释：server.port、server.host<br>server.host：填写自己主机ip</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/1cfb521e86d9413db377332e0013d49c.png" alt="在这里插入图片描述"></p>
+<ol start="4">
+<li><p>启动Kibana</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo /bin/systemctl daemon-reload<br>sudo /bin/systemctl <span class="hljs-built_in">enable</span> kibana.service<br>sudo systemctl start kibana.service<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>测试Kibana<br>启动等待一分钟后，浏览器访问Kibana，服务端口5601，如：<code>http://192.168.200.4:5601/</code></p>
+<blockquote>
+<p>访问Kibana时，使用http协议是可以访问的，https协议不能访问。<br>如下图：kibana-8.2.2版本需要令牌登录，下面使用命令生成令牌。</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/5e72f1b02a304b848c764d954bb9a5b9.png" alt="在这里插入图片描述"></p>
+<p><font color=red><strong>注意：</strong></font>如果访问时出现下列问题，点击<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/125044571?csdn_share_tail=%7B%22type%22:%22blog%22,%22rType%22:%22article%22,%22rId%22:%22125044571%22,%22source%22:%22qq_48450494%22%7D&ctrtid=hROwv">解决方法</a>。<br><img src="https://img-blog.csdnimg.cn/aae489918a4e45f1b8a6b6426d78fc06.png" alt="在这里插入图片描述"></p>
+<ol start="6">
+<li>使用<code>elasticsearch-create-enrollment-token</code>命令为Kibana生成一个注册令牌：<blockquote>
+<p>输入注册令牌，将 Kibana 与 Elasticsearch 连接起来。<br>下列命令是安装elasticsearch时安全自动配置信息中所生成。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">/usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana<br></code></pre></td></tr></table></figure></li>
+<li>使用<code>kibana-verification-code</code>命令生成验证码</li>
+</ol>
+<blockquote>
+<p>输入验证码之后，kibana会进行：保存设置–&gt;启动elastic–&gt;完成设置操作。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ /usr/share/kibana/bin/kibana-verification-code<br>Your verification code is:  409 686<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/58eab0bc08384e44ac1336c8ee5447a5.png" alt="在这里插入图片描述"></p>
+<ol start="8">
+<li>输入用户密码登录<blockquote>
+<p>用户密码使用安装elasticsearch时生成的用户密码。</p>
+</blockquote>
+</li>
+</ol>
+<p>用户名：elastic<br>密码：se_pNHcZwLawBfF7pxUs</p>
+<p><img src="https://img-blog.csdnimg.cn/25ea45f52a93466b8642a852f4cf674e.png" alt="在这里插入图片描述"></p>
+<h2 id="Logstash"><a href="#Logstash" class="headerlink" title="Logstash"></a>Logstash</h2><ol>
+<li><p>配置 Logstash yum源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> &gt;&gt; /etc/yum.repos.d/ELK.repo &lt;&lt; <span class="hljs-string">EOF</span><br><span class="hljs-string">[logstash-8.x]</span><br><span class="hljs-string">name=Elastic repository for 8.x packages</span><br><span class="hljs-string">baseurl=https://artifacts.elastic.co/packages/8.x/yum</span><br><span class="hljs-string">gpgcheck=1</span><br><span class="hljs-string">gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch</span><br><span class="hljs-string">enabled=1</span><br><span class="hljs-string">autorefresh=1</span><br><span class="hljs-string">type=rpm-md</span><br><span class="hljs-string">EOF</span><br></code></pre></td></tr></table></figure></li>
+<li><p>使用yum install命令安装，安装过程也需要等待一段时间（322 M）</p>
+<blockquote>
+<p>过程中如果出现下载中断，继续执行下列命令即可直至完成。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install logstash -y<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>测试Logstash</p>
+</li>
+</ol>
+<p>我们通过运行最基本的Logstash Pipeline来测试。</p>
+<blockquote>
+<p>Logstash 管道具有两个必需元素input和output和一个可选元素filter。<br><br><strong>运行步骤</strong>：输入插件使用来自源的数据，过滤器插件根据您的指定修改数据，输出插件将数据写入目标。</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/d8ae216002d64570aa727ada15a00f04.png#pic_center" alt="在这里插入图片描述"><br>运行 Logstash Pipeline</p>
+<blockquote>
+<p>输出内容第8行出现 <code>Successfully started Logstash API endpoint</code>，说明成功启动Logstash <br><br>stdin 插件出现等待输入提示（The stdin plugin is now waiting for input:），输入 hello world 测试。<br><br>Ctrl+D 退出 Logstash Pipeline</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@node1 ~]<span class="hljs-comment"># /usr/share/logstash/bin/logstash -e &#x27;input &#123; stdin &#123; &#125; &#125; output &#123; stdout &#123;&#125; &#125;&#x27;</span><br>Using bundled JDK: /usr/share/logstash/jdk<br>OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated <span class="hljs-keyword">in</span> version 9.0 and will likely be removed <span class="hljs-keyword">in</span> a future release.<br>WARNING: Could not find logstash.yml <span class="hljs-built_in">which</span> is typically located <span class="hljs-keyword">in</span> <span class="hljs-variable">$LS_HOME</span>/config or /etc/logstash. You can specify the path using --path.settings. Continuing using the defaults<br>Could not find log4j2 configuration at path /usr/share/logstash/config/log4j2.properties. Using default config <span class="hljs-built_in">which</span> logs errors to the console<br>[INFO ] 2022-05-30 10:19:11.092 [main] runner - Starting Logstash &#123;<span class="hljs-string">&quot;logstash.version&quot;</span>=&gt;<span class="hljs-string">&quot;8.2.2&quot;</span>, <span class="hljs-string">&quot;jruby.version&quot;</span>=&gt;<span class="hljs-string">&quot;jruby 9.2.20.1 (2.5.8) 2021-11-30 2a2962fbd1 OpenJDK 64-Bit Server VM 11.0.14.1+1 on 11.0.14.1+1 +indy +jit [linux-x86_64]&quot;</span>&#125;<br>[INFO ] 2022-05-30 10:19:11.110 [main] runner - JVM bootstrap flags: [-Xms1g, -Xmx1g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -Djava.awt.headless=<span class="hljs-literal">true</span>, -Dfile.encoding=UTF-8, -Djruby.compile.invokedynamic=<span class="hljs-literal">true</span>, -Djruby.jit.threshold=0, -XX:+HeapDumpOnOutOfMemoryError, -Djava.security.egd=file:/dev/urandom, -Dlog4j2.isThreadContextMapInheritable=<span class="hljs-literal">true</span>, -Djruby.regexp.interruptible=<span class="hljs-literal">true</span>, -Djdk.io.File.enableADS=<span class="hljs-literal">true</span>, --add-opens=java.base/java.security=ALL-UNNAMED, --add-opens=java.base/java.io=ALL-UNNAMED, --add-opens=java.base/java.nio.channels=ALL-UNNAMED, --add-opens=java.base/sun.nio.ch=ALL-UNNAMED, --add-opens=java.management/sun.management=ALL-UNNAMED]<br>[WARN ] 2022-05-30 10:19:12.090 [LogStash::Runner] multilocal - Ignoring the <span class="hljs-string">&#x27;pipelines.yml&#x27;</span> file because modules or <span class="hljs-built_in">command</span> line options are specified<br>[INFO ] 2022-05-30 10:19:15.968 [Api Webserver] agent - Successfully started Logstash API endpoint &#123;:port=&gt;9600, :ssl_enabled=&gt;<span class="hljs-literal">false</span>&#125;<br>[INFO ] 2022-05-30 10:19:17.783 [Converge PipelineAction::Create&lt;main&gt;] Reflections - Reflections took 272 ms to scan 1 urls, producing 120 keys and 395 values<br>[INFO ] 2022-05-30 10:19:19.375 [Converge PipelineAction::Create&lt;main&gt;] javapipeline - Pipeline `main` is configured with `pipeline.ecs_compatibility: v8` setting. All plugins <span class="hljs-keyword">in</span> this pipeline will default to `ecs_compatibility =&gt; v8` unless explicitly configured otherwise.<br>[INFO ] 2022-05-30 10:19:19.723 [[main]-pipeline-manager] javapipeline - Starting pipeline &#123;:pipeline_id=&gt;<span class="hljs-string">&quot;main&quot;</span>, <span class="hljs-string">&quot;pipeline.workers&quot;</span>=&gt;4, <span class="hljs-string">&quot;pipeline.batch.size&quot;</span>=&gt;125, <span class="hljs-string">&quot;pipeline.batch.delay&quot;</span>=&gt;50, <span class="hljs-string">&quot;pipeline.max_inflight&quot;</span>=&gt;500, <span class="hljs-string">&quot;pipeline.sources&quot;</span>=&gt;[<span class="hljs-string">&quot;config string&quot;</span>], :thread=&gt;<span class="hljs-string">&quot;#&lt;Thread:0x7c068ea7 run&gt;&quot;</span>&#125;<br>[INFO ] 2022-05-30 10:19:21.346 [[main]-pipeline-manager] javapipeline - Pipeline Java execution initialization time &#123;<span class="hljs-string">&quot;seconds&quot;</span>=&gt;1.61&#125;<br>[INFO ] 2022-05-30 10:19:21.520 [[main]-pipeline-manager] javapipeline - Pipeline started &#123;<span class="hljs-string">&quot;pipeline.id&quot;</span>=&gt;<span class="hljs-string">&quot;main&quot;</span>&#125;<br><br><span class="hljs-comment"># stdin 插件出现等待输入提示，请输入hello world</span><br>The stdin plugin is now waiting <span class="hljs-keyword">for</span> input:<br><br>hello world<br>&#123;<br>      <span class="hljs-string">&quot;@version&quot;</span> =&gt; <span class="hljs-string">&quot;1&quot;</span>,<br>         <span class="hljs-string">&quot;event&quot;</span> =&gt; &#123;<br>        <span class="hljs-string">&quot;original&quot;</span> =&gt; <span class="hljs-string">&quot;hello world&quot;</span><br>    &#125;,<br>       <span class="hljs-string">&quot;message&quot;</span> =&gt; <span class="hljs-string">&quot;hello world&quot;</span>,<br>    <span class="hljs-string">&quot;@timestamp&quot;</span> =&gt; 2022-05-30T02:27:01.888886Z,<br>          <span class="hljs-string">&quot;host&quot;</span> =&gt; &#123;<br>        <span class="hljs-string">&quot;hostname&quot;</span> =&gt; <span class="hljs-string">&quot;node1&quot;</span><br>    &#125;<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+
+
+<p>ELK-8.2.2版本日志分析系统自此搭建完成！！！<br><br><br></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/index.html">https://www.elastic.co/guide/index.html</a></p>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/zfb.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/wx.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-cloudkitty组件，入门级安装（快速）</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          CloudLog无名小歌
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://ygcloud.work/2022/06/04/【Elastic-Stack】-搭建最新-ELK-日志分析系统-8-2-2版/" title="【Elastic Stack】 搭建最新 ELK 日志分析系统 8.2.2版" target="_blank">http://ygcloud.work/2022/06/04/【Elastic-Stack】-搭建最新-ELK-日志分析系统-8-2-2版/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ygcloud.work/2022/06/04/%E3%80%90Elastic-Stack%E3%80%91-%E6%90%AD%E5%BB%BA%E6%9C%80%E6%96%B0-ELK-%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F-8-2-2%E7%89%88/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
-        <time datetime="2022-04-29T14:10:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/2022/06/04/CEPH-%E5%88%9D%E8%AF%86%E7%AF%87%E3%80%91ceph%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%E3%80%81%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4%E5%8F%8A%E4%BD%BF%E7%94%A8%EF%BC%8C%E5%B8%A6%E4%BD%A0%E8%AE%A4%E8%AF%86%E6%96%B0%E5%A4%A7%E9%99%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【CEPH-初识篇】ceph详细介绍、搭建集群及使用，带你认识新大陆
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/04/%E8%A7%A3%E5%86%B3-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AEkibana%E6%8A%A5%E9%94%99%EF%BC%9AKibana-server-is-not-ready-yet/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">解决 浏览器访问kibana报错：Kibana server is not ready yet.</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-Designate组件，入门级安装（快速）</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ELK%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%BB%8B%E7%BB%8D%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">ELK日志分析系统（介绍）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">3.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2ELK"><span class="toc-number">4.</span> <span class="toc-text">部署ELK</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Elasticsearch"><span class="toc-number">4.1.</span> <span class="toc-text">Elasticsearch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kibana"><span class="toc-number">4.2.</span> <span class="toc-text">Kibana</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Logstash"><span class="toc-number">4.3.</span> <span class="toc-text">Logstash</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" class="archive-article-date">
-        <time datetime="2022-04-25T13:39:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-25</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" target="_blank">Istio实际操作篇,Istio入门10分钟快速安装</a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" class="archive-article-date">
-        <time datetime="2022-04-22T11:27:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" target="_blank">Istio是什么？ 还不知道你就out了,一文40分钟快速理解</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2022-04-20T00:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank">代理是什么？nginx快速入门+反向代理hexo个人博客</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/" class="archive-article-date">
-        <time datetime="2022-04-17T09:24:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-17</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/" target="_blank">没接触过kubevirt？15分钟快速入门kubevirt</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" class="archive-article-date">
-        <time datetime="2022-04-16T10:05:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" target="_blank">还不会搭建博客吗？centos7系统部署hexo博客新手入门-进阶，看这一篇就够了</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "【Elastic Stack】 搭建最新 ELK 日志分析系统 8.2.2版" -->
+  var giteement = new Giteement({
+    id: '20220604170222',
+    owner: 'yjcadmin',
+    repo: 'yilia-plus-demo',
+    backcall_uri: 'http://139.155.25.211',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '2aff0fdfef5fd6c52d0f290d75f06142b8c25e67523f07f59b068c3eb1e0d13c',
+      client_secret: '1c4f03b26a83eaaa8972b92a695f666ae01b5d2a5aaa30d883dca62e96a489a3'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2022/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2022/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
+
+
+
 
 
           </div>
@@ -529,8 +686,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

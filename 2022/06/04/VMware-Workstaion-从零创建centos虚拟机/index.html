@@ -6,19 +6,51 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygcloud.work">
-  <title>Archives: 2022 | CloudLog无名小歌</title>
+  <title>VMware Workstaion-从零创建centos虚拟机 | CloudLog无名小歌</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="this is a blog.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CloudLog无名小歌">
-<meta property="og:url" content="http://ygcloud.work/archives/2022/page/2/index.html">
+  <meta name="description" content="概述VMware Workstation Pro 是行业标准桌面 Hypervisor（虚拟化技术），使用它可在 Windows 或 Linux 桌面上运行 Windows、Linux 和 BSD 虚拟机。 什么意思呢？VMware Workstation Pro是工作在应用层的一款虚拟化软件，可以虚拟化出不同的操作系统。如图所示：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VMware Workstaion-从零创建centos虚拟机">
+<meta property="og:url" content="http://ygcloud.work/2022/06/04/VMware-Workstaion-%E4%BB%8E%E9%9B%B6%E5%88%9B%E5%BB%BAcentos%E8%99%9A%E6%8B%9F%E6%9C%BA/index.html">
 <meta property="og:site_name" content="CloudLog无名小歌">
-<meta property="og:description" content="this is a blog.">
+<meta property="og:description" content="概述VMware Workstation Pro 是行业标准桌面 Hypervisor（虚拟化技术），使用它可在 Windows 或 Linux 桌面上运行 Windows、Linux 和 BSD 虚拟机。 什么意思呢？VMware Workstation Pro是工作在应用层的一款虚拟化软件，可以虚拟化出不同的操作系统。如图所示：">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c2cbf5314d8e4548bbe250ac4eef2c79.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/24d7a1e1bf8e4b36944601a702f6e731.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ea54357a34ae4a9bb36a8b1df14da6c3.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6e258c9af9cf44068545f4e34dbac62d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6d3c4a3014174b90b5fdfbd4372bf5ba.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/539998847db54682bf34d5858103c27c.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/dc3ad997eaf44d65ae1f9b8fe3dc1ab6.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3b279e2342be4f89a2d67c613c9e471a.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/de6c74c98e4c47618beb8dbb29dac45e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/181ff10788c6486093ffa1c59c51e823.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7da43c0125784def828a9c3c598aec56.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7b9439fe889d434781cc7fb683d00bd0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/63b65435477c44a29c91445a4849159f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f167f60ac41e48708e0eee1aeca336f0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a98ad59b9e3748fb832d8e3e27912b68.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bc4048dcf9e34b77aee6382d3ce7310b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e02e0b1296d046cc9b589d2bef3ab83f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/998a18b4f82b42f0a049c26efb0bde12.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3bd5dab900634439a53a0055ee375d22.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4b9e368909f345a8aaf6ab2c2aaa2281.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/32dfec842a0247b9bef2cef4271acd02.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0e64f794e2c3442aac54b84ebb4a43d6.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9db9a07c1980475888f1a57a5d524a28.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/de359da4402c44f69eb477b27c1e0ebe.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6f509f52ac41479a90ad418f680602de.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/539fb6d6a7e54ae194f3b8d448bb4dcf.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3a63beeae67f4611836f62ba81d4a3e4.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/67a86cfcd898495fa6a188a73e385daf.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2d7bf8311bfb4a8797c21bcf85ddb900.png">
+<meta property="article:published_time" content="2022-06-04T08:59:34.000Z">
+<meta property="article:modified_time" content="2022-06-04T09:00:16.492Z">
 <meta property="article:author" content="CloudLog无名小歌">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/c2cbf5314d8e4548bbe250ac4eef2c79.png">
   
     <link rel="alternative" href="/atom.xml" title="CloudLog无名小歌" type="application/atom+xml">
   
@@ -213,282 +245,384 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-VMware-Workstaion-从零创建centos虚拟机" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" class="archive-article-date">
-        <time datetime="2022-05-02T14:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" target="_blank">kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩</a>
   
+    <h1 class="article-title" itemprop="name">
+      VMware Workstaion-从零创建centos虚拟机
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
-        <time datetime="2022-05-02T13:21:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2022/06/04/VMware-Workstaion-%E4%BB%8E%E9%9B%B6%E5%88%9B%E5%BB%BAcentos%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="archive-article-date">
+        <time datetime="2022-06-04T08:59:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-04</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">4分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>VMware Workstation Pro 是行业标准桌面 Hypervisor（虚拟化技术），使用它可在 Windows 或 Linux 桌面上运行 Windows、Linux 和 BSD 虚拟机。</p>
+<p><strong>什么意思呢？</strong><br>VMware Workstation Pro是工作在应用层的一款虚拟化软件，可以虚拟化出不同的操作系统。如图所示：<br><img src="https://img-blog.csdnimg.cn/c2cbf5314d8e4548bbe250ac4eef2c79.png" alt="在这里插入图片描述"></p>
+<span id="more"></span>
+<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><ul>
+<li>VMware Workstaion</li>
+<li>CentOS-7-x86_64-DVD-2009.iso镜像</li>
+</ul>
+<p>阿里云镜像站点下载：<a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/cent">http://mirrors.aliyun.com/cent</a><br><img src="https://img-blog.csdnimg.cn/24d7a1e1bf8e4b36944601a702f6e731.png" alt="在这里插入图片描述"></p>
+<h1 id="操纵篇"><a href="#操纵篇" class="headerlink" title="操纵篇"></a>操纵篇</h1><h2 id="新建虚拟机"><a href="#新建虚拟机" class="headerlink" title="新建虚拟机"></a>新建虚拟机</h2><ol>
+<li>打开VMware Workstaion软件，按照图片所示依次点击新建一台虚拟机；<br><img src="https://img-blog.csdnimg.cn/ea54357a34ae4a9bb36a8b1df14da6c3.png" alt="在这里插入图片描述"></li>
+<li>点击自定义（高级）<blockquote>
+<p>这里两个选项都可以使用。</p>
+<ul>
+<li>典型和自定义区别：<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;1.从难度来说典型简单快捷，自定义相对应要难一点点。所以我们学肯定要学高级的对吧！！<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;2、只要学会自定义、典型自然就会了。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/6e258c9af9cf44068545f4e34dbac62d.png" alt="在这里插入图片描述"></p>
+<ol start="3">
+<li>保持默认，点击下一步；<br><img src="https://img-blog.csdnimg.cn/6d3c4a3014174b90b5fdfbd4372bf5ba.png" alt="在这里插入图片描述"></li>
+<li>选择稍后安装操作系统，点击下一步；<br><img src="https://img-blog.csdnimg.cn/539998847db54682bf34d5858103c27c.png" alt="在这里插入图片描述"></li>
+<li>选择选择对应安装的操作系统及版本，点击下一步<blockquote>
+<p>这里可以按照自己想要安装的操作系统选择（Win10、Linux、ESX）</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/dc3ad997eaf44d65ae1f9b8fe3dc1ab6.png" alt="在这里插入图片描述"></p>
+<ol start="6">
+<li><p>设置虚拟机名称及虚拟机存放路径（点击浏览更改路径），点击下一步；<br><img src="https://img-blog.csdnimg.cn/3b279e2342be4f89a2d67c613c9e471a.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>设置cpu数量和内核数量，点击下一步；</p>
+<blockquote>
+<p>科普知识：VMware虚拟机cpu内核数，占用宿主机（自己win10主机）“超线程“数</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/de6c74c98e4c47618beb8dbb29dac45e.png" alt="在这里插入图片描述"></p>
+<ol start="8">
+<li>设置内存大小，点击下一步；<blockquote>
+<p>内存大小根据宿主机内存大小而定（不能超过宿主机内存）</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/181ff10788c6486093ffa1c59c51e823.png" alt="在这里插入图片描述"></p>
+<ol start="9">
+<li>这里网络模式选择NAT，点击下一步；</li>
+</ol>
+<p><font color=red size=4><strong>重要</strong></font>  *****</p>
+<blockquote>
+<p>网络模式简单介绍<br>桥接模式：桥接网络和宿主机网络都是在同一网段（可连接Intnet）；<br>NAT模式：NAT网络和宿主机网络都是在不同一网段（可连接Intnet）；<br>仅主机模式：仅主机网络和宿主机网络都是在不同一网段（不可连接Intnet）；</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/7da43c0125784def828a9c3c598aec56.png" alt="在这里插入图片描述"></p>
+<ol start="10">
+<li><p>保持默认，点击下一步；<br><img src="https://img-blog.csdnimg.cn/7b9439fe889d434781cc7fb683d00bd0.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>保持默认，点击下一步；<br><img src="https://img-blog.csdnimg.cn/63b65435477c44a29c91445a4849159f.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>保持默认，点击下一步；<br><img src="https://img-blog.csdnimg.cn/f167f60ac41e48708e0eee1aeca336f0.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>修改磁盘大小100G和磁盘存储，点击下一步；</p>
+<blockquote>
+<ul>
+<li>最大磁盘大小机制：这个大小不会立即划分宿主机100G磁盘，而是按需所取，虚拟机占用多少，宿主机给多少；</li>
+<li>磁盘存储：设置为单个，方便查找；</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/a98ad59b9e3748fb832d8e3e27912b68.png" alt="在这里插入图片描述"></p>
+<ol start="14">
+<li><p>100G磁盘存放路径，点击浏览修改，点击下一步；<br><img src="https://img-blog.csdnimg.cn/bc4048dcf9e34b77aee6382d3ce7310b.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>保持默认，点击下一步；</p>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/e02e0b1296d046cc9b589d2bef3ab83f.png" alt="在这里插入图片描述"></p>
+<ol start="16">
+<li><p>点击编辑虚拟机设置；<br><img src="https://img-blog.csdnimg.cn/998a18b4f82b42f0a049c26efb0bde12.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>设置ISO镜像（操纵系统镜像）<br><img src="https://img-blog.csdnimg.cn/3bd5dab900634439a53a0055ee375d22.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>开启虚拟机，选择第一项；<br><img src="https://img-blog.csdnimg.cn/4b9e368909f345a8aaf6ab2c2aaa2281.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>选择语言，点击继续；</p>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/32dfec842a0247b9bef2cef4271acd02.png" alt="在这里插入图片描述"></p>
+<ol start="20">
+<li><p>选择INSTALLATION DESTINATION选项，选择手动磁盘分区；<br><img src="https://img-blog.csdnimg.cn/0e64f794e2c3442aac54b84ebb4a43d6.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/9db9a07c1980475888f1a57a5d524a28.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>home目录可以不划分，保持默认也可以；</p>
+<blockquote>
+<p>boot分区：引导分区，负责启动操作系统；<br>&#x2F; 根分区：主分区；<br>swap分区：交换分区，当虚拟机内存不够用时可以使用；<br><img src="https://img-blog.csdnimg.cn/de359da4402c44f69eb477b27c1e0ebe.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/6f509f52ac41479a90ad418f680602de.png" alt="在这里插入图片描述"></p>
+</blockquote>
+</li>
+<li><p>额外安装软件，包括centos桌面版；</p>
+<blockquote>
+<p>推荐：默认安装centos最小版本（节约资源）</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/539fb6d6a7e54ae194f3b8d448bb4dcf.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>设置root用户密码，等待安装（可以看到这里有312个安装包），安装完成后点击右下角<code>reboot</code>按钮；<br><img src="https://img-blog.csdnimg.cn/3a63beeae67f4611836f62ba81d4a3e4.png" alt="在这里插入图片描述"></p>
+</li>
+</ol>
+<h2 id="配置网卡"><a href="#配置网卡" class="headerlink" title="配置网卡"></a>配置网卡</h2><ol>
+<li><p>输入root用户密码<br><img src="https://img-blog.csdnimg.cn/67a86cfcd898495fa6a188a73e385daf.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>查看ip，发现没有（这里网卡没有启动）<br><img src="https://img-blog.csdnimg.cn/2d7bf8311bfb4a8797c21bcf85ddb900.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>配置网卡</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ vi /etc/sysconfig/network-scripts/ifcfg-ens33  <span class="hljs-comment"># 网卡配置文件</span><br>TYPE=Ethernet<br>PROXY_METHOD=none<br>BROWSER_ONLY=no<br>BOOTPROTO=dhcp  <span class="hljs-comment"># 动态ip</span><br>DEFROUTE=<span class="hljs-built_in">yes</span><br>IPV4_FAILURE_FATAL=no<br>IPV6INIT=<span class="hljs-built_in">yes</span><br>IPV6_AUTOCONF=<span class="hljs-built_in">yes</span><br>IPV6_DEFROUTE=<span class="hljs-built_in">yes</span><br>IPV6_FAILURE_FATAL=no<br>IPV6_ADDR_GEN_MODE=stable-privacy<br>NAME=ens33<br>UUID=1f7bc0bb-7d67-47fa-b1d8-135adaa5d57e<br>DEVICE=ens33<br>ONBOOT=<span class="hljs-built_in">yes</span>  <span class="hljs-comment"># 开启网卡</span><br><br></code></pre></td></tr></table></figure></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ systemctl restart network  <span class="hljs-comment">#重启网卡</span><br>$ ip a<br>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000<br>    <span class="hljs-built_in">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00<br>    inet 127.0.0.1/8 scope host lo<br>       valid_lft forever preferred_lft forever<br>    inet6 ::1/128 scope host<br>       valid_lft forever preferred_lft forever<br>2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000<br>    <span class="hljs-built_in">link</span>/ether 00:0c:29:16:29:11 brd ff:ff:ff:ff:ff:ff<br>    inet 192.168.200.129/24 brd 192.168.200.255 scope global ens33<br>       valid_lft forever preferred_lft forever<br>    inet6 fe80::20c:29ff:fe16:2911/64 scope <span class="hljs-built_in">link</span><br>       valid_lft forever preferred_lft forever<br><br></code></pre></td></tr></table></figure>
+<p>最后使用远程连接工具连接使用！！</p>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/zfb.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/wx.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-cloudkitty组件，入门级安装（快速）</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          CloudLog无名小歌
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://ygcloud.work/2022/06/04/VMware-Workstaion-从零创建centos虚拟机/" title="VMware Workstaion-从零创建centos虚拟机" target="_blank">http://ygcloud.work/2022/06/04/VMware-Workstaion-从零创建centos虚拟机/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ygcloud.work/2022/06/04/VMware-Workstaion-%E4%BB%8E%E9%9B%B6%E5%88%9B%E5%BB%BAcentos%E8%99%9A%E6%8B%9F%E6%9C%BA/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
-        <time datetime="2022-04-29T14:10:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/2022/06/04/%E8%A7%A3%E5%86%B3-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AEkibana%E6%8A%A5%E9%94%99%EF%BC%9AKibana-server-is-not-ready-yet/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          解决 浏览器访问kibana报错：Kibana server is not ready yet.
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/05/21/Jenkins-Blue-Ocean-docker%E9%83%A8%E7%BD%B2Jenkins%EF%BC%8C%E7%BC%96%E5%86%99Jenkinsfile%E5%88%9B%E5%BB%BA%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%8C%E4%B8%80%E7%AF%87%E8%A7%A3%E5%86%B3%E2%80%9C%E8%B4%BC%E5%B8%A6%E5%8A%B2%E2%80%9D/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Jenkins+Blue Ocean-docker部署Jenkins，编写Jenkinsfile创建流水线，一篇解决“贼带劲”</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-Designate组件，入门级安装（快速）</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E7%BA%B5%E7%AF%87"><span class="toc-number">3.</span> <span class="toc-text">操纵篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">3.1.</span> <span class="toc-text">新建虚拟机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8D%A1"><span class="toc-number">3.2.</span> <span class="toc-text">配置网卡</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" class="archive-article-date">
-        <time datetime="2022-04-25T13:39:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-25</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" target="_blank">Istio实际操作篇,Istio入门10分钟快速安装</a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" class="archive-article-date">
-        <time datetime="2022-04-22T11:27:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" target="_blank">Istio是什么？ 还不知道你就out了,一文40分钟快速理解</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2022-04-20T00:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank">代理是什么？nginx快速入门+反向代理hexo个人博客</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/" class="archive-article-date">
-        <time datetime="2022-04-17T09:24:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-17</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/" target="_blank">没接触过kubevirt？15分钟快速入门kubevirt</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" class="archive-article-date">
-        <time datetime="2022-04-16T10:05:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" target="_blank">还不会搭建博客吗？centos7系统部署hexo博客新手入门-进阶，看这一篇就够了</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "VMware Workstaion-从零创建centos虚拟机" -->
+  var giteement = new Giteement({
+    id: '20220604165934',
+    owner: 'yjcadmin',
+    repo: 'yilia-plus-demo',
+    backcall_uri: 'http://139.155.25.211',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '2aff0fdfef5fd6c52d0f290d75f06142b8c25e67523f07f59b068c3eb1e0d13c',
+      client_secret: '1c4f03b26a83eaaa8972b92a695f666ae01b5d2a5aaa30d883dca62e96a489a3'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2022/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2022/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
+
+
+
 
 
           </div>
@@ -529,8 +663,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

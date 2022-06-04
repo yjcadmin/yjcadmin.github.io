@@ -6,19 +6,35 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygcloud.work">
-  <title>Archives: 2022 | CloudLog无名小歌</title>
+  <title>Jenkins+Blue Ocean-docker部署Jenkins，编写Jenkinsfile创建流水线，一篇解决“贼带劲” | CloudLog无名小歌</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="this is a blog.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CloudLog无名小歌">
-<meta property="og:url" content="http://ygcloud.work/archives/2022/page/2/index.html">
+  <meta name="description" content="前言**作者主页**：https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_48450494?type&#x3D;blog**个人博客**：http:&#x2F;&#x2F;ygcloud.work&#x2F;  Jenkins 是一个持续集成工具，可用于自动化与构建、测试、交付或部署软件相关的各种任务。Jenkins 可以通过本机系统包、Docker 安装，甚至可以由任何安装了 Java 运行时环境 (JRE) 的机器独立运行。  持续集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jenkins+Blue Ocean-docker部署Jenkins，编写Jenkinsfile创建流水线，一篇解决“贼带劲”">
+<meta property="og:url" content="http://ygcloud.work/2022/05/21/Jenkins-Blue-Ocean-docker%E9%83%A8%E7%BD%B2Jenkins%EF%BC%8C%E7%BC%96%E5%86%99Jenkinsfile%E5%88%9B%E5%BB%BA%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%8C%E4%B8%80%E7%AF%87%E8%A7%A3%E5%86%B3%E2%80%9C%E8%B4%BC%E5%B8%A6%E5%8A%B2%E2%80%9D/index.html">
 <meta property="og:site_name" content="CloudLog无名小歌">
-<meta property="og:description" content="this is a blog.">
+<meta property="og:description" content="前言**作者主页**：https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_48450494?type&#x3D;blog**个人博客**：http:&#x2F;&#x2F;ygcloud.work&#x2F;  Jenkins 是一个持续集成工具，可用于自动化与构建、测试、交付或部署软件相关的各种任务。Jenkins 可以通过本机系统包、Docker 安装，甚至可以由任何安装了 Java 运行时环境 (JRE) 的机器独立运行。  持续集">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ee1bc4bad9064cb5a3f9bb764c21a815.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bcb33121e7ee4e5fbe3ca3b0a44bd7b5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b936feb750ee4e20963afe5211c3162d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/89c1568c56bf426caf5fe2910ae2194d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/dab931ccd56c4ab09791b5e67cd761b3.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ddb5767cafba4d21aa197bceaeb67c37.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d164d0e77d28473f848ba7d274ab3c44.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/01fe8c6b4429449a9329733cda28cf35.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/298f956f413b4186b75e71c27437984e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ff872d99f77a4c22bb109fd324ac9ae8.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5673458013fc4168865420c7f851eecf.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5f3b0abb412749579d1d70961002bba5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8247937b79014ee98fb93c228a6254c6.png">
+<meta property="article:published_time" content="2022-05-21T09:45:27.000Z">
+<meta property="article:modified_time" content="2022-05-21T09:47:29.684Z">
 <meta property="article:author" content="CloudLog无名小歌">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/ee1bc4bad9064cb5a3f9bb764c21a815.png">
   
     <link rel="alternative" href="/atom.xml" title="CloudLog无名小歌" type="application/atom+xml">
   
@@ -213,282 +229,375 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Jenkins-Blue-Ocean-docker部署Jenkins，编写Jenkinsfile创建流水线，一篇解决“贼带劲”" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" class="archive-article-date">
-        <time datetime="2022-05-02T14:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/02/kubevirt-VirtualMachineInstanceReplicaSet-vmis-%E6%89%A9%E7%BC%A9%E5%AE%B9-%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9/" target="_blank">kubevirt-VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩</a>
   
+    <h1 class="article-title" itemprop="name">
+      Jenkins+Blue Ocean-docker部署Jenkins，编写Jenkinsfile创建流水线，一篇解决“贼带劲”
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
-        <time datetime="2022-05-02T13:21:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2022/05/21/Jenkins-Blue-Ocean-docker%E9%83%A8%E7%BD%B2Jenkins%EF%BC%8C%E7%BC%96%E5%86%99Jenkinsfile%E5%88%9B%E5%BB%BA%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%8C%E4%B8%80%E7%AF%87%E8%A7%A3%E5%86%B3%E2%80%9C%E8%B4%BC%E5%B8%A6%E5%8A%B2%E2%80%9D/" class="archive-article-date">
+        <time datetime="2022-05-21T09:45:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-21</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.7k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">6分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>**<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494?type=blog">作者主页</a>**：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494?type=blog">https://blog.csdn.net/qq_48450494?type=blog</a><br>**<a href="http://ygcloud.work/">个人博客</a>**：<a href="http://ygcloud.work/">http://ygcloud.work/</a></p>
+<blockquote>
+<p>Jenkins 是一个持续集成工具，可用于自动化与构建、测试、交付或部署软件相关的各种任务。<br>Jenkins 可以通过本机系统包、Docker 安装，甚至可以由任何安装了 Java 运行时环境 (JRE) 的机器独立运行。</p>
+</blockquote>
+<p>持续集成工具还有Drone、Gitlab-CICD（gitlab内置cicd）还要kubesphere容器云平台也能做持续集成（CICD）kubesphere是借助于Jenkins来实现CICD，本身没有该功能。<br>本章就带各位简单搭建Jenkins和使用Jenkins+Blue Ocean及编写Jenkinsfile流程。</p>
+<span id="more"></span>
+<br>
+
+<p><font color=red size=4><strong>Drone使用，请点击这里</strong></font>：**<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124684163">【Drone+Gitlab】一条龙服务，直接起飞 — 从介绍-＞部署-＞配置-＞写.drone.yml流水线+常见的报错解决</a>**</p>
+<p><font color=red size=4><strong>学习kubesphere前，强烈建议阅读</strong></font>：**<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124785277">【排坑指南之kubeSphere】2022年最新版-”kubeSphere3.2.1 Paas容器云平台“使用DevOps-CICD之”排坑指南“</a>**</p>
+<h1 id="准备篇"><a href="#准备篇" class="headerlink" title="准备篇"></a>准备篇</h1><p><strong>硬件要求</strong></p>
+<ul>
+<li>最小256MB内存, 推荐512MB以上</li>
+<li>10GB硬盘空间</li>
+</ul>
+<p><strong>环境要求</strong></p>
+<ul>
+<li>Linux系统</li>
+<li>docker</li>
+<li>docker-compose</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124575551">安装使用docker-compsoe点这里</a></p>
+<h1 id="操作篇"><a href="#操作篇" class="headerlink" title="操作篇"></a>操作篇</h1><h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><blockquote>
+<p>这里介绍了三种方式部署，其他方式部署（<a target="_blank" rel="noopener" href="http://mirrors.jenkins.io/war-stable/latest/jenkins.war">WAR包部署</a>、yum部署）；<br>下面我们使用 <code>jenkinsci/blueocean</code>Docker镜像运行，因为<code>jenkinsci/blueocean</code>集成了blueocean，省去Jenkins内部安装blueocean插件的步骤（方便快捷）。</p>
+</blockquote>
+<ol>
+<li>使用docker部署</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run \<br>  -u root \<br>  -dit \<br>  --name jenkins \<br>  -p 8080:8080 \<br>  -p 50000:50000 \<br>  -v /var/jenkins-data:/var/jenkins_home \<br>  -v /usr/bin/docker:/usr/bin/docker \<br>  -v /var/run/docker.sock:/var/run/docker.sock \<br>  jenkinsci/blueocean<br></code></pre></td></tr></table></figure>
+<p>参数解释：</p>
+<blockquote>
+<p>run： 启动运行一个容器；<br>-u：root身份启动容器，具有root权限；<br>dit：后台交互式方式运行容器（常用）;<br>–name：指定容器名称为jenkins；<br>-p：8080是Jenkins web访问界面（容器的端口8080映射到主机上的端口8080）；<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;基于JNLP的Jenkins代理通过TCP端口50000与Jenkins主站进行通信（容器的端口50000 映射到主机上的端口50000）；<br>-v：<code>/var/jenkins_home</code>  Jenkins主目录，每次重新启动Jenkins，会保持Jenkins当前状态（存放Jenkins服务器数据）；<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>/usr/bin/docker</code> 宿主机docker命令挂载给容器内使用（我们称为：docker in docker方式）；<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>/var/run/docker.sock</code> Docker守护程序监听通过基于Unix的套接字文件，这里用于与Dcoker守护进程通信（不添加的话容器内docker命令，不能与守护进程通信）；</p>
+</blockquote>
+<ol start="2">
+<li>使用docker-comopse部署</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124575551">不会docker-compsoe点这里</a></p>
+<blockquote>
+<p>在宿主机编写docker-compose.yaml文件，文件内容如下；<br>下列参数具体意思和上述类似，这里不过多赘诉；</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">version: <span class="hljs-string">&#x27;3&#x27;</span>  <span class="hljs-comment">#定义版本</span><br>services:  <br>  jenkins:<br>    container_name: jenkins<br>    image: jenkinsci/blueocean:latest<br>    user: root<br>    priveleged: <span class="hljs-literal">true</span>  <span class="hljs-comment">#开启特权</span><br>    ports:  <span class="hljs-comment">#定义映射端口</span><br>    - 8080:8080<br>    - 50000:50000<br>    volumes:  <span class="hljs-comment">#定义挂载卷</span><br>    - /var/jenkins-data:/var/jenkins_home<br>    - /usr/bin/docker:/usr/bin/docker<br>    - /var/run/docker.sock:/var/run/docker.sock<br></code></pre></td></tr></table></figure>
+<p>启动docker-compose对应的文件内容定义的services服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker-compose up -d  <span class="hljs-comment">#后台启动</span><br>[+] Running 2/2<br> ⠿ Network test_default  Created                                                                                                                     0.1s<br> ⠿ Container jenkins     Started                                                                                                                     1.3s<br><br></code></pre></td></tr></table></figure>
+<p>docker-compose常用指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker-compose ps  <span class="hljs-comment">#查看状态信息</span><br>NAME                COMMAND                  SERVICE             STATUS              PORTS<br>jenkins             <span class="hljs-string">&quot;/sbin/tini -- /usr/…&quot;</span>   jenkins             running             0.0.0.0:8081-&gt;8080/tcp, 0.0.0.0:50001-&gt;50000/tcp, :::8081-&gt;8080/tcp, :::50001-&gt;50000/tcp<br>$ docker-compose down <span class="hljs-comment">#停止后移除</span><br>[+] Running 2/2<br> ⠿ Container jenkins     Removed                                                                                                                     0.8s<br> ⠿ Network test_default  Removed  <br><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>kubernetes方式部署</li>
+</ol>
+<p>参考地址：<a target="_blank" rel="noopener" href="https://www.jenkins.io/doc/book/installing/kubernetes/">https://www.jenkins.io/doc/book/installing/kubernetes/</a></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ol>
+<li>浏览器访问 宿主机ip+8080端口：<blockquote>
+<p>出现如下页面我们可以使用两种方式查看密码：</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/ee1bc4bad9064cb5a3f9bb764c21a815.png" alt="在这里插入图片描述"></p>
+<ul>
+<li><p>查看宿主机上的密码文件（图片上是容器内的密码文件路径）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cat</span> /var/jenkins-data/secrets/initialAdminPassword<br>3b1050b5ebbb4539a14588f0601e163b<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>使用查看jenkins启动日志方式，查看密码，如下图（两个星号中间）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker logs jenkins<br></code></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/bcb33121e7ee4e5fbe3ca3b0a44bd7b5.png" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<ol start="2">
+<li><p>选择安装推荐的插件<br><img src="https://img-blog.csdnimg.cn/b936feb750ee4e20963afe5211c3162d.png" alt="在这里插入图片描述"><br>这里需要等待几分钟（这里如果出现错误，检查一下网络是否可以上网）：<br><img src="https://img-blog.csdnimg.cn/89c1568c56bf426caf5fe2910ae2194d.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>创建管理员用户后，实例配置保持默认<br><img src="https://img-blog.csdnimg.cn/dab931ccd56c4ab09791b5e67cd761b3.png" alt="在这里插入图片描述"></p>
+<h2 id="流水线"><a href="#流水线" class="headerlink" title="流水线"></a>流水线</h2><h3 id="创建多分支流水线"><a href="#创建多分支流水线" class="headerlink" title="创建多分支流水线"></a>创建多分支流水线</h3><p>下面我们会使用多分支流水线、Jenkinsfile、Blue Ocean；</p>
+</li>
+</ol>
+<ul>
+<li><p>多分支流水线创建时会检查代码仓库所有分支的流水线任务（Jenkinsfile）；</p>
+</li>
+<li><p>在创建流水线之前还需要明白一个概率叫Jenkinsfile，因为接下来的步骤在它基础之上（核心）；</p>
+</li>
+<li><p>Blue Ocean是Jenkins Pipeline可视化界面，提高Jenkins用户体验；</p>
+<blockquote>
+<p><strong>官方定义</strong>：Jenkins Pipeline 用于将“简单到复杂”的交付流程实现为“持续交付即代码”。Jenkins Pipeline 的定义通常被写入到一个文本文件中（称为 Jenkinsfile ），该文件可以被放入项目的源代码控制库中；<br><strong>总结一句话</strong>：Jenkinsfile是一个文本文件记录Pipeline （流水线）的执行Job（任务）的步骤；</p>
+</blockquote>
+</li>
+<li><p>创建多分支流水线：点击新建Item–&gt;输入任务名称–&gt;选择多分支流水线–&gt;点击确定，如下图所示；<br><img src="https://img-blog.csdnimg.cn/ddb5767cafba4d21aa197bceaeb67c37.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/d164d0e77d28473f848ba7d274ab3c44.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/01fe8c6b4429449a9329733cda28cf35.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>分支源：添加git仓库地址–&gt;创建jenkins凭证–&gt;点击保存；</p>
+<blockquote>
+<p>这里仓库地址使用的是国内gitee（码云）仓库（拉取代码比较快），当然也可以使用github、gitlab、gogs等仓库服务器；<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124562603">学习搭建gitlab个人仓库服务器，点击这里</a></p>
+</blockquote>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/yjcadmin/blog-jenkins-test">本案例使用的gitee代码仓库地址（包含Jenkinsfile文件内容）</a>各位自行获取吧！！！<br><img src="https://img-blog.csdnimg.cn/298f956f413b4186b75e71c27437984e.png" alt="在这里插入图片描述"><br>点击保存后，Jenins会自动扫描运行Jenkinsfile文件任务；检查输出Log最后的状态是否出现  Finished: SUCCESS  字段（表示完成）；<br><img src="https://img-blog.csdnimg.cn/ff872d99f77a4c22bb109fd324ac9ae8.png" alt="在这里插入图片描述"><br>点击状态查看<br><img src="https://img-blog.csdnimg.cn/5673458013fc4168865420c7f851eecf.png" alt="在这里插入图片描述"><br>打开Blue Ocean查看<br><img src="https://img-blog.csdnimg.cn/5f3b0abb412749579d1d70961002bba5.png" alt="在这里插入图片描述"><br>Blue Ocean显示所有Jenkinsfile的阶段都成功完成（使用Blue Ocean创建流水线也是可以的）<br><img src="https://img-blog.csdnimg.cn/8247937b79014ee98fb93c228a6254c6.png" alt="在这里插入图片描述"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这里的演示的Jenkinsfile很基础，想深入学习Jenkinsfile请参考官方文档；<br>使用Jenkinsfile创建流水线的流程介绍完毕，各位快去试着学习部署自己的项目吧！！！</p>
+<h1 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124582138">【kubernetes】新版helm3的三大概念+快速指南+自定义charts模板</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124575551">【容器】docker-comopse安装+案例练习</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124562603">【GitLab】使用Docker和Docker-Compose部署-个人、私有代码仓库</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124547094">【kubevirt】VirtualMachineInstanceReplicaSet(vmis)-扩缩容-弹性伸缩</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124512812">【openstack】cloudkitty组件，入门级安装（快速）</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124505131">【openstack】Designate组件，入门级安装（快速）</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124347864">【Istio是什么？】 还不知道你就out了,一文40分钟快速理解</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124414312">【Istio实际操作篇】Istio入门10分钟快速安装</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124259833">【代理是什么？】nginx快速入门+反向代理hexo个人博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124200611">【还不会搭建博客吗？】centos7系统部署hexo博客新手入门-进阶，看这一篇就够了</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48450494/article/details/124230265">【没接触过kubevirt？】15分钟快速入门kubevirt</a><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><a target="_blank" rel="noopener" href="https://www.jenkins.io/zh/doc/">https://www.jenkins.io/zh/doc/</a></li>
+</ul>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/zfb.png">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/wx.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/02/openstack-cloudkitty%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-cloudkitty组件，入门级安装（快速）</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          CloudLog无名小歌
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://ygcloud.work/2022/05/21/Jenkins-Blue-Ocean-docker部署Jenkins，编写Jenkinsfile创建流水线，一篇解决“贼带劲”/" title="Jenkins+Blue Ocean-docker部署Jenkins，编写Jenkinsfile创建流水线，一篇解决“贼带劲”" target="_blank">http://ygcloud.work/2022/05/21/Jenkins-Blue-Ocean-docker部署Jenkins，编写Jenkinsfile创建流水线，一篇解决“贼带劲”/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ygcloud.work/2022/05/21/Jenkins-Blue-Ocean-docker%E9%83%A8%E7%BD%B2Jenkins%EF%BC%8C%E7%BC%96%E5%86%99Jenkinsfile%E5%88%9B%E5%BB%BA%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%8C%E4%B8%80%E7%AF%87%E8%A7%A3%E5%86%B3%E2%80%9C%E8%B4%BC%E5%B8%A6%E5%8A%B2%E2%80%9D/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" class="archive-article-date">
-        <time datetime="2022-04-29T14:10:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/2022/06/04/VMware-Workstaion-%E4%BB%8E%E9%9B%B6%E5%88%9B%E5%BB%BAcentos%E8%99%9A%E6%8B%9F%E6%9C%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          VMware Workstaion-从零创建centos虚拟机
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/05/15/%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E4%B9%8BkubeSphere-2022%E5%B9%B4%E6%9C%80%E6%96%B0%E7%89%88-%E2%80%9DkubeSphere3-2-1-Paas%E5%AE%B9%E5%99%A8%E4%BA%91%E5%B9%B3%E5%8F%B0%E2%80%9C%E4%BD%BF%E7%94%A8DevOps-CICD%E4%B9%8B%E2%80%9D%E6%8E%92%E5%9D%91%E6%8C%87%E5%8D%97%E2%80%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">排坑指南之kubeSphere-2022年最新版-”kubeSphere3.2.1 Paas容器云平台“使用DevOps-CICD之”排坑指南“</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/29/openstack-Designate%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%89%E8%A3%85%EF%BC%88%E5%BF%AB%E9%80%9F%EF%BC%89/" target="_blank">openstack-Designate组件，入门级安装（快速）</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E7%AF%87"><span class="toc-number">2.</span> <span class="toc-text">准备篇</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%AF%87"><span class="toc-number">3.</span> <span class="toc-text">操作篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">3.1.</span> <span class="toc-text">部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-number">3.3.</span> <span class="toc-text">流水线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%A4%9A%E5%88%86%E6%94%AF%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-number">3.3.1.</span> <span class="toc-text">创建多分支流水线</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB"><span class="toc-number">5.</span> <span class="toc-text">推荐阅读</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" class="archive-article-date">
-        <time datetime="2022-04-25T13:39:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-25</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/25/Istio%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E7%AF%87-Istio%E5%85%A5%E9%97%A810%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/" target="_blank">Istio实际操作篇,Istio入门10分钟快速安装</a>
-  
-    </h1>
-  
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" class="archive-article-date">
-        <time datetime="2022-04-22T11:27:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/22/Istio%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E8%BF%98%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%B0%B1out%E4%BA%86-%E4%B8%80%E6%96%8740%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E7%90%86%E8%A7%A3/" target="_blank">Istio是什么？ 还不知道你就out了,一文40分钟快速理解</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2022-04-20T00:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/20/%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9Fnginx%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank">代理是什么？nginx快速入门+反向代理hexo个人博客</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/" class="archive-article-date">
-        <time datetime="2022-04-17T09:24:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-17</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/17/%E6%B2%A1%E6%8E%A5%E8%A7%A6%E8%BF%87kubevirt%EF%BC%9F15%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8kubevirt/" target="_blank">没接触过kubevirt？15分钟快速入门kubevirt</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" class="archive-article-date">
-        <time datetime="2022-04-16T10:05:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/04/16/%E8%BF%98%E4%B8%8D%E4%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%90%97%EF%BC%9Fcentos7%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8-%E8%BF%9B%E9%98%B6%EF%BC%8C%E7%9C%8B%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" target="_blank">还不会搭建博客吗？centos7系统部署hexo博客新手入门-进阶，看这一篇就够了</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "Jenkins+Blue Ocean-docker部署Jenkins，编写Jenkinsfile创建流水线，一篇解决“贼带劲”" -->
+  var giteement = new Giteement({
+    id: '20220521174527',
+    owner: 'yjcadmin',
+    repo: 'yilia-plus-demo',
+    backcall_uri: 'http://139.155.25.211',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '2aff0fdfef5fd6c52d0f290d75f06142b8c25e67523f07f59b068c3eb1e0d13c',
+      client_secret: '1c4f03b26a83eaaa8972b92a695f666ae01b5d2a5aaa30d883dca62e96a489a3'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2022/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2022/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
+
+
+
 
 
           </div>
@@ -529,8 +638,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
